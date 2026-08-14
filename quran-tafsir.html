@@ -1,1 +1,568 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>تفسير القرآن الكريم | صدقة جارية</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    .intro {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 35px;
+      color: #b9c5bd;
+      line-height: 2;
+    }
+
+    .controls {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .controls select,
+    .controls input {
+      width: 100%;
+      padding: 15px;
+      background: #0d241c;
+      color: white;
+      border: 1px solid #234235;
+      border-radius: 12px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .tafsir-card {
+      background: #0d241c;
+      border: 1px solid #234235;
+      border-radius: 22px;
+      padding: 25px;
+      margin-bottom: 18px;
+    }
+
+    .ayah-title {
+      color: #d7b56d;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .ayah-text {
+      font-family: "Traditional Arabic", Tahoma, sans-serif;
+      font-size: 25px;
+      line-height: 2.3;
+      margin-bottom: 20px;
+    }
+
+    .tafsir-title {
+      color: #d7b56d;
+      border-right: 3px solid #d7b56d;
+      padding-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    .tafsir-text {
+      color: #d5ddd8;
+      line-height: 2;
+      font-size: 17px;
+    }
+
+    .source {
+      color: #8fa39a;
+      font-size: 14px;
+      margin-top: 15px;
+    }
+
+    .loading {
+      text-align: center;
+      color: #d7b56d;
+      padding: 35px;
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+  <div class="logo">
+    صدقة جارية
+  </div>
+
+  <nav>
+
+    <a href="index.html">الرئيسية</a>
+
+    <a href="quran.html">القرآن</a>
+
+    <a href="hadith.html">الأحاديث</a>
+
+    <a href="adhkar.html">الأذكار</a>
+
+    <a href="quran-tafsir.html">التفسير</a>
+
+  </nav>
+
+</header>
+
+
+
+<main class="container">
+
+
+  <h1 class="page-title">
+    📚 تفسير القرآن الكريم
+  </h1>
+
+
+  <p class="intro">
+
+    اختر السورة لعرض آياتها مع التفسير.
+    سيتم الاعتماد على نصوص ومصادر تفسير موثوقة،
+    مع توضيح مصدر التفسير.
+
+  </p>
+
+
+
+  <div class="controls">
+
+    <select id="surahSelect">
+
+      <option value="">
+        اختر السورة
+      </option>
+
+    </select>
+
+
+    <input
+      id="ayahSearch"
+      type="search"
+      placeholder="ابحث عن آية أو كلمة..."
+    >
+
+    <button onclick="searchAyah()">
+      بحث
+    </button>
+
+  </div>
+
+
+
+  <div id="content">
+
+    <div class="loading">
+      جاري تحميل القرآن والتفسير...
+    </div>
+
+  </div>
+
+
+</main>
+
+
+
+<footer>
+
+  صدقة جارية عن روح المرحوم
+  المهندس عصام أحمد عبدالعزيز
+
+</footer>
+
+
+
+<script>
+
+
+const QURAN_API =
+"https://api.alquran.cloud/v1/quran/quran-uthmani";
+
+
+const TAFSIR_API =
+"https://api.alquran.cloud/v1/quran/ar.muyassar";
+
+
+let quran = [];
+
+let tafsir = [];
+
+
+
+async function loadData() {
+
+  try {
+
+    const quranResponse =
+      await fetch(QURAN_API);
+
+    const quranResult =
+      await quranResponse.json();
+
+    quran =
+      quranResult.data.surahs;
+
+
+
+    const tafsirResponse =
+      await fetch(TAFSIR_API);
+
+    const tafsirResult =
+      await tafsirResponse.json();
+
+    tafsir =
+      tafsirResult.data.surahs;
+
+
+
+    createSurahList();
+
+
+
+    document.getElementById("content").innerHTML = `
+
+      <div class="loading">
+
+        اختر السورة لعرض الآيات والتفسير.
+
+      </div>
+
+    `;
+
+
+  } catch (error) {
+
+    console.error(error);
+
+    document.getElementById("content").innerHTML = `
+
+      <div class="loading">
+
+        حدث خطأ أثناء تحميل البيانات.
+        حاول تحديث الصفحة.
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+
+function createSurahList() {
+
+  const select =
+    document.getElementById("surahSelect");
+
+
+  quran.forEach((surah, index) => {
+
+    const option =
+      document.createElement("option");
+
+
+    option.value = index;
+
+
+    option.textContent =
+      `${surah.number}. ${surah.name}`;
+
+
+    select.appendChild(option);
+
+  });
+
+}
+
+
+
+document
+  .getElementById("surahSelect")
+  .addEventListener("change", function () {
+
+    if (this.value !== "") {
+
+      showSurah(
+        Number(this.value)
+      );
+
+    }
+
+  });
+
+
+
+function showSurah(index) {
+
+  const surah =
+    quran[index];
+
+  const tafsirSurah =
+    tafsir[index];
+
+
+  if (!surah || !tafsirSurah) {
+    return;
+  }
+
+
+  let html = `
+
+    <div class="tafsir-card">
+
+      <h2 class="tafsir-title">
+
+        ${surah.name}
+
+      </h2>
+
+      <div class="source">
+
+        ${surah.revelationType === "Meccan"
+          ? "سورة مكية"
+          : "سورة مدنية"}
+
+        -
+        ${surah.numberOfAyahs}
+        آية
+
+      </div>
+
+    </div>
+
+  `;
+
+
+
+  surah.ayahs.forEach((ayah, index) => {
+
+    const tafsirAyah =
+      tafsirSurah.ayahs[index];
+
+
+    html += `
+
+      <article class="tafsir-card">
+
+        <div class="ayah-title">
+
+          الآية رقم
+          ${ayah.numberInSurah}
+
+        </div>
+
+
+        <div class="ayah-text">
+
+          ${ayah.text}
+
+        </div>
+
+
+        <h3 class="tafsir-title">
+
+          التفسير
+
+        </h3>
+
+
+        <div class="tafsir-text">
+
+          ${
+            tafsirAyah
+              ? tafsirAyah.text
+              : "لا يوجد تفسير متاح لهذه الآية."
+          }
+
+        </div>
+
+
+        <div class="source">
+
+          مصدر التفسير:
+          التفسير الميسر
+
+        </div>
+
+      </article>
+
+    `;
+
+  });
+
+
+
+  document.getElementById("content")
+    .innerHTML = html;
+
+}
+
+
+
+function searchAyah() {
+
+  const keyword =
+    document
+      .getElementById("ayahSearch")
+      .value
+      .trim();
+
+
+  if (!keyword) {
+
+    return;
+
+  }
+
+
+  let results = [];
+
+
+  quran.forEach((surah, surahIndex) => {
+
+    surah.ayahs.forEach((ayah, ayahIndex) => {
+
+      if (
+        ayah.text.includes(keyword)
+      ) {
+
+        results.push({
+
+          surah:
+            surah.name,
+
+          ayah:
+            ayah.numberInSurah,
+
+          text:
+            ayah.text,
+
+          tafsir:
+            tafsir[surahIndex]
+              ?.ayahs[ayahIndex]
+              ?.text || ""
+
+        });
+
+      }
+
+    });
+
+  });
+
+
+
+  if (results.length === 0) {
+
+    document.getElementById("content")
+      .innerHTML = `
+
+        <div class="loading">
+
+          لم يتم العثور على نتائج.
+
+        </div>
+
+      `;
+
+    return;
+
+  }
+
+
+
+  let html = `
+
+    <div class="tafsir-card">
+
+      <h2 class="tafsir-title">
+
+        نتائج البحث
+
+      </h2>
+
+      <div class="source">
+
+        عدد النتائج:
+        ${results.length}
+
+      </div>
+
+    </div>
+
+  `;
+
+
+
+  results.slice(0, 50)
+    .forEach(result => {
+
+      html += `
+
+        <article class="tafsir-card">
+
+          <div class="ayah-title">
+
+            سورة
+            ${result.surah}
+            -
+            آية
+            ${result.ayah}
+
+          </div>
+
+
+          <div class="ayah-text">
+
+            ${result.text}
+
+          </div>
+
+
+          <h3 class="tafsir-title">
+
+            التفسير
+
+          </h3>
+
+
+          <div class="tafsir-text">
+
+            ${result.tafsir}
+
+          </div>
+
+        </article>
+
+      `;
+
+    });
+
+
+
+  document.getElementById("content")
+    .innerHTML = html;
+
+}
+
+
+
+loadData();
+
+
+</script>
+
+
+</body>
+
+</html>
