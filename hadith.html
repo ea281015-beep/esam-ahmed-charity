@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>الأحاديث النبوية | صدقة جارية</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .controls {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+
+    .controls select,
+    .controls input {
+      width: 100%;
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid #234235;
+      background: #0d241c;
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .hadith-card {
+      background: #0d241c;
+      border: 1px solid #234235;
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .hadith-number {
+      display: inline-block;
+      color: #d7b56d;
+      border: 1px solid #876f3e;
+      border-radius: 20px;
+      padding: 5px 12px;
+      margin-bottom: 15px;
+    }
+
+    .hadith-text {
+      font-family: "Traditional Arabic", Tahoma, sans-serif;
+      font-size: 24px;
+      line-height: 2.2;
+    }
+
+    .source {
+      color: #b9c5bd;
+      margin-top: 15px;
+      line-height: 1.8;
+    }
+
+    .loading {
+      text-align: center;
+      color: #d7b56d;
+      padding: 35px;
+    }
+
+    .note {
+      background: #102d23;
+      border-right: 4px solid #d7b56d;
+      padding: 15px;
+      border-radius: 10px;
+      color: #b9c5bd;
+      line-height: 1.9;
+      margin-bottom: 25px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    صدقة جارية
+  </div>
+
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="quran.html">القرآن الكريم</a>
+    <a href="hadith.html">الأحاديث</a>
+    <a href="adhkar.html">الأذكار</a>
+  </nav>
+
+</header>
+
+
+<main class="container">
+
+  <h1 class="page-title">
+    📜 الأحاديث النبوية
+  </h1>
+
+
+  <div class="note">
+
+    هذه الصفحة مخصصة لعرض الأحاديث مع بيان مصدرها.
+    لا نعتبر كل حديث صحيحًا لمجرد وجوده في أحد كتب الحديث؛
+    درجة الحديث تُعرض عندما تكون متاحة من المصدر.
+
+  </div>
+
+
+  <div class="controls">
+
+    <select id="book">
+
+      <option value="bukhari">
+        صحيح البخاري
+      </option>
+
+      <option value="muslim">
+        صحيح مسلم
+      </option>
+
+      <option value="abudawud">
+        سنن أبي داود
+      </option>
+
+      <option value="tirmidhi">
+        جامع الترمذي
+      </option>
+
+      <option value="nasai">
+        سنن النسائي
+      </option>
+
+      <option value="ibnmajah">
+        سنن ابن ماجه
+      </option>
+
+      <option value="malik">
+        موطأ مالك
+      </option>
+
+    </select>
+
+
+    <input
+      id="search"
+      type="search"
+      placeholder="ابحث في الأحاديث..."
+    >
+
+    <button onclick="loadHadith()">
+      عرض الأحاديث
+    </button>
+
+  </div>
+
+
+  <div id="results">
+
+    <div class="loading">
+      جاري تحميل الأحاديث...
+    </div>
+
+  </div>
+
+</main>
+
+
+<footer>
+
+  اللهم اجعل هذا العمل صدقة جارية
+  عن روح المرحوم المهندس عصام أحمد عبدالعزيز
+
+</footer>
+
+
+<script>
+
+const BASE =
+"https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/";
+
+
+async function loadHadith() {
+
+  const book =
+    document.getElementById("book").value;
+
+  const search =
+    document
+      .getElementById("search")
+      .value
+      .trim()
+      .toLowerCase();
+
+
+  const results =
+    document.getElementById("results");
+
+
+  results.innerHTML =
+    `<div class="loading">
+      جاري تحميل الأحاديث...
+    </div>`;
+
+
+  try {
+
+    const response = await fetch(
+      BASE + "ara-" + book + ".json"
+    );
+
+
+    if (!response.ok) {
+
+      throw new Error("حدث خطأ");
+
+    }
+
+
+    const data =
+      await response.json();
+
+
+    let hadiths =
+      data.hadiths || [];
+
+
+    if (search) {
+
+      hadiths =
+        hadiths.filter(h =>
+
+          (h.text || "")
+            .toLowerCase()
+            .includes(search)
+
+        );
+
+    }
+
+
+    /*
+      نعرض أول 50 نتيجة فقط
+      حتى تفضل الصفحة سريعة.
+    */
+
+    hadiths =
+      hadiths.slice(0, 50);
+
+
+    if (hadiths.length === 0) {
+
+      results.innerHTML =
+        `<div class="loading">
+          لم يتم العثور على أحاديث.
+        </div>`;
+
+      return;
+
+    }
+
+
+    let html = "";
+
+
+    hadiths.forEach((hadith, index) => {
+
+      html += `
+
+        <article class="hadith-card">
+
+          <div class="hadith-number">
+            حديث رقم ${hadith.hadithnumber || index + 1}
+          </div>
+
+          <div class="hadith-text">
+
+            ${hadith.text || ""}
+
+          </div>
+
+          <div class="source">
+
+            المصدر:
+            ${getBookName(book)}
+
+          </div>
+
+        </article>
+
+      `;
+
+    });
+
+
+    results.innerHTML = html;
+
+
+  } catch (error) {
+
+    console.error(error);
+
+    results.innerHTML = `
+
+      <div class="loading">
+
+        حصل خطأ أثناء تحميل الأحاديث.
+
+        <br><br>
+
+        حاول تحديث الصفحة مرة أخرى.
+
+      </div>
+
+    `;
+
+  }
+
+}
+
+
+function getBookName(book) {
+
+  const names = {
+
+    bukhari:
+      "صحيح البخاري",
+
+    muslim:
+      "صحيح مسلم",
+
+    abudawud:
+      "سنن أبي داود",
+
+    tirmidhi:
+      "جامع الترمذي",
+
+    nasai:
+      "سنن النسائي",
+
+    ibnmajah:
+      "سنن ابن ماجه",
+
+    malik:
+      "موطأ مالك"
+
+  };
+
+
+  return names[book] || book;
+
+}
+
+
+loadHadith();
+
+</script>
+
+</body>
+
+</html>
