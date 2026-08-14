@@ -10,73 +10,143 @@
   <link rel="stylesheet" href="style.css">
 
   <style>
-    .controls {
-      display: grid;
-      gap: 12px;
-      margin-bottom: 25px;
+
+    .hadith-intro {
+      max-width: 850px;
+      margin: 0 auto 35px;
+      text-align: center;
+      color: #b9c5bd;
+      line-height: 2.2;
     }
 
-    .controls select,
-    .controls input {
+    .hadith-controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr auto;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .hadith-controls select,
+    .hadith-controls input {
       width: 100%;
+      box-sizing: border-box;
       padding: 15px;
-      border-radius: 12px;
-      border: 1px solid #234235;
       background: #0d241c;
-      color: white;
+      border: 1px solid #234235;
+      color: #f6f0df;
+      border-radius: 14px;
       font-size: 16px;
       outline: none;
     }
 
-    .hadith-card {
+    .hadith-controls button {
+      padding: 15px 22px;
+      border: 1px solid #d7b56d;
+      background: #d7b56d;
+      color: #071812;
+      border-radius: 14px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .books {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+
+    .book-btn {
+      padding: 17px;
       background: #0d241c;
+      color: #d6ded9;
       border: 1px solid #234235;
-      border-radius: 20px;
-      padding: 24px;
-      margin-bottom: 16px;
+      border-radius: 16px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .book-btn:hover,
+    .book-btn.active {
+      border-color: #d7b56d;
+      color: #d7b56d;
+    }
+
+    .hadith-card {
+      background: linear-gradient(
+        145deg,
+        #102d23,
+        #081a13
+      );
+
+      border: 1px solid #234235;
+      border-radius: 24px;
+      padding: 28px;
+      margin-bottom: 18px;
     }
 
     .hadith-number {
-      display: inline-block;
       color: #d7b56d;
-      border: 1px solid #876f3e;
-      border-radius: 20px;
-      padding: 5px 12px;
-      margin-bottom: 15px;
+      font-weight: bold;
+      margin-bottom: 18px;
     }
 
     .hadith-text {
-      font-family: "Traditional Arabic", Tahoma, sans-serif;
-      font-size: 24px;
-      line-height: 2.2;
+      font-family: "Traditional Arabic", serif;
+      font-size: 25px;
+      line-height: 2.4;
+      color: #f6f0df;
     }
 
-    .source {
-      color: #b9c5bd;
-      margin-top: 15px;
-      line-height: 1.8;
+    .hadith-info {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .badge {
+      padding: 7px 12px;
+      border-radius: 15px;
+      background: rgba(215,181,109,.07);
+      color: #d7b56d;
+      font-size: 13px;
     }
 
     .loading {
       text-align: center;
       color: #d7b56d;
-      padding: 35px;
+      padding: 40px;
     }
 
-    .note {
-      background: #102d23;
-      border-right: 4px solid #d7b56d;
-      padding: 15px;
-      border-radius: 10px;
-      color: #b9c5bd;
-      line-height: 1.9;
-      margin-bottom: 25px;
+    .error {
+      text-align: center;
+      color: #d98b8b;
+      padding: 30px;
+      line-height: 2;
     }
+
+    .hadith-count {
+      color: #8fa39a;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    @media(max-width:700px) {
+
+      .hadith-controls {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
   </style>
 
 </head>
 
+
 <body>
+
 
 <header>
 
@@ -85,137 +155,206 @@
   </div>
 
   <nav>
+
     <a href="index.html">الرئيسية</a>
-    <a href="quran.html">القرآن الكريم</a>
+    <a href="quran.html">القرآن</a>
     <a href="hadith.html">الأحاديث</a>
     <a href="adhkar.html">الأذكار</a>
+    <a href="quran-tafsir.html">التفسير</a>
+    <a href="quran-stories.html">قصص القرآن</a>
+    <a href="prayer.html">تعلم الصلاة</a>
+    <a href="duas.html">الأدعية</a>
+    <a href="tasbeeh.html">المسبحة</a>
+
   </nav>
 
 </header>
 
 
+
 <main class="container">
+
 
   <h1 class="page-title">
     📜 الأحاديث النبوية
   </h1>
 
 
-  <div class="note">
+  <p class="hadith-intro">
 
-    هذه الصفحة مخصصة لعرض الأحاديث مع بيان مصدرها.
-    لا نعتبر كل حديث صحيحًا لمجرد وجوده في أحد كتب الحديث؛
-    درجة الحديث تُعرض عندما تكون متاحة من المصدر.
+    مكتبة للأحاديث النبوية، مرتبة حسب الكتب،
+    مع إمكانية البحث والوصول إلى الحديث ورقمه ومصدره.
+
+  </p>
+
+
+
+  <div class="books" id="books">
+
+    <button class="book-btn active"
+            onclick="loadBook('bukhari', this)">
+      صحيح البخاري
+    </button>
+
+    <button class="book-btn"
+            onclick="loadBook('muslim', this)">
+      صحيح مسلم
+    </button>
+
+    <button class="book-btn"
+            onclick="loadBook('abudawud', this)">
+      سنن أبي داود
+    </button>
+
+    <button class="book-btn"
+            onclick="loadBook('tirmidhi', this)">
+      جامع الترمذي
+    </button>
+
+    <button class="book-btn"
+            onclick="loadBook('nasai', this)">
+      سنن النسائي
+    </button>
+
+    <button class="book-btn"
+            onclick="loadBook('ibnmajah', this)">
+      سنن ابن ماجه
+    </button>
 
   </div>
 
 
-  <div class="controls">
 
-    <select id="book">
+  <div class="hadith-controls">
 
-      <option value="bukhari">
-        صحيح البخاري
-      </option>
+    <select id="sectionSelect">
 
-      <option value="muslim">
-        صحيح مسلم
-      </option>
-
-      <option value="abudawud">
-        سنن أبي داود
-      </option>
-
-      <option value="tirmidhi">
-        جامع الترمذي
-      </option>
-
-      <option value="nasai">
-        سنن النسائي
-      </option>
-
-      <option value="ibnmajah">
-        سنن ابن ماجه
-      </option>
-
-      <option value="malik">
-        موطأ مالك
+      <option value="">
+        كل الأحاديث
       </option>
 
     </select>
 
 
     <input
-      id="search"
+      id="searchInput"
       type="search"
-      placeholder="ابحث في الأحاديث..."
+      placeholder="ابحث داخل الأحاديث..."
     >
 
-    <button onclick="loadHadith()">
-      عرض الأحاديث
+
+    <button onclick="searchHadith()">
+      بحث
     </button>
 
   </div>
 
 
-  <div id="results">
 
-    <div class="loading">
-      جاري تحميل الأحاديث...
-    </div>
+  <div id="status"
+       class="loading">
+
+    جاري تحميل الأحاديث...
 
   </div>
+
+
+  <div id="hadithList">
+  </div>
+
 
 </main>
 
 
+
 <footer>
 
-  اللهم اجعل هذا العمل صدقة جارية
-  عن روح المرحوم المهندس عصام أحمد عبدالعزيز
+  صدقة جارية عن روح المرحوم
+  المهندس عصام أحمد عبدالعزيز
 
 </footer>
 
 
+
 <script>
 
-const BASE =
-"https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1/editions/";
+
+const API =
+"https://cdn.jsdelivr.net/gh/fawazahmed0/hadith-api@1";
 
 
-async function loadHadith() {
 
-  const book =
-    document.getElementById("book").value;
+let currentBook = "bukhari";
 
-  const search =
-    document
-      .getElementById("search")
-      .value
-      .trim()
-      .toLowerCase();
+let currentData = [];
+
+let currentSections = [];
 
 
-  const results =
-    document.getElementById("results");
+
+const bookNames = {
+
+  bukhari: "صحيح البخاري",
+
+  muslim: "صحيح مسلم",
+
+  abudawud: "سنن أبي داود",
+
+  tirmidhi: "جامع الترمذي",
+
+  nasai: "سنن النسائي",
+
+  ibnmajah: "سنن ابن ماجه"
+
+};
 
 
-  results.innerHTML =
-    `<div class="loading">
-      جاري تحميل الأحاديث...
-    </div>`;
+
+async function loadBook(book, button) {
+
+  currentBook = book;
+
+
+  document
+    .querySelectorAll(".book-btn")
+    .forEach(btn => {
+
+      btn.classList.remove("active");
+
+    });
+
+
+  if (button) {
+    button.classList.add("active");
+  }
+
+
+  document.getElementById("status")
+    .innerHTML =
+    "جاري تحميل " +
+    bookNames[book] +
+    "...";
+
+
+  document.getElementById("hadithList")
+    .innerHTML = "";
 
 
   try {
 
-    const response = await fetch(
-      BASE + "ara-" + book + ".json"
-    );
+    const url =
+      `${API}/editions/ara-${book}.json`;
+
+
+    const response =
+      await fetch(url);
 
 
     if (!response.ok) {
 
-      throw new Error("حدث خطأ");
+      throw new Error(
+        "HTTP " + response.status
+      );
 
     }
 
@@ -224,140 +363,267 @@ async function loadHadith() {
       await response.json();
 
 
-    let hadiths =
+    currentData =
       data.hadiths || [];
 
 
-    if (search) {
-
-      hadiths =
-        hadiths.filter(h =>
-
-          (h.text || "")
-            .toLowerCase()
-            .includes(search)
-
-        );
-
-    }
+    currentSections =
+      data.metadata?.sections || {};
 
 
-    /*
-      نعرض أول 50 نتيجة فقط
-      حتى تفضل الصفحة سريعة.
-    */
-
-    hadiths =
-      hadiths.slice(0, 50);
+    fillSections();
 
 
-    if (hadiths.length === 0) {
-
-      results.innerHTML =
-        `<div class="loading">
-          لم يتم العثور على أحاديث.
-        </div>`;
-
-      return;
-
-    }
+    renderHadiths(
+      currentData.slice(0, 30)
+    );
 
 
-    let html = "";
-
-
-    hadiths.forEach((hadith, index) => {
-
-      html += `
-
-        <article class="hadith-card">
-
-          <div class="hadith-number">
-            حديث رقم ${hadith.hadithnumber || index + 1}
-          </div>
-
-          <div class="hadith-text">
-
-            ${hadith.text || ""}
-
-          </div>
-
-          <div class="source">
-
-            المصدر:
-            ${getBookName(book)}
-
-          </div>
-
-        </article>
-
-      `;
-
-    });
-
-
-    results.innerHTML = html;
+    document.getElementById("status")
+      .innerHTML =
+      `تم تحميل ${currentData.length} حديث من ${bookNames[book]}`;
 
 
   } catch (error) {
 
     console.error(error);
 
-    results.innerHTML = `
 
-      <div class="loading">
+    document.getElementById("status")
+      .innerHTML = `
 
-        حصل خطأ أثناء تحميل الأحاديث.
+        <div class="error">
 
-        <br><br>
+          حدث خطأ أثناء تحميل الأحاديث.
 
-        حاول تحديث الصفحة مرة أخرى.
+          <br>
 
-      </div>
+          تأكد من اتصال الإنترنت ثم حاول مرة أخرى.
 
-    `;
+        </div>
+
+      `;
 
   }
 
 }
 
 
-function getBookName(book) {
 
-  const names = {
+function fillSections() {
 
-    bukhari:
-      "صحيح البخاري",
-
-    muslim:
-      "صحيح مسلم",
-
-    abudawud:
-      "سنن أبي داود",
-
-    tirmidhi:
-      "جامع الترمذي",
-
-    nasai:
-      "سنن النسائي",
-
-    ibnmajah:
-      "سنن ابن ماجه",
-
-    malik:
-      "موطأ مالك"
-
-  };
+  const select =
+    document.getElementById("sectionSelect");
 
 
-  return names[book] || book;
+  select.innerHTML = `
+    <option value="">
+      كل الأحاديث
+    </option>
+  `;
+
+
+  Object.entries(currentSections)
+    .forEach(([key, value]) => {
+
+      const option =
+        document.createElement("option");
+
+
+      option.value = key;
+
+
+      option.textContent =
+        value;
+
+
+      select.appendChild(option);
+
+    });
 
 }
 
 
-loadHadith();
+
+function renderHadiths(list) {
+
+  const container =
+    document.getElementById("hadithList");
+
+
+  container.innerHTML = "";
+
+
+  if (!list.length) {
+
+    container.innerHTML = `
+
+      <div class="loading">
+        لا توجد نتائج.
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  list.forEach(hadith => {
+
+    const card =
+      document.createElement("article");
+
+
+    card.className =
+      "hadith-card";
+
+
+    const section =
+      currentSections[
+        hadith.chapterId
+      ] || "";
+
+
+    card.innerHTML = `
+
+      <div class="hadith-number">
+
+        حديث رقم:
+        ${hadith.hadithnumber || ""}
+
+      </div>
+
+
+      <div class="hadith-text">
+
+        ${hadith.text || ""}
+
+      </div>
+
+
+      <div class="hadith-info">
+
+        <span class="badge">
+
+          📚 ${bookNames[currentBook]}
+
+        </span>
+
+
+        ${
+          section
+          ?
+          `<span class="badge">
+            📖 ${section}
+          </span>`
+          :
+          ""
+        }
+
+      </div>
+
+    `;
+
+
+    container.appendChild(card);
+
+  });
+
+}
+
+
+
+function searchHadith() {
+
+  const keyword =
+    document
+      .getElementById("searchInput")
+      .value
+      .trim()
+      .toLowerCase();
+
+
+  const section =
+    document
+      .getElementById("sectionSelect")
+      .value;
+
+
+  let results =
+    currentData;
+
+
+  if (section) {
+
+    results =
+      results.filter(hadith =>
+        String(hadith.chapterId) ===
+        String(section)
+      );
+
+  }
+
+
+  if (keyword) {
+
+    results =
+      results.filter(hadith =>
+        (hadith.text || "")
+          .toLowerCase()
+          .includes(keyword)
+      );
+
+  }
+
+
+  document.getElementById("status")
+    .innerHTML =
+    `نتائج البحث: ${results.length}`;
+
+
+  renderHadiths(
+    results.slice(0, 100)
+  );
+
+}
+
+
+
+document
+  .getElementById("sectionSelect")
+  .addEventListener(
+    "change",
+    searchHadith
+  );
+
+
+
+document
+  .getElementById("searchInput")
+  .addEventListener(
+    "keydown",
+    function(event) {
+
+      if (event.key === "Enter") {
+
+        searchHadith();
+
+      }
+
+    }
+  );
+
+
+
+loadBook(
+  "bukhari",
+  document.querySelector(".book-btn")
+);
+
 
 </script>
+
 
 </body>
 
