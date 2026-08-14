@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>القرآن الكريم | صدقة جارية</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    .search-box {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 15px;
+      border-radius: 12px;
+      border: 1px solid #234235;
+      background: #0d241c;
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .loading {
+      text-align: center;
+      color: #d7b56d;
+      padding: 30px;
+    }
+
+    .ayah {
+      padding: 15px 5px;
+      border-bottom: 1px solid #234235;
+    }
+
+    .ayah-number {
+      display: inline-flex;
+      width: 34px;
+      height: 34px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #d7b56d;
+      border-radius: 50%;
+      color: #d7b56d;
+      font-size: 14px;
+      margin-left: 10px;
+    }
+
+    .surah-info {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .surah-info h2 {
+      color: #d7b56d;
+      font-size: 30px;
+    }
+
+    .surah-info p {
+      color: #b9c5bd;
+    }
+
+    select {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      border: 1px solid #234235;
+      background: #0d241c;
+      color: white;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+
+  <div class="logo">
+    صدقة جارية
+  </div>
+
+  <nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="quran.html">القرآن الكريم</a>
+    <a href="hadith.html">الأحاديث</a>
+    <a href="adhkar.html">الأذكار</a>
+  </nav>
+
+</header>
+
+<main class="container">
+
+  <h1 class="page-title">
+    📖 القرآن الكريم
+  </h1>
+
+  <select id="surahSelect">
+    <option value="">اختر السورة</option>
+  </select>
+
+  <div class="search-box">
+
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="ابحث في الآيات..."
+    >
+
+    <button onclick="searchQuran()">
+      بحث
+    </button>
+
+  </div>
+
+  <div id="quranContent">
+
+    <div class="loading">
+      جاري تحميل سور القرآن الكريم...
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+
+  اللهم اجعل هذا القرآن صدقةً جاريةً
+  عن روح المرحوم المهندس عصام أحمد عبدالعزيز
+
+</footer>
+
+
+<script>
+
+const API =
+"https://api.alquran.cloud/v1/quran/quran-uthmani";
+
+let quranData = [];
+
+
+/* تحميل القرآن */
+
+async function loadQuran() {
+
+  try {
+
+    const response = await fetch(API);
+
+    const result = await response.json();
+
+    quranData = result.data.surahs;
+
+    createSurahList();
+
+    showSurah(0);
+
+  } catch (error) {
+
+    document.getElementById("quranContent").innerHTML =
+
+      `<div class="loading">
+        حصل خطأ أثناء تحميل القرآن.
+        حاول تحديث الصفحة.
+      </div>`;
+
+    console.error(error);
+
+  }
+
+}
+
+
+/* إنشاء قائمة السور */
+
+function createSurahList() {
+
+  const select =
+    document.getElementById("surahSelect");
+
+  quranData.forEach((surah, index) => {
+
+    const option =
+      document.createElement("option");
+
+    option.value = index;
+
+    option.textContent =
+      `${surah.number}. ${surah.name}`;
+
+    select.appendChild(option);
+
+  });
+
+}
+
+
+/* تغيير السورة */
+
+document
+.getElementById("surahSelect")
+.addEventListener("change", function() {
+
+  if (this.value !== "") {
+
+    showSurah(Number(this.value));
+
+  }
+
+});
+
+
+/* عرض السورة */
+
+function showSurah(index) {
+
+  const surah = quranData[index];
+
+  if (!surah) return;
+
+  let html = `
+
+    <div class="surah">
+
+      <div class="surah-info">
+
+        <h2>
+          ${surah.name}
+        </h2>
+
+        <p>
+          ${surah.englishName}
+          -
+          ${surah.numberOfAyahs} آية
+          -
+          ${surah.revelationType === "Meccan"
+            ? "مكية"
+            : "مدنية"}
+        </p>
+
+      </div>
+
+  `;
+
+
+  surah.ayahs.forEach(ayah => {
+
+    html += `
+
+      <div class="ayah">
+
+        <span class="ayah-number">
+          ${ayah.numberInSurah}
+        </span>
+
+        ${ayah.text}
+
+      </div>
+
+    `;
+
+  });
+
+
+  html += `</div>`;
+
+  document.getElementById("quranContent")
+    .innerHTML = html;
+
+}
+
+
+/* البحث */
+
+function searchQuran() {
+
+  const keyword =
+    document
+      .getElementById("searchInput")
+      .value
+      .trim();
+
+  if (!keyword) {
+
+    showSurah(0);
+
+    return;
+
+  }
+
+
+  let results = [];
+
+
+  quranData.forEach(surah => {
+
+    surah.ayahs.forEach(ayah => {
+
+      if (ayah.text.includes(keyword)) {
+
+        results.push({
+
+          surah: surah.name,
+
+          ayah: ayah.numberInSurah,
+
+          text: ayah.text
+
+        });
+
+      }
+
+    });
+
+  });
+
+
+  if (results.length === 0) {
+
+    document.getElementById("quranContent")
+      .innerHTML =
+
+      `<div class="loading">
+        لم يتم العثور على نتائج.
+      </div>`;
+
+    return;
+
+  }
+
+
+  let html = `
+
+    <div class="surah">
+
+      <div class="surah-info">
+
+        <h2>
+          نتائج البحث
+        </h2>
+
+        <p>
+          عدد النتائج: ${results.length}
+        </p>
+
+      </div>
+
+  `;
+
+
+  results.forEach(result => {
+
+    html += `
+
+      <div class="ayah">
+
+        <strong style="color:#d7b56d">
+
+          سورة ${result.surah}
+
+          - آية ${result.ayah}
+
+        </strong>
+
+        <br><br>
+
+        ${result.text}
+
+      </div>
+
+    `;
+
+  });
+
+
+  html += `</div>`;
+
+  document.getElementById("quranContent")
+    .innerHTML = html;
+
+}
+
+
+loadQuran();
+
+</script>
+
+</body>
+
+</html>
