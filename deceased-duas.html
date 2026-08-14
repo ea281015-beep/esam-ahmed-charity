@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>أدعية لموتى المسلمين | صدقة جارية</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    .intro {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+      color: #b9c5bd;
+      line-height: 2.2;
+      font-size: 17px;
+      margin-bottom: 35px;
+    }
+
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 35px;
+    }
+
+    .category {
+      background: #0d241c;
+      color: #d6ded9;
+      border: 1px solid #234235;
+      border-radius: 25px;
+      padding: 11px 18px;
+      cursor: pointer;
+    }
+
+    .category:hover,
+    .category.active {
+      color: #d7b56d;
+      border-color: #d7b56d;
+    }
+
+    .duas {
+      max-width: 950px;
+      margin: auto;
+    }
+
+    .dua-card {
+      background: linear-gradient(
+        145deg,
+        #102d23,
+        #081a13
+      );
+
+      border: 1px solid #234235;
+      border-radius: 24px;
+      padding: 28px;
+      margin-bottom: 18px;
+    }
+
+    .dua-card:hover {
+      border-color: #486b5b;
+    }
+
+    .number {
+      display: inline-flex;
+      width: 35px;
+      height: 35px;
+      border: 1px solid #d7b56d;
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      color: #d7b56d;
+      margin-bottom: 15px;
+    }
+
+    .dua-title {
+      color: #d7b56d;
+      font-size: 21px;
+      margin-bottom: 15px;
+    }
+
+    .dua-text {
+      font-family: "Traditional Arabic", serif;
+      font-size: 27px;
+      line-height: 2.5;
+      color: #f6f0df;
+    }
+
+    .source {
+      margin-top: 18px;
+      padding-top: 13px;
+      border-top: 1px solid #234235;
+      color: #8fa39a;
+      font-size: 13px;
+      line-height: 2;
+    }
+
+    .badge {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 12px;
+      border-radius: 15px;
+      background: rgba(215,181,109,.07);
+      color: #d7b56d;
+    }
+
+    .special {
+      border-color: #d7b56d;
+      text-align: center;
+      margin-top: 35px;
+    }
+
+    .special .dua-title {
+      font-size: 29px;
+    }
+
+    .footer-note {
+      text-align: center;
+      color: #8fa39a;
+      line-height: 2.2;
+      margin: 40px 0;
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+  <div class="logo">
+    صدقة جارية
+  </div>
+
+  <nav>
+
+    <a href="index.html">الرئيسية</a>
+    <a href="quran.html">القرآن</a>
+    <a href="hadith.html">الأحاديث</a>
+    <a href="adhkar.html">الأذكار</a>
+    <a href="quran-tafsir.html">التفسير</a>
+    <a href="quran-stories.html">قصص القرآن</a>
+    <a href="prayer.html">تعلم الصلاة</a>
+    <a href="duas.html">الأدعية</a>
+    <a href="tasbeeh.html">المسبحة</a>
+    <a href="deceased-duas.html">للموتى</a>
+
+  </nav>
+
+</header>
+
+
+
+<main class="container">
+
+
+  <h1 class="page-title">
+    🤲 أدعية لموتى المسلمين
+  </h1>
+
+
+  <p class="intro">
+
+    مجموعة كبيرة من الأدعية للميت،
+    منها ما ورد في السنة ومنها دعاء عام جائز،
+    نسأل الله أن يرحم موتى المسلمين جميعًا.
+
+  </p>
+
+
+
+  <div class="categories">
+
+    <button class="category active"
+            onclick="showAll()">
+      جميع الأدعية
+    </button>
+
+    <button class="category"
+            onclick="filterDuas('sunnah')">
+      ﷺ من السنة
+    </button>
+
+    <button class="category"
+            onclick="filterDuas('mercy')">
+      🤍 الرحمة والمغفرة
+    </button>
+
+    <button class="category"
+            onclick="filterDuas('grave')">
+      🌿 القبر
+    </button>
+
+    <button class="category"
+            onclick="filterDuas('paradise')">
+      🌙 الجنة
+    </button>
+
+    <button class="category"
+            onclick="filterDuas('parents')">
+      ❤️ الوالدين
+    </button>
+
+    <button class="category"
+            onclick="filterDuas('muslims')">
+      👥 جميع المسلمين
+    </button>
+
+  </div>
+
+
+
+  <div id="duas"
+       class="duas">
+  </div>
+
+
+
+  <section class="dua-card special">
+
+    <div class="dua-title">
+
+      🕊️ دعاء خاص للمرحوم
+      المهندس عصام أحمد عبدالعزيز
+
+    </div>
+
+    <div class="dua-text">
+
+      اللهم اغفر للمرحوم المهندس عصام أحمد عبدالعزيز،
+      وارحمه رحمةً واسعة،
+      وعافه واعفُ عنه،
+      وأكرم نزله،
+      ووسّع مدخله،
+      ونوّر قبره،
+      وآنس وحشته،
+      وثبته عند السؤال.
+
+      <br><br>
+
+      اللهم اجعل قبره روضةً من رياض الجنة،
+      ولا تجعله حفرةً من حفر النار،
+      اللهم ارفع درجته في المهديين،
+      واخلفه في أهله بخير،
+      واغفر له ما تقدم من ذنبه وما تأخر.
+
+      <br><br>
+
+      اللهم اجزه عن الإحسان إحسانًا،
+      وعن الإساءة عفوًا وغفرانًا،
+      وأدخله الجنة بغير حساب ولا سابقة عذاب،
+      واجمعه بمن يحب في جنات النعيم.
+
+      <br><br>
+
+      اللهم اجعل هذا الموقع صدقةً جاريةً عنه،
+      واجعل كل آية تُقرأ فيه،
+      وكل ذكر يُقال،
+      وكل دعاء يُدعى به،
+      في ميزان حسناته.
+
+    </div>
+
+    <div class="badge">
+      دعاء عام للمرحوم
+    </div>
+
+  </section>
+
+
+
+  <div class="footer-note">
+
+    اللهم اغفر لموتى المسلمين جميعًا،
+    وارحم من سبقونا إليك،
+    واجمعنا بهم في جنات النعيم.
+
+    <br><br>
+
+    🤍 صدقة جارية عن روح المرحوم
+    المهندس عصام أحمد عبدالعزيز
+
+  </div>
+
+
+</main>
+
+
+
+<footer>
+
+  صدقة جارية عن روح المرحوم
+  المهندس عصام أحمد عبدالعزيز
+
+</footer>
+
+
+
+<script>
+
+
+const duas = [
+
+/* 1 */
+
+{
+category: "sunnah",
+
+title: "الدعاء الجامع للميت",
+
+text:
+"اللهم اغفر لحينا وميتنا، وصغيرنا وكبيرنا، وذكرنا وأنثانا، وشاهدنا وغائبنا، اللهم من أحييته منا فأحيه على الإسلام، ومن توفيته منا فتوفه على الإيمان، اللهم لا تحرمنا أجره ولا تضلنا بعده",
+
+source:
+"حديث صحيح — رواه أبو داود (3201) والترمذي والنسائي وابن ماجه وأحمد."
+},
+
+
+/* 2 */
+
+{
+category: "sunnah",
+
+title: "الدعاء للميت بالمغفرة",
+
+text:
+"اللهم اغفر له وارحمه، وعافه واعف عنه",
+
+source:
+"ورد في دعاء النبي ﷺ للميت."
+},
+
+
+/* 3 */
+
+{
+category: "sunnah",
+
+title: "إكرام منزل الميت",
+
+text:
+"اللهم أكرم نزله، ووسع مدخله، واغسله بالماء والثلج والبرد",
+
+source:
+"ورد في دعاء النبي ﷺ للميت."
+},
+
+
+/* 4 */
+
+{
+category: "sunnah",
+
+title: "تطهير الميت من الخطايا",
+
+text:
+"اللهم نقه من الخطايا كما نقيت الثوب الأبيض من الدنس",
+
+source:
+"ورد في الدعاء للميت في السنة."
+},
+
+
+/* 5 */
+
+{
+category: "sunnah",
+
+title: "إبدال الدار والأهل",
+
+text:
+"اللهم أبدله دارًا خيرًا من داره، وأهلًا خيرًا من أهله",
+
+source:
+"ورد في دعاء النبي ﷺ للميت."
+},
+
+
+/* 6 */
+
+{
+category: "sunnah",
+
+title: "الاستعاذة من عذاب القبر",
+
+text:
+"اللهم أعذه من عذاب القبر ومن عذاب النار",
+
+source:
+"ورد في دعاء النبي ﷺ للميت."
+},
+
+
+/* 7 */
+
+{
+category: "mercy",
+
+title: "دعاء بالرحمة",
+
+text:
+"اللهم ارحمه رحمةً واسعة، واغفر له، وتجاوز عن سيئاته",
+
+source:
+"دعاء عام."
+},
+
+
+/* 8 */
+
+{
+category: "mercy",
+
+title: "دعاء بالعفو",
+
+text:
+"اللهم اعف عنه، واغفر له، ولا تؤاخذه بذنوبه",
+
+source:
+"دعاء عام."
+},
+
+
+/* 9 */
+
+{
+category: "mercy",
+
+title: "دعاء بالستر",
+
+text:
+"اللهم استره فوق الأرض، وتحت الأرض، ويوم العرض عليك",
+
+source:
+"دعاء عام."
+},
+
+
+/* 10 */
+
+{
+category: "mercy",
+
+title: "دعاء بالقبول",
+
+text:
+"اللهم تقبل منه صالح عمله، وتجاوز عن تقصيره، واغفر له ذنوبه",
+
+source:
+"دعاء عام."
+},
+
+
+/* 11 */
+
+{
+category: "mercy",
+
+title: "دعاء بالمغفرة الشاملة",
+
+text:
+"اللهم اغفر له ذنوبه كلها، دقها وجلها، أولها وآخرها، سرها وعلانيتها",
+
+source:
+"دعاء عام."
+},
+
+
+/* 12 */
+
+{
+category: "mercy",
+
+title: "دعاء بالرضوان",
+
+text:
+"اللهم أرض عنه، وارضه عنك، واجعل آخرته خيرًا من دنياه",
+
+source:
+"دعاء عام."
+},
+
+
+/* 13 */
+
+{
+category: "grave",
+
+title: "دعاء لنور القبر",
+
+text:
+"اللهم نوّر قبره، ووسّع مدخله، واجعل فيه نورًا ورحمةً وسكينة",
+
+source:
+"دعاء عام."
+},
+
+
+/* 14 */
+
+{
+category: "grave",
+
+title: "دعاء لأنس القبر",
+
+text:
+"اللهم آنس وحشته، وارحم غربته، واجعل قبره خير منزل له",
+
+source:
+"دعاء عام."
+},
+
+
+/* 15 */
+
+{
+category: "grave",
+
+title: "دعاء لتثبيت الميت",
+
+text:
+"اللهم ثبته عند السؤال، وثبته بالقول الثابت في الحياة الدنيا وفي الآخرة",
+
+source:
+"دعاء عام."
+},
+
+
+/* 16 */
+
+{
+category: "grave",
+
+title: "دعاء لسعة القبر",
+
+text:
+"اللهم افسح له في قبره، ومد بصره فيه، واجعله روضةً من رياض الجنة",
+
+source:
+"دعاء عام."
+},
+
+
+/* 17 */
+
+{
+category: "grave",
+
+title: "دعاء للحماية من العذاب",
+
+text:
+"اللهم أجره من عذاب القبر، ومن فتنة القبر، ومن عذاب النار",
+
+source:
+"دعاء عام."
+},
+
+
+/* 18 */
+
+{
+category: "grave",
+
+title: "دعاء للسكينة",
+
+text:
+"اللهم اجعل قبره سكنًا وطمأنينةً ورحمة، ولا تجعله موضع خوف أو عذاب",
+
+source:
+"دعاء عام."
+},
+
+
+/* 19 */
+
+{
+category: "paradise",
+
+title: "دعاء بالفردوس",
+
+text:
+"اللهم أدخله الفردوس الأعلى من الجنة بغير حساب ولا سابقة عذاب",
+
+source:
+"دعاء عام."
+},
+
+
+/* 20 */
+
+{
+category: "paradise",
+
+title: "دعاء برؤية وجه الله",
+
+text:
+"اللهم ارزقه لذة النظر إلى وجهك الكريم، والشوق إلى لقائك",
+
+source:
+"دعاء عام."
+},
+
+
+/* 21 */
+
+{
+category: "paradise",
+
+title: "دعاء بالنعيم",
+
+text:
+"اللهم أكرمه بنعيم الجنة، وأسكنه قصورها، واجعله من أهل الفردوس الأعلى",
+
+source:
+"دعاء عام."
+},
+
+
+/* 22 */
+
+{
+category: "paradise",
+
+title: "دعاء بالصحبة الصالحة",
+
+text:
+"اللهم اجمعه مع النبيين والصديقين والشهداء والصالحين، وحسن أولئك رفيقًا",
+
+source:
+"دعاء عام، ومعنى الصحبة ورد في القرآن."
+},
+
+
+/* 23 */
+
+{
+category: "paradise",
+
+title: "دعاء بالاجتماع في الجنة",
+
+text:
+"اللهم اجمعه بأهله وأحبابه في جنات النعيم، من غير فراق ولا حزن",
+
+source:
+"دعاء عام."
+},
+
+
+/* 24 */
+
+{
+category: "parents",
+
+title: "دعاء للوالدين",
+
+text:
+"رب اغفر لي ولوالدي وللمؤمنين يوم يقوم الحساب",
+
+source:
+"من القرآن الكريم — سورة إبراهيم: 41."
+},
+
+
+/* 25 */
+
+{
+category: "parents",
+
+title: "دعاء بالرحمة للوالدين",
+
+text:
+"رب ارحمهما كما ربياني صغيرًا",
+
+source:
+"من القرآن الكريم — سورة الإسراء: 24."
+},
+
+
+/* 26 */
+
+{
+category: "parents",
+
+title: "دعاء للمغفرة",
+
+text:
+"اللهم اغفر لوالدي وارحمهما، واجزهما عني خير الجزاء",
+
+source:
+"دعاء عام."
+},
+
+
+/* 27 */
+
+{
+category: "parents",
+
+title: "دعاء برفع الدرجات",
+
+text:
+"اللهم ارفع درجات والدي في المهديين، واخلفه في عقبه في الغابرين",
+
+source:
+"دعاء عام."
+},
+
+
+/* 28 */
+
+{
+category: "parents",
+
+title: "دعاء للوالدين في القبر",
+
+text:
+"اللهم اجعل قبور والدي نورًا ورحمة، ووسع عليهما مدخلهما",
+
+source:
+"دعاء عام."
+},
+
+
+/* 29 */
+
+{
+category: "parents",
+
+title: "دعاء للوالدين في الجنة",
+
+text:
+"اللهم اجعل والدي من أهل الفردوس الأعلى، واجمعني بهما في الجنة",
+
+source:
+"دعاء عام."
+},
+
+
+/* 30 */
+
+{
+category: "muslims",
+
+title: "لجميع موتى المسلمين",
+
+text:
+"اللهم اغفر لموتى المسلمين، وارحمهم، وعافهم، واعف عنهم",
+
+source:
+"دعاء عام."
+},
+
+
+/* 31 */
+
+{
+category: "muslims",
+
+title: "للرجال والنساء",
+
+text:
+"اللهم اغفر للمسلمين والمسلمات، والمؤمنين والمؤمنات، الأحياء منهم والأموات",
+
+source:
+"دعاء عام."
+},
+
+
+/* 32 */
+
+{
+category: "muslims",
+
+title: "لمن سبقونا",
+
+text:
+"اللهم اغفر لإخواننا الذين سبقونا بالإيمان، ولا تجعل في قلوبنا غلًا للذين آمنوا",
+
+source:
+"من القرآن الكريم — سورة الحشر: 10."
+},
+
+
+/* 33 */
+
+{
+category: "muslims",
+
+title: "دعاء شامل",
+
+text:
+"اللهم ارحم موتانا وموتى المسلمين، واغفر لهم، وتجاوز عنهم، وأكرم نزلهم",
+
+source:
+"دعاء عام."
+},
+
+
+/* 34 */
+
+{
+category: "muslims",
+
+title: "دعاء للمؤمنين",
+
+text:
+"ربنا اغفر لنا ولإخواننا الذين سبقونا بالإيمان",
+
+source:
+"من القرآن الكريم — سورة الحشر: 10."
+},
+
+
+/* 35 */
+
+{
+category: "mercy",
+
+title: "دعاء للذنوب",
+
+text:
+"اللهم اغفر له ذنبه، وكفّر عنه سيئاته، وتجاوز عن خطاياه",
+
+source:
+"دعاء عام."
+},
+
+
+/* 36 */
+
+{
+category: "mercy",
+
+title: "دعاء للحسنات",
+
+text:
+"اللهم ضاعف له حسناته، وتقبل صالح أعماله، واجعلها نورًا له",
+
+source:
+"دعاء عام."
+},
+
+
+/* 37 */
+
+{
+category: "grave",
+
+title: "دعاء للطمأنينة",
+
+text:
+"اللهم اجعل قبره مطمئنًا، واجعل فيه من رحمتك ما يؤنس وحشته",
+
+source:
+"دعاء عام."
+},
+
+
+/* 38 */
+
+{
+category: "paradise",
+
+title: "دعاء لرحمة الله",
+
+text:
+"اللهم أدخله في رحمتك، وأكرمه بجنتك، واجعل مقامه في أعلى عليين",
+
+source:
+"دعاء عام."
+},
+
+
+/* 39 */
+
+{
+category: "paradise",
+
+title: "دعاء من النار",
+
+text:
+"اللهم أجره من النار، وحرّم جسده عليها، وأدخله الجنة برحمتك",
+
+source:
+"دعاء عام."
+},
+
+
+/* 40 */
+
+{
+category: "mercy",
+
+title: "دعاء بالقبول",
+
+text:
+"اللهم تقبل حسناته، وتجاوز عن سيئاته، واجعل ما قدمه بين يديك ذخراً له",
+
+source:
+"دعاء عام."
+},
+
+
+/* 41 */
+
+{
+category: "muslims",
+
+title: "دعاء جامع",
+
+text:
+"اللهم ارحم موتانا، واشف صدور أهلهم، واربط على قلوبهم، واجمعهم بهم في الجنة",
+
+source:
+"دعاء عام."
+},
+
+
+/* 42 */
+
+{
+category: "grave",
+
+title: "دعاء لروضة من رياض الجنة",
+
+text:
+"اللهم اجعل قبره روضةً من رياض الجنة، وافتح له فيه بابًا إلى الجنة",
+
+source:
+"دعاء عام."
+},
+
+
+/* 43 */
+
+{
+category: "mercy",
+
+title: "دعاء للرحمة الواسعة",
+
+text:
+"اللهم ارحمه رحمةً تغنيه بها عن رحمة من سواك",
+
+source:
+"دعاء عام."
+},
+
+
+/* 44 */
+
+{
+category: "paradise",
+
+title: "دعاء لكرامة اللقاء",
+
+text:
+"اللهم أكرم نزله، وأحسن وفادته عليك، واجعل لقاءه بك لقاء رحمة ورضوان",
+
+source:
+"دعاء عام."
+},
+
+
+/* 45 */
+
+{
+category: "muslims",
+
+title: "دعاء للموتى جميعًا",
+
+text:
+"اللهم اجعل موتى المسلمين في رحمتك، وأكرمهم بفضلك، واجمعهم في دار كرامتك",
+
+source:
+"دعاء عام."
+},
+
+
+/* 46 */
+
+{
+category: "mercy",
+
+title: "دعاء بالعفو",
+
+text:
+"اللهم إن كان محسنًا فزد في إحسانه، وإن كان مسيئًا فتجاوز عن سيئاته",
+
+source:
+"ورد في الدعاء للميت في السنة."
+},
+
+
+/* 47 */
+
+{
+category: "grave",
+
+title: "دعاء عند الدفن",
+
+text:
+"اللهم ثبته عند السؤال، واجعل له نورًا في قبره ورحمةً من عندك",
+
+source:
+"دعاء عام."
+},
+
+
+/* 48 */
+
+{
+category: "paradise",
+
+title: "دعاء بالفوز",
+
+text:
+"اللهم اجعله من الفائزين برضوانك، ومن أهل جناتك، ومن الآمنين يوم القيامة",
+
+source:
+"دعاء عام."
+},
+
+
+/* 49 */
+
+{
+category: "muslims",
+
+title: "دعاء للموتى الذين لا يجدون من يدعو لهم",
+
+text:
+"اللهم ارحم كل ميت لا يجد من يدعو له، واغفر لكل من انقطعت عنه الدعوات",
+
+source:
+"دعاء عام."
+},
+
+
+/* 50 */
+
+{
+category: "mercy",
+
+title: "دعاء ختامي",
+
+text:
+"اللهم اجعل رحمتك أوسع من ذنوبه، ومغفرتك أعظم من خطاياه، وفضلك أعظم من تقصيره",
+
+source:
+"دعاء عام."
+}
+
+];
+
+
+
+function render(list) {
+
+  const container =
+    document.getElementById("duas");
+
+  container.innerHTML = "";
+
+
+  list.forEach((dua, index) => {
+
+    const card =
+      document.createElement("article");
+
+    card.className = "dua-card";
+
+
+    card.innerHTML = `
+
+      <div class="number">
+        ${index + 1}
+      </div>
+
+      <div class="dua-title">
+        ${dua.title}
+      </div>
+
+      <div class="dua-text">
+        ${dua.text}
+      </div>
+
+      <div class="source">
+        📚 ${dua.source}
+      </div>
+
+    `;
+
+
+    container.appendChild(card);
+
+  });
+
+}
+
+
+
+function showAll() {
+
+  render(duas);
+
+  document
+    .querySelectorAll(".category")
+    .forEach(btn =>
+      btn.classList.remove("active")
+    );
+
+  document
+    .querySelector(".category")
+    .classList.add("active");
+
+}
+
+
+
+function filterDuas(category) {
+
+  const result =
+    duas.filter(
+      dua => dua.category === category
+    );
+
+  render(result);
+
+  document
+    .querySelectorAll(".category")
+    .forEach(btn =>
+      btn.classList.remove("active")
+    );
+
+}
+
+
+
+showAll();
+
+</script>
+
+
+</body>
+
+</html>
