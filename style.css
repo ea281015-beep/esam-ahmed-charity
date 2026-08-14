@@ -1,0 +1,317 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #071812;
+  color: #f6f0df;
+  font-family: Tahoma, Arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* الهيدر */
+
+header {
+  padding: 25px 15px;
+  text-align: center;
+  border-bottom: 1px solid #234235;
+  background: #06140f;
+}
+
+.logo {
+  color: #d7b56d;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* القائمة */
+
+nav {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  padding: 10px 15px;
+  border: 1px solid #234235;
+  border-radius: 12px;
+  color: #d7b56d;
+  font-size: 14px;
+}
+
+nav a:hover {
+  background: #102d23;
+}
+
+/* المحتوى */
+
+.container {
+  width: 92%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 35px 0;
+}
+
+.hero {
+  text-align: center;
+  padding: 55px 15px;
+}
+
+.hero h1 {
+  color: #d7b56d;
+  font-size: 42px;
+  line-height: 1.7;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  color: #b9c5bd;
+  font-size: 18px;
+  line-height: 2;
+}
+
+/* العناوين */
+
+.page-title {
+  text-align: center;
+  color: #d7b56d;
+  font-size: 34px;
+  margin-bottom: 30px;
+}
+
+/* الكروت */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: #0d241c;
+  border: 1px solid #234235;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #d7b56d;
+}
+
+.card .icon {
+  font-size: 38px;
+}
+
+.card h2 {
+  color: #d7b56d;
+}
+
+.card p {
+  color: #b9c5bd;
+  line-height: 1.8;
+}
+
+/* القرآن */
+
+.surah {
+  background: #0d241c;
+  border: 1px solid #234235;
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 20px;
+}
+
+.surah-info {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.surah-info h2 {
+  color: #d7b56d;
+  font-size: 30px;
+}
+
+.surah-info p {
+  color: #8fa39a;
+}
+
+.ayah {
+  padding: 18px 5px;
+  border-bottom: 1px solid #234235;
+  font-family: "Traditional Arabic", Tahoma, sans-serif;
+  font-size: 25px;
+  line-height: 2.5;
+}
+
+.ayah-number {
+  display: inline-flex;
+  width: 35px;
+  height: 35px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d7b56d;
+  border-radius: 50%;
+  color: #d7b56d;
+  font-family: Tahoma, Arial, sans-serif;
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+/* الاختيارات والبحث */
+
+select,
+input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  border: 1px solid #234235;
+  background: #0d241c;
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+button {
+  background: #d7b56d;
+  color: #071812;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+/* الأحاديث */
+
+.hadith-card {
+  background: #0d241c;
+  border: 1px solid #234235;
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 18px;
+}
+
+.hadith-number {
+  display: inline-block;
+  color: #d7b56d;
+  border: 1px solid #876f3e;
+  border-radius: 20px;
+  padding: 6px 13px;
+  margin-bottom: 15px;
+}
+
+.hadith-text {
+  font-family: "Traditional Arabic", Tahoma, sans-serif;
+  font-size: 24px;
+  line-height: 2.3;
+}
+
+.source {
+  color: #8fa39a;
+  margin-top: 15px;
+}
+
+/* الأذكار */
+
+.zekr-card {
+  background: #0d241c;
+  border: 1px solid #234235;
+  border-radius: 20px;
+  padding: 25px;
+  margin-bottom: 18px;
+}
+
+.zekr-number {
+  color: #d7b56d;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.zekr-text {
+  font-family: "Traditional Arabic", Tahoma, sans-serif;
+  font-size: 25px;
+  line-height: 2.3;
+  margin-bottom: 20px;
+}
+
+.counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.count {
+  color: #d7b56d;
+  font-size: 22px;
+  min-width: 45px;
+  text-align: center;
+}
+
+/* رسالة التحميل */
+
+.loading {
+  text-align: center;
+  color: #d7b56d;
+  padding: 35px;
+}
+
+/* الفوتر */
+
+footer {
+  text-align: center;
+  padding: 35px 15px;
+  margin-top: 40px;
+  border-top: 1px solid #234235;
+  color: #8fa39a;
+  line-height: 2;
+}
+
+/* الموبايل */
+
+@media (max-width: 600px) {
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .page-title {
+    font-size: 28px;
+  }
+
+  .ayah {
+    font-size: 22px;
+    line-height: 2.2;
+  }
+
+  .hadith-text {
+    font-size: 21px;
+  }
+
+  .zekr-text {
+    font-size: 22px;
+  }
+
+  nav a {
+    font-size: 13px;
+    padding: 9px 11px;
+  }
+
+}
