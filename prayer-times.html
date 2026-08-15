@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>مواقيت الصلاة | صدقة جارية</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    .prayer-page {
+      max-width: 1100px;
+      margin: auto;
+      padding: 35px 20px 60px;
+    }
+
+    .prayer-hero {
+      text-align: center;
+      padding: 45px 25px;
+      margin-bottom: 30px;
+
+      background: linear-gradient(
+        145deg,
+        #102d23,
+        #081a13
+      );
+
+      border: 1px solid #234235;
+      border-radius: 28px;
+    }
+
+    .prayer-icon {
+      font-size: 50px;
+      margin-bottom: 10px;
+    }
+
+    .prayer-hero h1 {
+      color: #d7b56d;
+      font-family: "Traditional Arabic", serif;
+      font-size: 40px;
+      margin: 5px 0 15px;
+    }
+
+    .prayer-hero p {
+      color: #b9c5bd;
+      line-height: 2;
+      font-size: 17px;
+    }
+
+    .location-box {
+      margin-top: 25px;
+    }
+
+    .location-button {
+      border: 1px solid #d7b56d;
+      background: transparent;
+      color: #d7b56d;
+      padding: 12px 22px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .location-button:hover {
+      background: #d7b56d;
+      color: #081a13;
+    }
+
+    .status {
+      margin-top: 15px;
+      color: #8fa39a;
+      line-height: 1.9;
+    }
+
+    .date-box {
+      text-align: center;
+      margin: 25px 0;
+      color: #f6f0df;
+      font-size: 18px;
+      line-height: 2;
+    }
+
+    .prayer-grid {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+      gap: 18px;
+    }
+
+    .prayer-card {
+      position: relative;
+
+      background: linear-gradient(
+        145deg,
+        #102d23,
+        #081a13
+      );
+
+      border: 1px solid #234235;
+      border-radius: 24px;
+
+      padding: 28px 20px;
+
+      text-align: center;
+
+      transition: .25s;
+    }
+
+    .prayer-card:hover {
+      transform: translateY(-5px);
+      border-color: #d7b56d;
+    }
+
+    .prayer-card .icon {
+      font-size: 38px;
+      margin-bottom: 10px;
+    }
+
+    .prayer-card h2 {
+      color: #d7b56d;
+      font-family: "Traditional Arabic", serif;
+      font-size: 29px;
+      margin: 5px 0 12px;
+    }
+
+    .prayer-time {
+      font-size: 30px;
+      color: #f6f0df;
+      font-weight: bold;
+      direction: ltr;
+    }
+
+    .next-prayer {
+      margin-top: 30px;
+      padding: 30px 20px;
+
+      text-align: center;
+
+      background: linear-gradient(
+        135deg,
+        #102d23,
+        #071812
+      );
+
+      border: 1px solid #d7b56d;
+      border-radius: 25px;
+    }
+
+    .next-prayer h2 {
+      color: #d7b56d;
+      font-family: "Traditional Arabic", serif;
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .next-name {
+      color: #f6f0df;
+      font-size: 24px;
+    }
+
+    .next-countdown {
+      color: #d7b56d;
+      font-size: 28px;
+      margin-top: 10px;
+      direction: ltr;
+    }
+
+    .note {
+      margin-top: 30px;
+      padding: 22px;
+
+      background: #0d241c;
+
+      border: 1px solid #234235;
+      border-radius: 20px;
+
+      color: #8fa39a;
+
+      line-height: 2;
+      text-align: center;
+    }
+
+    .back-button {
+      display: block;
+      width: fit-content;
+
+      margin: 35px auto 0;
+
+      padding: 11px 20px;
+
+      border: 1px solid #234235;
+      border-radius: 22px;
+
+      color: #d7b56d;
+      text-decoration: none;
+    }
+
+    .back-button:hover {
+      border-color: #d7b56d;
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+  <div class="logo">
+    صدقة جارية
+  </div>
+
+  <nav>
+
+    <a href="index.html">الرئيسية</a>
+    <a href="quran.html">القرآن</a>
+    <a href="hadith.html">الأحاديث</a>
+    <a href="adhkar.html">الأذكار</a>
+    <a href="quran-tafsir.html">التفسير</a>
+    <a href="quran-stories.html">قصص القرآن</a>
+    <a href="prayer.html">تعلم الصلاة</a>
+    <a href="duas.html">الأدعية</a>
+    <a href="tasbeeh.html">المسبحة</a>
+
+  </nav>
+
+</header>
+
+
+
+<main class="prayer-page">
+
+
+  <!-- HERO -->
+
+  <section class="prayer-hero">
+
+    <div class="prayer-icon">
+      🕌
+    </div>
+
+    <h1>
+      مواقيت الصلاة
+    </h1>
+
+    <p>
+      اعرف مواقيت الصلوات الخمس حسب موقعك،
+      مع معرفة الصلاة القادمة والوقت المتبقي عليها.
+    </p>
+
+
+    <div class="location-box">
+
+      <button
+        class="location-button"
+        onclick="getPrayerTimes()">
+
+        📍 تحديد موقعي
+
+      </button>
+
+      <div
+        id="status"
+        class="status">
+
+        اضغط على الزر للسماح بالوصول إلى موقعك.
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- DATE -->
+
+  <div
+    id="dateBox"
+    class="date-box">
+
+    --
+
+  </div>
+
+
+
+  <!-- PRAYER TIMES -->
+
+  <section
+    id="prayerGrid"
+    class="prayer-grid">
+
+
+    <div class="prayer-card">
+
+      <div class="icon">
+        🌅
+      </div>
+
+      <h2>
+        الفجر
+      </h2>
+
+      <div
+        id="fajr"
+        class="prayer-time">
+
+        --
+
+      </div>
+
+    </div>
+
+
+
+    <div class="prayer-card">
+
+      <div class="icon">
+        ☀️
+      </div>
+
+      <h2>
+        الظهر
+      </h2>
+
+      <div
+        id="dhuhr"
+        class="prayer-time">
+
+        --
+
+      </div>
+
+    </div>
+
+
+
+    <div class="prayer-card">
+
+      <div class="icon">
+        🌤️
+      </div>
+
+      <h2>
+        العصر
+      </h2>
+
+      <div
+        id="asr"
+        class="prayer-time">
+
+        --
+
+      </div>
+
+    </div>
+
+
+
+    <div class="prayer-card">
+
+      <div class="icon">
+        🌇
+      </div>
+
+      <h2>
+        المغرب
+      </h2>
+
+      <div
+        id="maghrib"
+        class="prayer-time">
+
+        --
+
+      </div>
+
+    </div>
+
+
+
+    <div class="prayer-card">
+
+      <div class="icon">
+        🌙
+      </div>
+
+      <h2>
+        العشاء
+      </h2>
+
+      <div
+        id="isha"
+        class="prayer-time">
+
+        --
+
+      </div>
+
+    </div>
+
+
+  </section>
+
+
+
+  <!-- NEXT PRAYER -->
+
+  <section class="next-prayer">
+
+    <h2>
+      الصلاة القادمة
+    </h2>
+
+    <div
+      id="nextName"
+      class="next-name">
+
+      --
+
+    </div>
+
+    <div
+      id="countdown"
+      class="next-countdown">
+
+      --
+
+    </div>
+
+  </section>
+
+
+
+  <!-- NOTE -->
+
+  <div class="note">
+
+    📌
+    يتم تحديد المواقيت بناءً على موقعك الجغرافي.
+    اسمح للموقع باستخدام الموقع الجغرافي للحصول
+    على مواقيت أقرب إلى مدينتك.
+
+    <br>
+
+    قد تختلف المواقيت دقائق قليلة حسب طريقة الحساب
+    المعتمدة والجهة المحلية.
+
+  </div>
+
+
+
+  <a
+    href="index.html"
+    class="back-button">
+
+    ← العودة إلى الرئيسية
+
+  </a>
+
+
+</main>
+
+
+
+<footer>
+
+  صدقة جارية عن روح المرحوم
+
+  <br>
+
+  المهندس عصام أحمد عبدالعزيز
+
+</footer>
+
+
+
+<script>
+
+
+/* =========================
+   أسماء الصلوات
+========================= */
+
+const prayerNames = {
+
+  Fajr: "الفجر",
+
+  Dhuhr: "الظهر",
+
+  Asr: "العصر",
+
+  Maghrib: "المغرب",
+
+  Isha: "العشاء"
+
+};
+
+
+
+let prayerTimes = {};
+
+let countdownTimer;
+
+
+
+/* =========================
+   الحصول على الموقع
+========================= */
+
+function getPrayerTimes() {
+
+
+  const status =
+    document.getElementById("status");
+
+
+  if (!navigator.geolocation) {
+
+    status.textContent =
+      "المتصفح لا يدعم تحديد الموقع.";
+
+    return;
+
+  }
+
+
+  status.textContent =
+    "⏳ جاري تحديد موقعك...";
+
+
+  navigator.geolocation.getCurrentPosition(
+
+    function(position) {
+
+      const latitude =
+        position.coords.latitude;
+
+      const longitude =
+        position.coords.longitude;
+
+
+      status.textContent =
+        "⏳ جاري تحميل مواقيت الصلاة...";
+
+
+      loadPrayerTimes(
+        latitude,
+        longitude
+      );
+
+    },
+
+
+    function() {
+
+      status.textContent =
+        "❌ لم نتمكن من تحديد موقعك. اسمح باستخدام الموقع ثم حاول مرة أخرى.";
+
+    },
+
+    {
+      enableHighAccuracy: true,
+      timeout: 10000
+    }
+
+  );
+
+}
+
+
+
+/* =========================
+   تحميل المواقيت
+========================= */
+
+async function loadPrayerTimes(
+  latitude,
+  longitude
+) {
+
+
+  try {
+
+
+    const today =
+      new Date();
+
+
+    const day =
+      String(
+        today.getDate()
+      ).padStart(2, "0");
+
+
+    const month =
+      String(
+        today.getMonth() + 1
+      ).padStart(2, "0");
+
+
+    const year =
+      today.getFullYear();
+
+
+    const url =
+      `https://api.aladhan.com/v1/timings/${day}-${month}-${year}?latitude=${latitude}&longitude=${longitude}&method=4`;
+
+
+    const response =
+      await fetch(url);
+
+
+    const data =
+      await response.json();
+
+
+    if (
+      !data ||
+      data.code !== 200
+    ) {
+
+      throw new Error(
+        "تعذر الحصول على المواقيت"
+      );
+
+    }
+
+
+    prayerTimes =
+      data.data.timings;
+
+
+    displayTimes(
+      data.data.timings
+    );
+
+
+    displayDate(
+      data.data.date
+    );
+
+
+    startCountdown();
+
+
+    document.getElementById(
+      "status"
+    ).textContent =
+      "✅ تم تحديد مواقيت الصلاة حسب موقعك.";
+
+
+  }
+
+  catch(error) {
+
+
+    console.error(error);
+
+
+    document.getElementById(
+      "status"
+    ).textContent =
+      "❌ حدث خطأ أثناء تحميل المواقيت. تأكد من اتصال الإنترنت وحاول مرة أخرى.";
+
+  }
+
+}
+
+
+
+/* =========================
+   عرض المواقيت
+========================= */
+
+function displayTimes(times) {
+
+
+  document.getElementById(
+    "fajr"
+  ).textContent =
+    cleanTime(times.Fajr);
+
+
+  document.getElementById(
+    "dhuhr"
+  ).textContent =
+    cleanTime(times.Dhuhr);
+
+
+  document.getElementById(
+    "asr"
+  ).textContent =
+    cleanTime(times.Asr);
+
+
+  document.getElementById(
+    "maghrib"
+  ).textContent =
+    cleanTime(times.Maghrib);
+
+
+  document.getElementById(
+    "isha"
+  ).textContent =
+    cleanTime(times.Isha);
+
+}
+
+
+
+/* =========================
+   تنظيف الوقت
+========================= */
+
+function cleanTime(time) {
+
+  if (!time)
+    return "--";
+
+
+  return time
+    .split(" ")[0];
+
+}
+
+
+
+/* =========================
+   التاريخ
+========================= */
+
+function displayDate(date) {
+
+
+  if (!date)
+    return;
+
+
+  const gregorian =
+    date.gregorian;
+
+
+  const hijri =
+    date.hijri;
+
+
+  document.getElementById(
+    "dateBox"
+  ).innerHTML = `
+
+    📅 ${gregorian.weekday.en}
+    ${gregorian.date}
+
+    <br>
+
+    🕌 ${hijri.day}
+    ${hijri.month.ar}
+    ${hijri.year}
+    هـ
+
+  `;
+
+}
+
+
+
+/* =========================
+   الصلاة القادمة
+========================= */
+
+function startCountdown() {
+
+
+  clearInterval(
+    countdownTimer
+  );
+
+
+  updateNextPrayer();
+
+
+  countdownTimer =
+    setInterval(
+      updateNextPrayer,
+      1000
+    );
+
+}
+
+
+
+function updateNextPrayer() {
+
+
+  if (!prayerTimes.Fajr)
+    return;
+
+
+  const now =
+    new Date();
+
+
+  const prayers = [
+
+    {
+      key: "Fajr",
+      name: "الفجر"
+    },
+
+    {
+      key: "Dhuhr",
+      name: "الظهر"
+    },
+
+    {
+      key: "Asr",
+      name: "العصر"
+    },
+
+    {
+      key: "Maghrib",
+      name: "المغرب"
+    },
+
+    {
+      key: "Isha",
+      name: "العشاء"
+    }
+
+  ];
+
+
+  let next = null;
+
+
+  for (
+    const prayer
+    of prayers
+  ) {
+
+
+    const parts =
+      prayerTimes[
+        prayer.key
+      ].split(":");
+
+
+    const prayerDate =
+      new Date();
+
+
+    prayerDate.setHours(
+      Number(parts[0]),
+      Number(parts[1]),
+      0,
+      0
+    );
+
+
+    if (
+      prayerDate > now
+    ) {
+
+      next = {
+
+        name:
+          prayer.name,
+
+        date:
+          prayerDate
+
+      };
+
+      break;
+
+    }
+
+  }
+
+
+  if (!next) {
+
+
+    const parts =
+      prayerTimes.Fajr
+        .split(":");
+
+
+    const tomorrow =
+      new Date();
+
+
+    tomorrow.setDate(
+      tomorrow.getDate() + 1
+    );
+
+
+    tomorrow.setHours(
+      Number(parts[0]),
+      Number(parts[1]),
+      0,
+      0
+    );
+
+
+    next = {
+
+      name: "الفجر",
+
+      date: tomorrow
+
+    };
+
+  }
+
+
+  const difference =
+    next.date.getTime()
+    - now.getTime();
+
+
+  const hours =
+    Math.floor(
+      difference /
+      (1000 * 60 * 60)
+    );
+
+
+  const minutes =
+    Math.floor(
+      (
+        difference %
+        (1000 * 60 * 60)
+      )
+      /
+      (1000 * 60)
+    );
+
+
+  const seconds =
+    Math.floor(
+      (
+        difference %
+        (1000 * 60)
+      )
+      /
+      1000
+    );
+
+
+  document.getElementById(
+    "nextName"
+  ).textContent =
+    next.name;
+
+
+  document.getElementById(
+    "countdown"
+  ).textContent =
+
+    `${String(hours).padStart(2,"0")}:` +
+
+    `${String(minutes).padStart(2,"0")}:` +
+
+    `${String(seconds).padStart(2,"0")}`;
+
+}
+
+
+
+/* =========================
+   تشغيل الصفحة
+========================= */
+
+</script>
+
+
+</body>
+
+</html>
