@@ -19,7 +19,18 @@
       --text: #f6f0df;
       --muted: #b9c5bd;
       --line: #234235;
-      --green: #173b2d;
+    }
+
+    body.light {
+      --bg: #f5f1e7;
+      --bg2: #ffffff;
+      --card: #ffffff;
+      --card2: #f7f3e9;
+      --gold: #8a6825;
+      --gold2: #b99650;
+      --text: #183126;
+      --muted: #64736b;
+      --line: #d8ccb0;
     }
 
     * {
@@ -37,6 +48,12 @@
       color: var(--text);
       font-family: Tahoma, Arial, sans-serif;
       line-height: 1.8;
+      transition: .3s;
+    }
+
+    body.light {
+      background:
+        radial-gradient(circle at top, #fffdf7 0%, var(--bg) 55%);
     }
 
     a {
@@ -47,9 +64,84 @@
     /* ================= HEADER ================= */
 
     header {
-      padding: 35px 18px 25px;
+      position: relative;
+      padding: 35px 60px 28px;
       text-align: center;
       border-bottom: 1px solid var(--line);
+    }
+
+    .menu-button {
+      position: absolute;
+      top: 22px;
+      right: 20px;
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--gold2);
+      border-radius: 14px;
+      background: var(--card);
+      color: var(--gold);
+      font-size: 25px;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .menu-button:hover {
+      border-color: var(--gold);
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -330px;
+      width: 310px;
+      max-width: 88%;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 85px 20px 30px;
+      background: rgba(6,20,15,.98);
+      border-left: 1px solid var(--gold2);
+      box-shadow: -10px 0 40px rgba(0,0,0,.35);
+      z-index: 1000;
+      transition: .3s ease;
+    }
+
+    body.light .mobile-menu {
+      background: rgba(255,255,255,.98);
+    }
+
+    .mobile-menu.show {
+      right: 0;
+    }
+
+    .mobile-menu-title {
+      color: var(--gold);
+      text-align: center;
+      font-family: "Traditional Arabic", serif;
+      font-size: 28px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 15px;
+    }
+
+    .mobile-menu a,
+    .theme-button {
+      display: block;
+      width: 100%;
+      padding: 13px 15px;
+      margin-bottom: 9px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: var(--card);
+      color: var(--text);
+      text-align: right;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .mobile-menu a:hover,
+    .theme-button:hover {
+      border-color: var(--gold);
+      color: var(--gold);
     }
 
     .badge {
@@ -77,42 +169,6 @@
       font-size: 16px;
     }
 
-    /* ================= PHOTO ================= */
-
-    .memorial {
-      max-width: 900px;
-      margin: 30px auto 0;
-      padding: 0 18px;
-      text-align: center;
-    }
-
-    .photo-frame {
-      width: 220px;
-      height: 280px;
-      margin: auto;
-      padding: 7px;
-      border: 1px solid var(--gold);
-      border-radius: 25px;
-      background: linear-gradient(145deg, var(--gold), #705728);
-      box-shadow: 0 15px 50px rgba(0,0,0,.35);
-    }
-
-    .photo-frame img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      border-radius: 19px;
-      background: #10251d;
-    }
-
-    .photo-caption {
-      margin-top: 15px;
-      color: var(--gold);
-      font-family: "Traditional Arabic", serif;
-      font-size: 25px;
-    }
-
     /* ================= DUA ================= */
 
     .memorial-dua {
@@ -138,7 +194,7 @@
     main {
       max-width: 1150px;
       margin: auto;
-      padding: 35px 17px 60px;
+      padding: 25px 17px 60px;
     }
 
     .section-title {
@@ -190,17 +246,6 @@
       box-shadow: 0 12px 30px rgba(0,0,0,.25);
     }
 
-    .card::before {
-      content: "";
-      position: absolute;
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: rgba(215,181,109,.04);
-      top: -40px;
-      left: -30px;
-    }
-
     .icon {
       font-size: 34px;
       margin-bottom: 8px;
@@ -227,11 +272,11 @@
       font-size: 13px;
     }
 
-    /* ================= SPECIAL CARDS ================= */
+    /* ================= SPECIAL ================= */
 
     .special-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 18px;
     }
 
@@ -240,8 +285,7 @@
       padding: 27px;
       border-radius: 25px;
       border: 1px solid var(--gold2);
-      background:
-        linear-gradient(145deg, #14372a, #091c15);
+      background: linear-gradient(145deg, #14372a, #091c15);
       transition: .25s;
     }
 
@@ -264,6 +308,35 @@
     .special-card p {
       color: var(--muted);
       margin: 0;
+    }
+
+    /* ================= PHOTO AT END ================= */
+
+    .memorial {
+      max-width: 900px;
+      margin: 20px auto 50px;
+      padding: 0 18px;
+      text-align: center;
+    }
+
+    .photo-frame {
+      width: 220px;
+      height: 280px;
+      margin: auto;
+      padding: 7px;
+      border: 1px solid var(--gold);
+      border-radius: 25px;
+      background: linear-gradient(145deg, var(--gold), #705728);
+      box-shadow: 0 15px 50px rgba(0,0,0,.35);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      border-radius: 19px;
+      background: #10251d;
     }
 
     /* ================= FINAL ================= */
@@ -312,14 +385,14 @@
 
     /* ================= MOBILE ================= */
 
-    @media (max-width: 600px) {
+    @media (max-width: 750px) {
 
       header {
-        padding-top: 27px;
+        padding: 85px 18px 28px;
       }
 
-      header h1 {
-        font-size: 34px;
+      .special-grid {
+        grid-template-columns: 1fr;
       }
 
       .photo-frame {
@@ -328,6 +401,8 @@
       }
 
       .memorial-dua {
+        margin-left: 15px;
+        margin-right: 15px;
         padding: 20px 15px;
       }
 
@@ -357,9 +432,55 @@
 <body>
 
 
+<!-- ================= MOBILE MENU ================= -->
+
+<div id="mobileMenu" class="mobile-menu">
+
+  <div class="mobile-menu-title">
+    ۞ صدقة جارية ۞
+  </div>
+
+  <a href="index.html">🏠 الرئيسية</a>
+
+  <a href="quran.html">📖 القرآن الكريم</a>
+
+  <a href="quran-tafsir.html">📚 تفسير القرآن</a>
+
+  <a href="quran-stories.html">🌙 قصص القرآن</a>
+
+  <a href="hadith.html">📜 الأحاديث النبوية</a>
+
+  <a href="adhkar.html">🤲 الأذكار</a>
+
+  <a href="duas.html">🕊️ الأدعية</a>
+
+  <a href="prayer.html">🕌 تعلم الصلاة</a>
+
+  <a href="tasbeeh.html">📿 المسبحة</a>
+
+  <a href="daily-wird.html">📿 الورد اليومي</a>
+
+  <a href="prayer-times.html">🕰️ مواقيت الصلاة</a>
+
+  <a href="qibla.html">🕋 اتجاه القبلة</a>
+
+  <button class="theme-button" onclick="toggleTheme()">
+    🌙 وضع الليل / ☀️ وضع النهار
+  </button>
+
+</div>
+
+
 <!-- ================= TOP ================= -->
 
 <header>
+
+  <button
+    class="menu-button"
+    onclick="toggleMenu()"
+    aria-label="فتح القائمة">
+    ☰
+  </button>
 
   <span class="badge">
     ۞ صدقة جارية ۞
@@ -372,33 +493,11 @@
   </h1>
 
   <p class="header-subtitle">
-    موقع إسلامي خيري، نسأل الله أن يجعل ما فيه من قرآن وذكر وعلم
-    صدقةً جاريةً ونورًا ورحمةً له.
+    موقع إسلامي خيري، نسأل الله أن يجعل ما فيه من قرآن وذكر
+    وعلم صدقةً جاريةً ونورًا ورحمةً له.
   </p>
 
 </header>
-
-
-<!-- ================= PHOTO ================= -->
-
-<section class="memorial">
-
-  <div class="photo-frame">
-
-    <!-- ضع صورة المرحوم هنا باسم essam.jpg داخل مجلد images -->
-
-    <img
-      src="esam-ahmed-abdelaziz.png"
-      
-    >
-
-  </div>
-
-  <div class="photo-caption">
-    رحمه الله رحمةً واسعة
-  </div>
-
-</section>
 
 
 <!-- ================= DUA ================= -->
@@ -427,7 +526,8 @@
   <h2>العبادات اليومية</h2>
 
   <p>
-    أدوات تساعدك على تنظيم وردك اليومي ومتابعة عبادتك بسهولة.
+    أدوات مختارة تساعدك على تنظيم وردك اليومي
+    ومتابعة عبادتك بسهولة.
   </p>
 
 </div>
@@ -440,9 +540,7 @@
 
     <div class="special-icon">📿</div>
 
-    <h3>
-      الورد اليومي
-    </h3>
+    <h3>الورد اليومي</h3>
 
     <p>
       ورد يومي يجمع القرآن والأذكار والأحاديث والصلاة،
@@ -460,12 +558,11 @@
 
     <div class="special-icon">🕌</div>
 
-    <h3>
-      مواقيت الصلاة
-    </h3>
+    <h3>مواقيت الصلاة</h3>
 
     <p>
-      معرفة أوقات الصلوات الخمس بطريقة واضحة ومناسبة للهاتف.
+      معرفة أوقات الصلوات الخمس بطريقة واضحة
+      ومناسبة للهاتف.
     </p>
 
     <span class="open">
@@ -479,9 +576,7 @@
 
     <div class="special-icon">🕋</div>
 
-    <h3>
-      اتجاه القبلة
-    </h3>
+    <h3>اتجاه القبلة</h3>
 
     <p>
       معرفة اتجاه القبلة من موقعك بسهولة.
@@ -497,7 +592,6 @@
 </div>
 
 
-
 <!-- ================= QURAN ================= -->
 
 <div class="section-title">
@@ -507,7 +601,7 @@
   <h2>القرآن الكريم</h2>
 
   <p>
-    اقرأ وتدبر واستمع وابحث في كتاب الله.
+    اقرأ وتدبر واستمع وتعرّف على معاني كتاب الله.
   </p>
 
 </div>
@@ -540,7 +634,7 @@
     <h3>تفسير القرآن</h3>
 
     <p>
-      فهم معاني الآيات والاستفادة من كتب التفسير الموثوقة.
+      فهم معاني الآيات والاستفادة من كتب التفسير.
     </p>
 
     <span class="open">
@@ -568,7 +662,6 @@
 
 
 </div>
-
 
 
 <!-- ================= DHIKR ================= -->
@@ -614,7 +707,7 @@
     <h3>الأدعية</h3>
 
     <p>
-      أدعية من القرآن الكريم والسنة ولأحوال الحياة المختلفة.
+      أدعية من القرآن الكريم والسنة لمختلف الأحوال.
     </p>
 
     <span class="open">
@@ -631,7 +724,8 @@
     <h3>المسبحة الإلكترونية</h3>
 
     <p>
-      مسبحة بسيطة تساعدك على التسبيح والاستغفار وحفظ العدد.
+      مسبحة بسيطة تساعدك على التسبيح والاستغفار
+      وحفظ العدد.
     </p>
 
     <span class="open">
@@ -644,17 +738,16 @@
 </div>
 
 
-
 <!-- ================= PRAYER ================= -->
 
 <div class="section-title">
 
-  <span>العبادة</span>
+  <span>العبادة والعلم</span>
 
-  <h2>تعلم الصلاة</h2>
+  <h2>الصلاة والأحاديث</h2>
 
   <p>
-    تعلم الطهارة والصلاة والسنن والنوافل بطريقة مرتبة.
+    تعلم الصلاة واطلع على الأحاديث النبوية.
   </p>
 
 </div>
@@ -702,7 +795,6 @@
 </div>
 
 
-
 <!-- ================= FINAL ================= -->
 
 <section class="final-dua">
@@ -726,6 +818,22 @@
 </section>
 
 
+<!-- ================= PHOTO LAST ================= -->
+
+<section class="memorial">
+
+  <div class="photo-frame">
+
+    <img
+      src="esam-ahmed-abdelaziz.png"
+      alt=""
+    >
+
+  </div>
+
+</section>
+
+
 </main>
 
 
@@ -745,6 +853,78 @@
   اللهم اجعلها نورًا ورحمةً وأجرًا جاريًا له.
 
 </footer>
+
+
+<script>
+
+  /* ================= MENU ================= */
+
+  function toggleMenu() {
+
+    const menu =
+      document.getElementById("mobileMenu");
+
+    menu.classList.toggle("show");
+
+  }
+
+
+  /* ================= THEME ================= */
+
+  function toggleTheme() {
+
+    document.body.classList.toggle("light");
+
+    if (
+      document.body.classList.contains("light")
+    ) {
+
+      localStorage.setItem(
+        "theme",
+        "light"
+      );
+
+    } else {
+
+      localStorage.setItem(
+        "theme",
+        "dark"
+      );
+
+    }
+
+  }
+
+
+  /* ================= SAVED THEME ================= */
+
+  const savedTheme =
+    localStorage.getItem("theme");
+
+  if (savedTheme === "light") {
+
+    document.body.classList.add("light");
+
+  }
+
+
+  /* ================= CLOSE MENU ================= */
+
+  document
+    .querySelectorAll(".mobile-menu a")
+    .forEach(link => {
+
+      link.addEventListener("click", () => {
+
+        document
+          .getElementById("mobileMenu")
+          .classList.remove("show");
+
+      });
+
+    });
+
+</script>
 
 
 </body>
