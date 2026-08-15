@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>استماع للقرآن | صدقة جارية</title>
+
+  <style>
+
+    :root {
+      --bg: #06140f;
+      --bg2: #0a1f17;
+      --card: #102d23;
+      --card2: #0d241c;
+      --gold: #d7b56d;
+      --gold2: #b99650;
+      --text: #f6f0df;
+      --muted: #b9c5bd;
+      --line: #234235;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, #123a2a 0%, var(--bg) 48%);
+      color: var(--text);
+      font-family: Tahoma, Arial, sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* HEADER */
+
+    header {
+      padding: 25px 18px;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+      background: rgba(4,14,10,.55);
+      backdrop-filter: blur(10px);
+    }
+
+    .top-badge {
+      display: inline-block;
+      padding: 6px 16px;
+      border: 1px solid var(--gold2);
+      border-radius: 30px;
+      color: var(--gold);
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    header h1 {
+      margin: 5px 0;
+      color: var(--gold);
+      font-family: "Traditional Arabic", serif;
+      font-size: clamp(32px, 7vw, 50px);
+    }
+
+    header p {
+      margin: 5px auto 0;
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* NAV */
+
+    .nav-wrap {
+      max-width: 1150px;
+      margin: 18px auto 0;
+      padding: 0 15px;
+    }
+
+    .back {
+      display: inline-block;
+      padding: 9px 16px;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      color: var(--gold);
+      background: var(--card2);
+    }
+
+    /* MAIN */
+
+    main {
+      max-width: 1100px;
+      margin: auto;
+      padding: 30px 17px 130px;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .intro h2 {
+      color: var(--gold);
+      font-family: "Traditional Arabic", serif;
+      font-size: 32px;
+      margin: 0 0 5px;
+    }
+
+    .intro p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* SELECT */
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+      margin-bottom: 30px;
+    }
+
+    .control-box {
+      padding: 20px;
+      background: linear-gradient(145deg, var(--card), #081b14);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+    }
+
+    .control-box label {
+      display: block;
+      color: var(--gold);
+      margin-bottom: 9px;
+      font-weight: bold;
+    }
+
+    select {
+      width: 100%;
+      padding: 13px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #071a13;
+      color: var(--text);
+      font-size: 15px;
+      outline: none;
+    }
+
+    select:focus {
+      border-color: var(--gold);
+    }
+
+    /* RECITER */
+
+    .reciter-info {
+      text-align: center;
+      padding: 25px;
+      margin-bottom: 25px;
+      border-radius: 25px;
+      border: 1px solid var(--gold2);
+      background: linear-gradient(145deg, #14372a, #091c15);
+    }
+
+    .reciter-icon {
+      font-size: 45px;
+    }
+
+    .reciter-info h3 {
+      margin: 5px 0;
+      color: var(--gold);
+      font-family: "Traditional Arabic", serif;
+      font-size: 30px;
+    }
+
+    .reciter-info span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* SEARCH */
+
+    .search {
+      margin-bottom: 20px;
+    }
+
+    .search input {
+      width: 100%;
+      padding: 15px 18px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: var(--card2);
+      color: var(--text);
+      font-size: 15px;
+      outline: none;
+    }
+
+    .search input:focus {
+      border-color: var(--gold);
+    }
+
+    /* SURA GRID */
+
+    .surah-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .surah-card {
+      position: relative;
+      padding: 20px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, var(--card), #081b14);
+      cursor: pointer;
+      transition: .25s;
+    }
+
+    .surah-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+    }
+
+    .surah-number {
+      display: inline-flex;
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--gold2);
+      border-radius: 50%;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .surah-name {
+      display: block;
+      color: var(--text);
+      font-family: "Traditional Arabic", serif;
+      font-size: 25px;
+    }
+
+    .surah-type {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .play-icon {
+      position: absolute;
+      left: 18px;
+      top: 25px;
+      color: var(--gold);
+      font-size: 25px;
+    }
+
+    /* PLAYER */
+
+    .player {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1000;
+      padding: 14px 18px;
+      border-top: 1px solid var(--gold2);
+      background: rgba(6,20,15,.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 -10px 35px rgba(0,0,0,.35);
+    }
+
+    .player-inner {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .now-playing {
+      color: var(--gold);
+      font-family: "Traditional Arabic", serif;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    audio {
+      width: 100%;
+      height: 42px;
+    }
+
+    .player-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .player-btn {
+      padding: 7px 15px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--card2);
+      color: var(--gold);
+      cursor: pointer;
+    }
+
+    /* LOADING */
+
+    .loading,
+    .error,
+    .empty {
+      text-align: center;
+      padding: 45px 20px;
+      color: var(--muted);
+    }
+
+    .error {
+      color: #d9a5a5;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 30px 15px;
+      text-align: center;
+      color: #8fa39a;
+      border-top: 1px solid var(--line);
+    }
+
+    footer strong {
+      display: block;
+      color: var(--gold);
+      font-family: "Traditional Arabic", serif;
+      font-size: 22px;
+      margin-bottom: 5px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 650px) {
+
+      .controls {
+        grid-template-columns: 1fr;
+      }
+
+      .surah-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .surah-card {
+        padding: 16px;
+      }
+
+      .surah-name {
+        font-size: 22px;
+      }
+
+    }
+
+    @media (max-width: 400px) {
+
+      .surah-grid {
+        grid-template-columns: 1fr;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+  <div class="top-badge">
+    ۞ صدقة جارية ۞
+  </div>
+
+  <h1>
+    🎧 الاستماع للقرآن الكريم
+  </h1>
+
+  <p>
+    استمع إلى كتاب الله بصوت نخبة من القراء
+  </p>
+
+</header>
+
+
+<div class="nav-wrap">
+
+  <a class="back" href="index.html">
+    ← العودة للرئيسية
+  </a>
+
+</div>
+
+
+<main>
+
+
+  <section class="intro">
+
+    <h2>
+      اختر القارئ والسورة
+    </h2>
+
+    <p>
+      استمع إلى القرآن الكريم وتدبر آياته.
+    </p>
+
+  </section>
+
+
+  <section class="controls">
+
+
+    <div class="control-box">
+
+      <label for="reciterSelect">
+        🎙️ اختر القارئ
+      </label>
+
+      <select id="reciterSelect">
+
+        <option value="">
+          جاري تحميل القراء...
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div class="control-box">
+
+      <label for="mushafSelect">
+        📖 اختر الرواية / المصحف
+      </label>
+
+      <select id="mushafSelect">
+
+        <option value="">
+          اختر القارئ أولًا
+        </option>
+
+      </select>
+
+    </div>
+
+
+  </section>
+
+
+  <section class="reciter-info">
+
+    <div class="reciter-icon">
+      🎙️
+    </div>
+
+    <h3 id="reciterName">
+      اختر قارئًا
+    </h3>
+
+    <span id="mushafName">
+      ستظهر هنا الرواية المتاحة
+    </span>
+
+  </section>
+
+
+  <div class="search">
+
+    <input
+      type="search"
+      id="searchInput"
+      placeholder="🔎 ابحث عن سورة..."
+    >
+
+  </div>
+
+
+  <div
+    id="surahGrid"
+    class="surah-grid"
+  >
+
+    <div class="loading">
+      جاري تحميل السور...
+    </div>
+
+  </div>
+
+
+</main>
+
+
+<footer>
+
+  <strong>
+    صدقة جارية
+  </strong>
+
+  عن روح المرحوم
+  المهندس عصام أحمد عبدالعزيز
+
+  <br><br>
+
+  اللهم اجعل القرآن نورًا ورحمةً وأجرًا جاريًا له.
+
+</footer>
+
+
+<!-- PLAYER -->
+
+<div class="player">
+
+  <div class="player-inner">
+
+    <div
+      class="now-playing"
+      id="nowPlaying"
+    >
+      لم يتم اختيار سورة
+    </div>
+
+    <audio
+      id="audioPlayer"
+      controls
+      preload="none"
+    ></audio>
+
+    <div class="player-buttons">
+
+      <button
+        class="player-btn"
+        onclick="previousSurah()"
+      >
+        ⏮ السابقة
+      </button>
+
+      <button
+        class="player-btn"
+        onclick="nextSurah()"
+      >
+        التالية ⏭
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+
+/* =========================
+   API
+========================= */
+
+const API =
+  "https://www.mp3quran.net/api/v3";
+
+
+const reciterSelect =
+  document.getElementById("reciterSelect");
+
+const mushafSelect =
+  document.getElementById("mushafSelect");
+
+const surahGrid =
+  document.getElementById("surahGrid");
+
+const searchInput =
+  document.getElementById("searchInput");
+
+const audioPlayer =
+  document.getElementById("audioPlayer");
+
+const nowPlaying =
+  document.getElementById("nowPlaying");
+
+const reciterName =
+  document.getElementById("reciterName");
+
+const mushafName =
+  document.getElementById("mushafName");
+
+
+let reciters = [];
+let surahs = [];
+let currentMushaf = null;
+let currentSurahIndex = -1;
+
+
+/* =========================
+   LOAD RECITERS
+========================= */
+
+async function loadReciters() {
+
+  try {
+
+    const response =
+      await fetch(
+        `${API}/reciters?language=ar`
+      );
+
+    if (!response.ok) {
+      throw new Error();
+    }
+
+    const data =
+      await response.json();
+
+    reciters =
+      data.reciters || [];
+
+    reciterSelect.innerHTML =
+      `<option value="">
+        اختر القارئ
+      </option>`;
+
+    reciters.forEach(reciter => {
+
+      const option =
+        document.createElement("option");
+
+      option.value =
+        reciter.id;
+
+      option.textContent =
+        reciter.name;
+
+      reciterSelect.appendChild(option);
+
+    });
+
+  } catch (error) {
+
+    reciterSelect.innerHTML =
+      `<option>
+        تعذر تحميل القراء
+      </option>`;
+
+    console.error(error);
+
+  }
+
+}
+
+
+/* =========================
+   LOAD MUSHAFS
+========================= */
+
+reciterSelect.addEventListener(
+  "change",
+  function () {
+
+    const id =
+      Number(this.value);
+
+    const reciter =
+      reciters.find(
+        r => r.id === id
+      );
+
+    mushafSelect.innerHTML = "";
+
+    surahGrid.innerHTML =
+      `<div class="empty">
+        اختر الرواية للاستماع
+      </div>`;
+
+    currentMushaf = null;
+
+    if (!reciter) {
+
+      reciterName.textContent =
+        "اختر قارئًا";
+
+      mushafName.textContent =
+        "ستظهر هنا الرواية المتاحة";
+
+      return;
+
+    }
+
+
+    reciterName.textContent =
+      reciter.name;
+
+
+    const mushafs =
+      reciter.moshaf || [];
+
+
+    if (mushafs.length === 0) {
+
+      mushafSelect.innerHTML =
+        `<option>
+          لا توجد رواية متاحة
+        </option>`;
+
+      return;
+
+    }
+
+
+    mushafs.forEach(
+      (mushaf, index) => {
+
+        const option =
+          document.createElement("option");
+
+        option.value =
+          index;
+
+        option.textContent =
+          mushaf.name;
+
+        mushafSelect.appendChild(
+          option
+        );
+
+      }
+    );
+
+
+    currentMushaf =
+      mushafs[0];
+
+    updateMushaf();
+
+  }
+);
+
+
+/* =========================
+   CHANGE MUSHAF
+========================= */
+
+mushafSelect.addEventListener(
+  "change",
+  function () {
+
+    const reciter =
+      reciters.find(
+        r => r.id === Number(
+          reciterSelect.value
+        )
+      );
+
+    if (!reciter) return;
+
+    currentMushaf =
+      reciter.moshaf[
+        Number(this.value)
+      ];
+
+    updateMushaf();
+
+  }
+);
+
+
+/* =========================
+   UPDATE MUSHAF
+========================= */
+
+function updateMushaf() {
+
+  if (!currentMushaf) return;
+
+  mushafName.textContent =
+    currentMushaf.name;
+
+  const list =
+    currentMushaf.surah_list
+      .split(",")
+      .map(Number);
+
+  loadSurahs(list);
+
+}
+
+
+/* =========================
+   LOAD SURAHS
+========================= */
+
+async function loadSurahs(
+  availableSurahs
+) {
+
+  try {
+
+    const response =
+      await fetch(
+        `${API}/suwar?language=ar`
+      );
+
+    if (!response.ok) {
+      throw new Error();
+    }
+
+    const data =
+      await response.json();
+
+    surahs =
+      (data.suwar || [])
+      .filter(
+        surah =>
+          availableSurahs.includes(
+            surah.id
+          )
+      );
+
+    renderSurahs();
+
+  } catch (error) {
+
+    surahGrid.innerHTML =
+      `<div class="error">
+        تعذر تحميل السور حاليًا.
+        حاول تحديث الصفحة.
+      </div>`;
+
+    console.error(error);
+
+  }
+
+}
+
+
+/* =========================
+   RENDER SURAHS
+========================= */
+
+function renderSurahs() {
+
+  const search =
+    searchInput.value
+      .trim()
+      .toLowerCase();
+
+
+  const filtered =
+    surahs.filter(
+      surah =>
+        surah.name
+          .toLowerCase()
+          .includes(search)
+    );
+
+
+  if (!filtered.length) {
+
+    surahGrid.innerHTML =
+      `<div class="empty">
+        لا توجد سورة بهذا الاسم.
+      </div>`;
+
+    return;
+
+  }
+
+
+  surahGrid.innerHTML = "";
+
+
+  filtered.forEach(
+    (surah, index) => {
+
+      const card =
+        document.createElement("article");
+
+      card.className =
+        "surah-card";
+
+
+      const originalIndex =
+        surahs.findIndex(
+          s => s.id === surah.id
+        );
+
+
+      card.onclick =
+        () => playSurah(
+          originalIndex
+        );
+
+
+      const type =
+        Number(surah.makkia) === 1
+          ? "مكية"
+          : "مدنية";
+
+
+      card.innerHTML = `
+
+        <span class="surah-number">
+          ${surah.id}
+        </span>
+
+        <span class="surah-name">
+          ${surah.name}
+        </span>
+
+        <span class="surah-type">
+          ${type}
+        </span>
+
+        <span class="play-icon">
+          ▶
+        </span>
+
+      `;
+
+
+      surahGrid.appendChild(card);
+
+    }
+  );
+
+}
+
+
+/* =========================
+   PLAY SURAH
+========================= */
+
+function playSurah(index) {
+
+  if (!currentMushaf) return;
+
+  const surah =
+    surahs[index];
+
+  if (!surah) return;
+
+  currentSurahIndex =
+    index;
+
+
+  /*
+    MP3Quran uses three-digit
+    zero-padded surah numbers.
+    Example:
+    1  -> 001.mp3
+    2  -> 002.mp3
+    114 -> 114.mp3
+  */
+
+  const number =
+    String(surah.id)
+      .padStart(3, "0");
+
+
+  const url =
+    currentMushaf.server +
+    number +
+    ".mp3";
+
+
+  audioPlayer.src =
+    url;
+
+  audioPlayer.play()
+    .catch(() => {});
+
+
+  nowPlaying.textContent =
+    `🎧 ${surah.name} — ${reciterName.textContent}`;
+
+}
+
+
+/* =========================
+   NEXT
+========================= */
+
+function nextSurah() {
+
+  if (!surahs.length) return;
+
+  let next =
+    currentSurahIndex + 1;
+
+  if (next >= surahs.length) {
+    next = 0;
+  }
+
+  playSurah(next);
+
+}
+
+
+/* =========================
+   PREVIOUS
+========================= */
+
+function previousSurah() {
+
+  if (!surahs.length) return;
+
+  let previous =
+    currentSurahIndex - 1;
+
+  if (previous < 0) {
+    previous = surahs.length - 1;
+  }
+
+  playSurah(previous);
+
+}
+
+
+/* =========================
+   AUTO NEXT
+========================= */
+
+audioPlayer.addEventListener(
+  "ended",
+  function () {
+
+    if (currentSurahIndex >= 0) {
+      nextSurah();
+    }
+
+  }
+);
+
+
+/* =========================
+   SEARCH
+========================= */
+
+searchInput.addEventListener(
+  "input",
+  renderSurahs
+);
+
+
+/* =========================
+   START
+========================= */
+
+loadReciters();
+
+
+</script>
+
+
+</body>
+</html>
