@@ -5,559 +5,1076 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>تعلم الصلاة والوضوء | صدقة جارية</title>
+  <title>الصلاة | صدقة جارية عن روح المهندس عصام أحمد عبدالعزيز</title>
 
   <link rel="stylesheet" href="style.css">
-
-  <style>
-
-    .intro {
-      max-width: 850px;
-      margin: 0 auto 35px;
-      text-align: center;
-      color: #b9c5bd;
-      line-height: 2.2;
-    }
-
-    .lesson {
-      background: linear-gradient(
-        145deg,
-        #102d23,
-        #081a13
-      );
-
-      border: 1px solid #234235;
-      border-radius: 24px;
-      padding: 28px;
-      margin-bottom: 22px;
-    }
-
-    .lesson h2 {
-      color: #d7b56d;
-      font-family: "Traditional Arabic", serif;
-      font-size: 31px;
-      margin-top: 0;
-    }
-
-    .lesson h3 {
-      color: #d7b56d;
-      margin-top: 25px;
-    }
-
-    .lesson p,
-    .lesson li {
-      color: #d6ded9;
-      font-size: 17px;
-      line-height: 2.2;
-    }
-
-    .steps {
-      counter-reset: step;
-      list-style: none;
-      padding: 0;
-    }
-
-    .steps li {
-      counter-increment: step;
-      margin-bottom: 15px;
-      padding: 15px 50px 15px 15px;
-      background: rgba(255,255,255,.025);
-      border-radius: 15px;
-      position: relative;
-    }
-
-    .steps li::before {
-      content: counter(step);
-      position: absolute;
-      right: 12px;
-      top: 14px;
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      border: 1px solid #d7b56d;
-      color: #d7b56d;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 13px;
-    }
-
-    .arabic {
-      font-family: "Traditional Arabic", serif;
-      font-size: 25px !important;
-      line-height: 2.4 !important;
-      color: #f6f0df !important;
-    }
-
-    .note {
-      border-right: 3px solid #d7b56d;
-      padding: 12px 15px;
-      background: rgba(215,181,109,.04);
-      margin-top: 20px;
-    }
-
-    .prayer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .prayer-card {
-      text-align: center;
-      background: #0d241c;
-      border: 1px solid #234235;
-      border-radius: 18px;
-      padding: 20px;
-    }
-
-    .prayer-card h3 {
-      margin: 5px 0;
-      color: #d7b56d;
-    }
-
-    .prayer-card p {
-      font-size: 14px;
-    }
-
-    .back-top {
-      text-align: center;
-      margin: 30px 0;
-    }
-
-    .back-top a {
-      color: #d7b56d;
-    }
-
-  </style>
-
 </head>
-
 
 <body>
 
+<header class="main-header">
 
-<header>
+  <div class="brand">
+    <div class="brand-icon">۞</div>
 
-  <div class="logo">
-    صدقة جارية
+    <div>
+      <div class="brand-title">صدقة جارية</div>
+      <div class="brand-subtitle">عن روح المرحوم</div>
+    </div>
   </div>
 
-  <nav>
-
+  <nav class="main-nav">
     <a href="index.html">الرئيسية</a>
-
     <a href="quran.html">القرآن</a>
-
     <a href="hadith.html">الأحاديث</a>
-
     <a href="adhkar.html">الأذكار</a>
-
-    <a href="quran-tafsir.html">التفسير</a>
-
-    <a href="quran-stories.html">قصص القرآن</a>
-
-    <a href="prayer.html">تعلم الصلاة</a>
-
+    <a href="prayer.html">الصلاة</a>
   </nav>
+
+  <button class="menu-button" onclick="toggleMenu()">☰</button>
 
 </header>
 
 
+<div id="mobileMenu" class="mobile-menu">
 
-<main class="container">
+  <a href="index.html">الرئيسية</a>
+  <a href="quran.html">القرآن الكريم</a>
+  <a href="quran-stories.html">قصص القرآن</a>
+  <a href="hadith.html">الأحاديث</a>
+  <a href="adhkar.html">الأذكار</a>
+  <a href="prayer.html">الصلاة والنوافل</a>
+  <a href="duas.html">الأدعية</a>
 
-
-  <h1 class="page-title">
-    🕌 تعلم الصلاة والوضوء
-  </h1>
-
-
-  <p class="intro">
-
-    دليل مبسط يساعدك على تعلم الوضوء والصلاة
-    والسنن وقيام الليل والوتر.
-    وسيتم إضافة الأدلة والمراجع لكل مسألة
-    بالتفصيل في النسخة القادمة.
-
-  </p>
+</div>
 
 
-
-  <!-- الوضوء -->
-
-  <section class="lesson">
-
-    <h2>
-      💧 أولًا: كيفية الوضوء
-    </h2>
-
-    <p>
-      الوضوء عبادة وطهارة تسبق الصلاة،
-      ويُراعى فيه اتباع ما ثبت عن النبي ﷺ.
-    </p>
+<main>
 
 
-    <ol class="steps">
+<!-- ================= HERO ================= -->
 
-      <li>
-        استحضار النية للوضوء.
-      </li>
+<section class="hero page-hero">
 
-      <li>
-        غسل الكفين.
-      </li>
+  <div class="hero-content">
 
-      <li>
-        المضمضة والاستنشاق.
-      </li>
-
-      <li>
-        غسل الوجه.
-      </li>
-
-      <li>
-        غسل اليدين إلى المرفقين.
-      </li>
-
-      <li>
-        مسح الرأس والأذنين.
-      </li>
-
-      <li>
-        غسل الرجلين إلى الكعبين.
-      </li>
-
-    </ol>
-
-
-    <div class="note">
-
-      <strong>تنبيه:</strong>
-      تفاصيل فرائض الوضوء وسننه ومبطلاته
-      قد تختلف في بعض المسائل الفقهية،
-      لذلك سنضع لاحقًا الأدلة والمذاهب
-      بشكل منفصل وواضح.
-
+    <div class="hero-small">
+      الصلاة
     </div>
 
-  </section>
+    <div class="hero-symbol">🕌</div>
 
+    <h1>تعلم الصلاة</h1>
 
-
-  <!-- الصلاة -->
-
-  <section class="lesson">
-
-    <h2>
-      🕌 ثانيًا: كيفية الصلاة
-    </h2>
+    <div class="gold-line"></div>
 
     <p>
-      الصلاة من أعظم العبادات، وفيما يلي
-      ترتيب مبسط لأركان الصلاة وهيئتها.
+      دليل شامل للطهارة والصلاة والسنن والنوافل
+      وقيام الليل والوتر والضحى والاستخارة.
     </p>
-
-
-    <ol class="steps">
-
-      <li>
-        استقبال القبلة والقيام للصلاة.
-      </li>
-
-      <li>
-        تكبيرة الإحرام: «الله أكبر».
-      </li>
-
-      <li>
-        قراءة الفاتحة وما تيسر من القرآن.
-      </li>
-
-      <li>
-        الركوع وقول:
-        <span class="arabic">
-          سبحان ربي العظيم
-        </span>
-      </li>
-
-      <li>
-        الرفع من الركوع والاعتدال.
-      </li>
-
-      <li>
-        السجود وقول:
-        <span class="arabic">
-          سبحان ربي الأعلى
-        </span>
-      </li>
-
-      <li>
-        الجلوس بين السجدتين.
-      </li>
-
-      <li>
-        السجدة الثانية.
-      </li>
-
-      <li>
-        إكمال الركعات حسب الصلاة.
-      </li>
-
-      <li>
-        التشهد ثم التسليم.
-      </li>
-
-    </ol>
-
-  </section>
-
-
-
-  <!-- الصلوات الخمس -->
-
-  <section class="lesson">
-
-    <h2>
-      🕰️ الصلوات المفروضة
-    </h2>
-
-
-    <div class="prayer-grid">
-
-
-      <div class="prayer-card">
-
-        <h3>
-          الفجر
-        </h3>
-
-        <p>
-          ركعتان فرض
-        </p>
-
-      </div>
-
-
-      <div class="prayer-card">
-
-        <h3>
-          الظهر
-        </h3>
-
-        <p>
-          أربع ركعات فرض
-        </p>
-
-      </div>
-
-
-      <div class="prayer-card">
-
-        <h3>
-          العصر
-        </h3>
-
-        <p>
-          أربع ركعات فرض
-        </p>
-
-      </div>
-
-
-      <div class="prayer-card">
-
-        <h3>
-          المغرب
-        </h3>
-
-        <p>
-          ثلاث ركعات فرض
-        </p>
-
-      </div>
-
-
-      <div class="prayer-card">
-
-        <h3>
-          العشاء
-        </h3>
-
-        <p>
-          أربع ركعات فرض
-        </p>
-
-      </div>
-
-
-    </div>
-
-  </section>
-
-
-
-  <!-- قيام الليل -->
-
-  <section class="lesson">
-
-    <h2>
-      🌙 قيام الليل
-    </h2>
-
-    <p>
-      قيام الليل من النوافل العظيمة،
-      ويكون بالصلاة في الليل بعد صلاة العشاء
-      إلى طلوع الفجر.
-    </p>
-
-
-    <h3>
-      كيف أصلي قيام الليل؟
-    </h3>
-
-    <ol class="steps">
-
-      <li>
-        توضأ واستعد للصلاة.
-      </li>
-
-      <li>
-        صلِّ ما تيسر لك من الليل.
-      </li>
-
-      <li>
-        صلاة الليل تكون ركعتين ركعتين.
-      </li>
-
-      <li>
-        اختم صلاتك بالوتر.
-      </li>
-
-    </ol>
-
-
-    <h3>
-      دعاء وأذكار الليل
-    </h3>
-
-    <p class="arabic">
-
-      سبحان الله والحمد لله،
-      ولا إله إلا الله،
-      والله أكبر.
-
-    </p>
-
-
-    <div class="note">
-
-      سنضيف لاحقًا قسمًا كاملًا لأذكار قيام الليل
-      والأدعية الثابتة من القرآن والسنة
-      مع مصادرها.
-
-    </div>
-
-  </section>
-
-
-
-  <!-- الوتر -->
-
-  <section class="lesson">
-
-    <h2>
-      🌙 صلاة الوتر
-    </h2>
-
-    <p>
-      الوتر صلاة تُختم بها صلاة الليل،
-      ولها صور متعددة ثبتت عن النبي ﷺ.
-    </p>
-
-    <h3>
-      أبسط صورة
-    </h3>
-
-    <p>
-      أن تصلي ركعة وتر بعد صلاة الليل.
-    </p>
-
-    <div class="note">
-
-      سنضيف لاحقًا شرح صور صلاة الوتر
-      والأدعية الواردة فيها مع تخريج الأحاديث.
-
-    </div>
-
-  </section>
-
-
-
-  <!-- السنن -->
-
-  <section class="lesson">
-
-    <h2>
-      ⭐ السنن والنوافل
-    </h2>
-
-    <div class="prayer-grid">
-
-      <div class="prayer-card">
-        <h3>السنن الرواتب</h3>
-        <p>
-          سنشرحها وعدد ركعاتها ووقتها.
-        </p>
-      </div>
-
-      <div class="prayer-card">
-        <h3>صلاة الضحى</h3>
-        <p>
-          شرح وقتها وكيفيتها.
-        </p>
-      </div>
-
-      <div class="prayer-card">
-        <h3>صلاة التوبة</h3>
-        <p>
-          شرحها وأدلتها.
-        </p>
-      </div>
-
-      <div class="prayer-card">
-        <h3>صلاة الاستخارة</h3>
-        <p>
-          الطريقة والدعاء الصحيح.
-        </p>
-      </div>
-
-    </div>
-
-  </section>
-
-
-
-  <div class="back-top">
-
-    <a href="index.html">
-      ↑ العودة إلى الرئيسية
-    </a>
 
   </div>
+
+</section>
+
+
+<!-- ================= CONTENT NAV ================= -->
+
+<section class="prayer-navigation">
+
+  <a href="#wudu">الوضوء</a>
+  <a href="#ghusl">الغُسل والتيمم</a>
+  <a href="#conditions">شروط الصلاة</a>
+  <a href="#pillars">أركان الصلاة</a>
+  <a href="#method">صفة الصلاة</a>
+  <a href="#salah">الصلوات الخمس</a>
+  <a href="#rawatib">السنن الرواتب</a>
+  <a href="#night">قيام الليل</a>
+  <a href="#witr">الوتر</a>
+  <a href="#duha">الضحى</a>
+  <a href="#istikharah">الاستخارة</a>
+  <a href="#other-nafl">نوافل أخرى</a>
+  <a href="#adhkar">أذكار الصلاة</a>
+  <a href="#mistakes">الأخطاء الشائعة</a>
+
+</section>
+
+
+<!-- ================= INTRO ================= -->
+
+<section class="detailed-section">
+
+  <div class="section-heading">
+
+    <span>بين يدي الصلاة</span>
+
+    <h2>الصلاة عبادة عظيمة</h2>
+
+    <p>
+      الصلاة من أعظم العبادات، ولذلك نعرض هنا
+      أحكامها وطريقة أدائها والسنن والنوافل
+      المتعلقة بها بصورة منظمة وسهلة.
+    </p>
+
+  </div>
+
+  <div class="information-grid">
+
+    <div class="info-box">
+      <h3>الصلاة المفروضة</h3>
+      <p>الصلوات الخمس التي فرضها الله على المسلمين.</p>
+    </div>
+
+    <div class="info-box">
+      <h3>السنن</h3>
+      <p>صلوات وأعمال مستحبة تكمّل عبادة المسلم.</p>
+    </div>
+
+    <div class="info-box">
+      <h3>النوافل</h3>
+      <p>منها قيام الليل والوتر والضحى والاستخارة وغيرها.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= WUDU ================= -->
+
+<section id="wudu" class="detailed-section">
+
+  <div class="section-heading">
+
+    <span>الطهارة</span>
+
+    <h2>الوضوء</h2>
+
+    <p>
+      قبل الصلاة يتطهر المسلم من الحدث والنجاسة
+      وفق الأحكام الشرعية.
+    </p>
+
+  </div>
+
+  <div class="steps-grid">
+
+    <article class="step-card">
+      <div class="step-number">1</div>
+      <h3>النية</h3>
+      <p>ينوي المسلم الوضوء بقلبه.</p>
+    </article>
+
+    <article class="step-card">
+      <div class="step-number">2</div>
+      <h3>غسل الكفين</h3>
+      <p>يغسل كفيه قبل البدء في الوضوء.</p>
+    </article>
+
+    <article class="step-card">
+      <div class="step-number">3</div>
+      <h3>المضمضة والاستنشاق</h3>
+      <p>يتمضمض ويستنشق ويستنثر.</p>
+    </article>
+
+    <article class="step-card">
+      <div class="step-number">4</div>
+      <h3>غسل الوجه</h3>
+      <p>يغسل الوجه كاملًا.</p>
+    </article>
+
+    <article class="step-card">
+      <div class="step-number">5</div>
+      <h3>غسل اليدين</h3>
+      <p>يغسل اليدين إلى المرفقين.</p>
+    </article>
+
+    <article class="step-card">
+      <div class="step-number">6</div>
+      <h3>مسح الرأس</h3>
+      <p>يمسح الرأس بالطريقة المشروعة.</p>
+    </article>
+
+    <article class="step-card">
+      <div class="step-number">7</div>
+      <h3>مسح الأذنين</h3>
+      <p>يمسح الأذنين ضمن صفة الوضوء.</p>
+    </article>
+
+    <article class="step-card">
+      <div class="step-number">8</div>
+      <h3>غسل الرجلين</h3>
+      <p>يغسل القدمين إلى الكعبين.</p>
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- ================= WUDU BREAKERS ================= -->
+
+<section class="detailed-section">
+
+  <div class="section-heading">
+
+    <span>تنبيه</span>
+
+    <h2>نواقض الوضوء</h2>
+
+  </div>
+
+  <div class="information-grid">
+
+    <div class="info-box">
+      <h3>الخارج من السبيلين</h3>
+      <p>ما يخرج من القبل أو الدبر.</p>
+    </div>
+
+    <div class="info-box">
+      <h3>زوال العقل</h3>
+      <p>كالإغماء ونحوه.</p>
+    </div>
+
+    <div class="info-box">
+      <h3>النوم</h3>
+      <p>بحسب حال النائم ودرجة استغراقه.</p>
+    </div>
+
+    <div class="info-box">
+      <h3>مسائل أخرى</h3>
+      <p>توجد مسائل فيها خلاف فقهي، وتعرض بالتفصيل في قسم الأحكام.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= GHUSL & TAYAMMUM ================= -->
+
+<section id="ghusl" class="detailed-section">
+
+  <div class="section-heading">
+
+    <span>الطهارة الكبرى والبديلة</span>
+
+    <h2>الغُسل والتيمم</h2>
+
+  </div>
+
+  <div class="information-grid">
+
+    <div class="info-box">
+
+      <h3>الغُسل</h3>
+
+      <p>
+        الغسل الشرعي يكون عند الأسباب التي أوجب
+        الشرع فيها الغسل، وله صفة مشروعة.
+      </p>
+
+    </div>
+
+    <div class="info-box">
+
+      <h3>التيمم</h3>
+
+      <p>
+        شرع التيمم عند تعذر استعمال الماء أو وجود
+        عذر معتبر، وله أحكام وصفة مخصوصة.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CONDITIONS ================= -->
+
+<section id="conditions" class="detailed-section">
+
+  <div class="section-heading">
+
+    <span>أحكام أساسية</span>
+
+    <h2>شروط الصلاة</h2>
+
+  </div>
+
+  <div class="information-grid">
+
+    <div class="info-box">
+      <h3>الإسلام</h3>
+      <p>الصلاة عبادة شرعية للمسلمين.</p>
+    </div>
+
+    <div class="info-box">
+      <h3>العقل</h3>
+      <p>العقل من شروط التكليف.</p>
+    </div>
+
+    <div class="info-box">
+      <h3>دخول الوقت</h3>
+      <p>لكل صلاة وقت محدد.</p>
+    </div>
+
+    <div class="info-box">
+      <h3>الطهارة</h3>
+      <p>الطهارة من الحدث والنجاسة.</p>
+    </div>
+
+    <div class="info-box">
+      <h3>ستر العورة</h3>
+      <p>ستر العورة بما تصح به الصلاة.</p>
+    </div>
+
+    <div class="info-box">
+      <h3>استقبال القبلة</h3>
+      <p>استقبال الكعبة مع القدرة.</p>
+    </div>
+
+    <div class="info-box">
+      <h3>النية</h3>
+      <p>نية الصلاة التي يريد المسلم أداءها.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PILLARS ================= -->
+
+<section id="pillars" class="detailed-section">
+
+  <div class="section-heading">
+
+    <span>أجزاء الصلاة</span>
+
+    <h2>أركان الصلاة وواجباتها وسننها</h2>
+
+  </div>
+
+  <div class="information-grid">
+
+    <div class="info-box highlight">
+
+      <h3>أركان الصلاة</h3>
+
+      <p>
+        تشمل ما لا تصح الصلاة بدونه بحسب التفصيل
+        الفقهي، مثل القيام للقادر وتكبيرة الإحرام
+        والركوع والسجود والطمأنينة وغيرها.
+      </p>
+
+    </div>
+
+    <div class="info-box">
+
+      <h3>واجبات الصلاة</h3>
+
+      <p>
+        أحكام مخصوصة في الصلاة، ويترتب على ترك
+        بعضها عمدًا أو سهوًا أحكام مختلفة.
+      </p>
+
+    </div>
+
+    <div class="info-box">
+
+      <h3>سنن الصلاة</h3>
+
+      <p>
+        من السنن القولية والفعلية التي ثبتت عن
+        النبي ﷺ.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= METHOD ================= -->
+
+<section id="method" class="detailed-section">
+
+  <div class="section-heading">
+
+    <span>التطبيق العملي</span>
+
+    <h2>صفة الصلاة خطوة بخطوة</h2>
+
+  </div>
+
+  <div class="prayer-method">
+
+    <article class="method-step">
+      <span>01</span>
+      <h3>الاستعداد للصلاة</h3>
+      <p>الطهارة وستر العورة واستقبال القبلة ودخول الوقت.</p>
+    </article>
+
+    <article class="method-step">
+      <span>02</span>
+      <h3>تكبيرة الإحرام</h3>
+      <p>يبدأ المصلي صلاته بالتكبير.</p>
+    </article>
+
+    <article class="method-step">
+      <span>03</span>
+      <h3>القيام والقراءة</h3>
+      <p>يقرأ الفاتحة وما تيسر من القرآن في موضع القراءة.</p>
+    </article>
+
+    <article class="method-step">
+      <span>04</span>
+      <h3>الركوع</h3>
+      <p>يركع ويطمئن ويذكر الله.</p>
+    </article>
+
+    <article class="method-step">
+      <span>05</span>
+      <h3>الرفع من الركوع</h3>
+      <p>يرفع ويطمئن قائمًا.</p>
+    </article>
+
+    <article class="method-step">
+      <span>06</span>
+      <h3>السجود</h3>
+      <p>يسجد ويطمئن في سجوده.</p>
+    </article>
+
+    <article class="method-step">
+      <span>07</span>
+      <h3>الجلوس بين السجدتين</h3>
+      <p>يجلس مطمئنًا ثم يسجد السجدة الثانية.</p>
+    </article>
+
+    <article class="method-step">
+      <span>08</span>
+      <h3>الركعة التالية</h3>
+      <p>يقوم للركعة التالية ويكرر صفة الصلاة.</p>
+    </article>
+
+    <article class="method-step">
+      <span>09</span>
+      <h3>التشهد</h3>
+      <p>يجلس للتشهد في موضعه بحسب عدد الركعات.</p>
+    </article>
+
+    <article class="method-step">
+      <span>10</span>
+      <h3>الصلاة على النبي ﷺ</h3>
+      <p>يصلي على النبي ﷺ في التشهد الأخير.</p>
+    </article>
+
+    <article class="method-step">
+      <span>11</span>
+      <h3>الدعاء</h3>
+      <p>يدعو بما ورد من الأدعية المشروعة.</p>
+    </article>
+
+    <article class="method-step">
+      <span>12</span>
+      <h3>التسليم</h3>
+      <p>يختم الصلاة بالتسليم.</p>
+    </article>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FIVE PRAYERS ================= -->
+
+<section id="salah" class="detailed-section">
+
+  <div class="section-heading">
+
+    <span>الفرائض</span>
+
+    <h2>الصلوات الخمس</h2>
+
+  </div>
+
+  <div class="prayer-times-grid">
+
+    <div class="prayer-time-card">
+      <span>الفجر</span>
+      <strong>ركعتان فرض</strong>
+    </div>
+
+    <div class="prayer-time-card">
+      <span>الظهر</span>
+      <strong>أربع ركعات فرض</strong>
+    </div>
+
+    <div class="prayer-time-card">
+      <span>العصر</span>
+      <strong>أربع ركعات فرض</strong>
+    </div>
+
+    <div class="prayer-time-card">
+      <span>المغرب</span>
+      <strong>ثلاث ركعات فرض</strong>
+    </div>
+
+    <div class="prayer-time-card">
+      <span>العشاء</span>
+      <strong>أربع ركعات فرض</strong>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= RAWATIB ================= -->
+
+<section id="rawatib" class="detailed-section">
+
+  <div class="section-heading">
+
+    <span>السنن التابعة للفرائض</span>
+
+    <h2>السنن الرواتب</h2>
+
+    <p>
+      من أشهر الرواتب المؤكدة: ركعتان قبل الفجر،
+      وأربع قبل الظهر وركعتان بعدها، وركعتان
+      بعد المغرب، وركعتان بعد العشاء.
+      وتوجد تفصيلات فقهية في العدد والرواتب غير المؤكدة.
+    </p>
+
+  </div>
+
+  <div class="rawatib-table">
+
+    <div class="rawatib-row head">
+      <div>الصلاة</div>
+      <div>قبل الفرض</div>
+      <div>بعد الفرض</div>
+    </div>
+
+    <div class="rawatib-row">
+      <div>الفجر</div>
+      <div>ركعتان</div>
+      <div>—</div>
+    </div>
+
+    <div class="rawatib-row">
+      <div>الظهر</div>
+      <div>أربع ركعات</div>
+      <div>ركعتان</div>
+    </div>
+
+    <div class="rawatib-row">
+      <div>العصر</div>
+      <div>يستحب أربع ركعات</div>
+      <div>—</div>
+    </div>
+
+    <div class="rawatib-row">
+      <div>المغرب</div>
+      <div>ركعتان</div>
+      <div>ركعتان</div>
+    </div>
+
+    <div class="rawatib-row">
+      <div>العشاء</div>
+      <div>ركعتان</div>
+      <div>ركعتان</div>
+    </div>
+
+  </div>
+
+  <div class="source-note">
+    توجد تفاصيل واختلافات فقهية في بعض السنن وعددها؛
+    لذلك سيظهر التفصيل مع المصدر في قسم الأحكام.
+  </div>
+
+</section>
+
+
+<!-- ================= NIGHT PRAYER ================= -->
+
+<section id="night" class="detailed-section">
+
+  <div class="section-heading">
+
+    <span>قيام الليل</span>
+
+    <h2>قيام الليل والتهجد</h2>
+
+  </div>
+
+  <div class="information-grid">
+
+    <div class="info-box highlight">
+      <h3>ما هو قيام الليل؟</h3>
+      <p>
+        صلاة الليل من النوافل العظيمة، ويشمل وقت الليل
+        بعد صلاة العشاء إلى طلوع الفجر.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>متى يكون أفضل؟</h3>
+      <p>
+        آخر الليل من الأوقات الفاضلة لمن يستطيع
+        القيام ويأمن أن تفوته الصلاة.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>كيف أصلي؟</h3>
+      <p>
+        صلاة الليل تكون مثنى مثنى، ثم يختم المسلم
+        بالوتر وفق الصفة المشروعة.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>الخشوع</h3>
+      <p>
+        المقصود ليس كثرة الحركة، وإنما حضور القلب
+        والتدبر والطمأنينة.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= WITR ================= -->
+
+<section id="witr" class="detailed-section">
+
+  <div class="section-heading">
+
+    <span>خاتمة صلاة الليل</span>
+
+    <h2>صلاة الوتر</h2>
+
+  </div>
+
+  <div class="information-grid">
+
+    <div class="info-box highlight">
+      <h3>وقت الوتر</h3>
+      <p>
+        يبدأ وقته بعد صلاة العشاء ويمتد إلى طلوع الفجر.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>عدد ركعاته</h3>
+      <p>
+        وردت صيغ متعددة للوتر، ومنها الوتر بركعة،
+        أو بثلاث، وغير ذلك مما ثبت في السنة.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>متى أصليه؟</h3>
+      <p>
+        من خاف ألا يقوم آخر الليل فليوتر قبل النوم،
+        ومن وثق بقيامه فالتأخير إلى آخر الليل أفضل.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>القنوت</h3>
+      <p>
+        القنوت في الوتر من المسائل التي لها تفصيل فقهي.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= DUHA ================= -->
+
+<section id="duha" class="detailed-section">
+
+  <div class="section-heading">
+
+    <span>صلاة النهار</span>
+
+    <h2>صلاة الضحى</h2>
+
+  </div>
+
+  <div class="information-grid">
+
+    <div class="info-box highlight">
+      <h3>حكمها</h3>
+      <p>
+        صلاة الضحى مستحبة، وأقلها ركعتان.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>وقتها</h3>
+      <p>
+        يبدأ وقتها بعد ارتفاع الشمس، ويمتد إلى ما
+        قبل الزوال.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>عدد ركعاتها</h3>
+      <p>
+        أقلها ركعتان، وقد وردت أحاديث في أكثر من ذلك.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= ISTIKHARAH ================= -->
+
+<section id="istikharah" class="detailed-section">
+
+  <div class="section-heading">
+
+    <span>عند التردد في أمر مباح</span>
+
+    <h2>صلاة الاستخارة</h2>
+
+  </div>
+
+  <div class="information-grid">
+
+    <div class="info-box">
+      <h3>متى أستخير؟</h3>
+      <p>
+        تكون الاستخارة في الأمور التي يجوز للمسلم
+        فعلها أو تركها، عند التردد والحاجة إلى الاختيار.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>عدد الركعات</h3>
+      <p>
+        يصلي المسلم ركعتين من غير الفريضة ثم يدعو
+        بدعاء الاستخارة الوارد.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>هل الاستخارة للواجب؟</h3>
+      <p>
+        لا تكون الاستخارة لاختيار فعل الواجب أو تركه،
+        ولا لفعل المحرم؛ لأنها ليست موضع تردد شرعي.
+      </p>
+    </div>
+
+    <div class="info-box">
+      <h3>هل يلزم رؤية شيء في المنام؟</h3>
+      <p>
+        لا ينبغي جعل الرؤيا شرطًا لصحة الاستخارة.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= OTHER NAFL ================= -->
+
+<section id="other-nafl" class="detailed-section">
+
+  <div class="section-heading">
+
+    <span>نوافل أخرى</span>
+
+    <h2>صلوات التطوع</h2>
+
+  </div>
+
+  <div class="cards-container">
+
+    <div class="feature-card">
+      <div class="card-icon">🕌</div>
+      <div class="card-content">
+        <span>نافلة</span>
+        <h3>تحية المسجد</h3>
+        <p>ركعتان عند دخول المسجد قبل الجلوس في الموضع المشروع.</p>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="card-icon">💧</div>
+      <div class="card-content">
+        <span>نافلة</span>
+        <h3>صلاة الوضوء</h3>
+        <p>ركعتان بعد الوضوء لمن أراد ذلك.</p>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="card-icon">🌧️</div>
+      <div class="card-content">
+        <span>صلاة جماعة</span>
+        <h3>صلاة الاستسقاء</h3>
+        <p>صلاة مخصوصة عند الحاجة إلى الاستسقاء.</p>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="card-icon">🌑</div>
+      <div class="card-content">
+        <span>صلاة مخصوصة</span>
+        <h3>صلاة الكسوف والخسوف</h3>
+        <p>لها صفة مخصوصة وردت بها السنة.</p>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="card-icon">🌙</div>
+      <div class="card-content">
+        <span>رمضان</span>
+        <h3>التراويح</h3>
+        <p>قيام رمضان، وهي من صلاة الليل.</p>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="card-icon">🤲</div>
+      <div class="card-content">
+        <span>توبة</span>
+        <h3>صلاة التوبة</h3>
+        <p>يصلي المسلم ركعتين عند التوبة على الصفة الواردة.</p>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="card-icon">⚰️</div>
+      <div class="card-content">
+        <span>أحكام الجنائز</span>
+        <h3>صلاة الجنازة</h3>
+        <p>لها أحكام وصفة خاصة سنشرحها في هذا القسم.</p>
+      </div>
+    </div>
+
+    <div class="feature-card">
+      <div class="card-icon">☀️</div>
+      <div class="card-content">
+        <span>نوافل</span>
+        <h3>النوافل المطلقة</h3>
+        <p>التطوع بالصلاة في الأوقات والأحوال التي تشرع فيها.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PRAYER ADHKAR ================= -->
+
+<section id="adhkar" class="detailed-section">
+
+  <div class="section-heading">
+
+    <span>الأذكار</span>
+
+    <h2>أذكار الصلاة</h2>
+
+  </div>
+
+  <div class="information-grid">
+
+    <div class="info-box">
+      <h3>ذكر الركوع</h3>
+      <p>أذكار الركوع الواردة في السنة.</p>
+    </div>
+
+    <div class="info-box">
+      <h3>ذكر الرفع من الركوع</h3>
+      <p>الأذكار الواردة عند الرفع من الركوع.</p>
+    </div>
+
+    <div class="info-box">
+      <h3>ذكر السجود</h3>
+      <p>أذكار السجود والأدعية المشروعة فيه.</p>
+    </div>
+
+    <div class="info-box">
+      <h3>بين السجدتين</h3>
+      <p>الأذكار والأدعية الواردة في هذا الموضع.</p>
+    </div>
+
+    <div class="info-box">
+      <h3>التشهد</h3>
+      <p>نصوص التشهد الثابتة في السنة.</p>
+    </div>
+
+    <div class="info-box">
+      <h3>بعد الصلاة</h3>
+      <p>الأذكار الثابتة بعد الصلوات المفروضة.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= MISTAKES ================= -->
+
+<section id="mistakes" class="detailed-section">
+
+  <div class="section-heading">
+
+    <span>انتبه</span>
+
+    <h2>الأخطاء الشائعة في الصلاة</h2>
+
+  </div>
+
+  <div class="mistakes-grid">
+
+    <div class="mistake-card">
+      <span>⚠️</span>
+      <h3>العجلة</h3>
+      <p>عدم الطمأنينة في أركان الصلاة.</p>
+    </div>
+
+    <div class="mistake-card">
+      <span>⚠️</span>
+      <h3>الركوع السريع</h3>
+      <p>الانتقال من الركوع قبل حصول الطمأنينة.</p>
+    </div>
+
+    <div class="mistake-card">
+      <span>⚠️</span>
+      <h3>السجود السريع</h3>
+      <p>عدم الطمأنينة في السجود.</p>
+    </div>
+
+    <div class="mistake-card">
+      <span>⚠️</span>
+      <h3>الالتفات</h3>
+      <p>الانشغال والالتفات بلا حاجة.</p>
+    </div>
+
+    <div class="mistake-card">
+      <span>⚠️</span>
+      <h3>مخالفة الإمام</h3>
+      <p>التقدم على الإمام أو مخالفته في أفعال الصلاة.</p>
+    </div>
+
+    <div class="mistake-card">
+      <span>⚠️</span>
+      <h3>الانشغال بالهاتف</h3>
+      <p>إدخال الملهيات إلى الصلاة وعدم المحافظة على الخشوع.</p>
+    </div>
+
+    <div class="mistake-card">
+      <span>⚠️</span>
+      <h3>ترك التعلم</h3>
+      <p>أداء الصلاة دون معرفة صفتها وأحكامها الأساسية.</p>
+    </div>
+
+    <div class="mistake-card">
+      <span>⚠️</span>
+      <h3>السهو</h3>
+      <p>هناك أحكام خاصة بسجود السهو بحسب سبب السهو وصورته.</p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= SOURCE NOTE ================= -->
+
+<section class="source-section">
+
+  <div class="section-heading">
+
+    <span>التوثيق</span>
+
+    <h2>الأحاديث والأدلة</h2>
+
+    <p>
+      عند إضافة الحديث في الموقع سيظهر نصه كاملًا،
+      ثم الراوي والمصدر ودرجة الحديث وشرح مختصر،
+      حتى يكون المحتوى موثقًا ولا ننسب إلى النبي ﷺ
+      ما لم يثبت عنه.
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- ================= FINAL DUA ================= -->
+
+<section class="page-dua">
+
+  <div class="page-dua-icon">🤲</div>
+
+  <h2>
+    اللهم أعنا على ذكرك وشكرك وحسن عبادتك
+  </h2>
+
+  <p>
+    اللهم اجعلنا من المحافظين على الصلاة،
+    وارزقنا الخشوع فيها،
+    وتقبل منا صالح الأعمال.
+  </p>
+
+</section>
 
 
 </main>
 
 
-
 <footer>
 
-  صدقة جارية عن روح المرحوم
-  المهندس عصام أحمد عبدالعزيز
+  <div class="footer-symbol">۞</div>
+
+  <h3>صدقة جارية</h3>
+
+  <p>
+    عن روح المرحوم
+    المهندس عصام أحمد عبدالعزيز
+  </p>
+
+  <div class="footer-line"></div>
+
+  <span>
+    اللهم تقبل هذا العمل واجعله نورًا ورحمةً له.
+  </span>
 
 </footer>
 
 
-</body>
+<script>
 
-</html>
+function toggleMenu() {
+
+  const menu =
+    document.getElementById("mobileMenu");
+
+  menu.classList.toggle("show");
+
+}
+
+</script>
+
+</body>
+          </html>
