@@ -17,92 +17,107 @@
       margin: 0 auto 40px;
       color: #b9c5bd;
       line-height: 2.2;
-      font-size: 17px;
+      font-size: 18px;
     }
 
     .stories-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      gap: 22px;
     }
 
     .story-card {
-      background: linear-gradient(
-        145deg,
-        #102d23,
-        #081a13
-      );
-
+      background: linear-gradient(145deg, #102d23, #081a13);
       border: 1px solid #234235;
       border-radius: 24px;
       padding: 28px 22px;
       transition: .25s;
-      cursor: pointer;
+      text-align: center;
     }
 
     .story-card:hover {
       transform: translateY(-6px);
       border-color: #d7b56d;
+      box-shadow: 0 15px 35px rgba(0,0,0,.25);
     }
 
     .story-icon {
-      font-size: 42px;
-      margin-bottom: 15px;
+      font-size: 45px;
+      margin-bottom: 12px;
     }
 
     .story-card h2 {
       color: #d7b56d;
       font-family: "Traditional Arabic", serif;
-      font-size: 27px;
-      margin: 8px 0 15px;
+      font-size: 29px;
+      margin: 8px 0 14px;
     }
 
     .story-card p {
       color: #b9c5bd;
       line-height: 2;
+      min-height: 65px;
     }
 
-    .story-box {
-      display: none;
-      background: #0d241c;
+    .story-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 11px 22px;
+      border-radius: 13px;
+      background: #d7b56d;
+      color: #081a13;
+      text-decoration: none;
+      font-weight: bold;
+      transition: .2s;
+    }
+
+    .story-btn:hover {
+      transform: scale(1.04);
+      opacity: .9;
+    }
+
+    .source-box {
+      margin-top: 40px;
+      padding: 25px;
+      border: 1px solid #234235;
+      border-radius: 22px;
+      background: rgba(16,45,35,.55);
+      text-align: center;
+    }
+
+    .source-box h2 {
+      color: #d7b56d;
+      font-family: "Traditional Arabic", serif;
+      font-size: 28px;
+    }
+
+    .source-box p {
+      color: #b9c5bd;
+      line-height: 2;
+    }
+
+    .source-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 12px 25px;
+      border-radius: 14px;
       border: 1px solid #d7b56d;
-      border-radius: 25px;
-      padding: 30px;
-      margin-top: 35px;
-      line-height: 2.3;
+      color: #d7b56d;
+      text-decoration: none;
+      transition: .2s;
     }
 
-    .story-box.active {
-      display: block;
+    .source-btn:hover {
+      background: #d7b56d;
+      color: #081a13;
     }
 
-    .story-box h2 {
+    .section-title {
+      text-align: center;
       color: #d7b56d;
       font-family: "Traditional Arabic", serif;
       font-size: 34px;
-    }
-
-    .story-box h3 {
-      color: #d7b56d;
-      margin-top: 25px;
-    }
-
-    .story-box p {
-      color: #d8dfdb;
-      font-size: 18px;
-    }
-
-    .quran-reference {
-      margin-top: 20px;
-      padding: 15px;
-      border-right: 3px solid #d7b56d;
-      color: #b9c5bd;
-    }
-
-    .warning {
-      color: #d7b56d;
-      font-size: 14px;
-      margin-top: 20px;
+      margin: 50px 0 25px;
     }
 
   </style>
@@ -122,15 +137,10 @@
   <nav>
 
     <a href="index.html">الرئيسية</a>
-
     <a href="quran.html">القرآن</a>
-
     <a href="hadith.html">الأحاديث</a>
-
     <a href="adhkar.html">الأذكار</a>
-
     <a href="quran-tafsir.html">التفسير</a>
-
     <a href="quran-stories.html">قصص القرآن</a>
 
   </nav>
@@ -149,185 +159,679 @@
 
   <p class="stories-intro">
 
-    قصص ورد ذكرها في القرآن الكريم،
-    للعبرة والتدبر والاستفادة.
-    سنحرص في هذا القسم على التمييز بين
-    ما ثبت في القرآن الكريم وما ورد في
-    كتب التفسير والروايات.
+    اقرأ قصص الأنبياء والمرسلين كما وردت في القرآن الكريم
+    وما جاء في كتب التفسير والسيرة المعتبرة.
+    اضغط على «اقرأ القصة كاملة» للانتقال إلى المصدر.
 
   </p>
+
+
+
+  <h2 class="section-title">
+    قصص الأنبياء
+  </h2>
 
 
 
   <div class="stories-grid">
 
 
-    <div class="story-card"
-         onclick="showStory('adam')">
+    <!-- آدم -->
 
-      <div class="story-icon">
-        🌿
-      </div>
+    <div class="story-card">
 
-      <h2>
-        آدم عليه السلام
-      </h2>
+      <div class="story-icon">🌿</div>
+
+      <h2>آدم عليه السلام</h2>
 
       <p>
-        بداية خلق الإنسان وقصة آدم
-        عليه السلام وإبليس.
+        خلق آدم عليه السلام، وسجود الملائكة،
+        ووسوسة إبليس والتوبة.
       </p>
+
+      <a
+        class="story-btn"
+        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
+        target="_blank">
+        اقرأ القصة كاملة
+      </a>
 
     </div>
 
 
 
-    <div class="story-card"
-         onclick="showStory('noah')">
+    <!-- نوح -->
 
-      <div class="story-icon">
-        🚢
-      </div>
+    <div class="story-card">
 
-      <h2>
-        نوح عليه السلام
-      </h2>
+      <div class="story-icon">🚢</div>
+
+      <h2>نوح عليه السلام</h2>
 
       <p>
-        دعوة نوح لقومه وقصة السفينة
-        والطوفان.
+        دعوة نوح لقومه، والسفينة،
+        والطوفان ونجاة المؤمنين.
       </p>
+
+      <a
+        class="story-btn"
+        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
+        target="_blank">
+        اقرأ القصة كاملة
+      </a>
 
     </div>
 
 
 
-    <div class="story-card"
-         onclick="showStory('ibrahim')">
+    <!-- هود -->
 
-      <div class="story-icon">
-        🕋
-      </div>
+    <div class="story-card">
 
-      <h2>
-        إبراهيم عليه السلام
-      </h2>
+      <div class="story-icon">🌪️</div>
+
+      <h2>هود عليه السلام</h2>
 
       <p>
-        قصة التوحيد وتحطيم الأصنام
-        وابتلاء إبراهيم عليه السلام.
+        دعوة هود لقوم عاد،
+        وتكذيبهم له وهلاكهم بالريح.
       </p>
+
+      <a
+        class="story-btn"
+        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
+        target="_blank">
+        اقرأ القصة كاملة
+      </a>
 
     </div>
 
 
 
-    <div class="story-card"
-         onclick="showStory('yusuf')">
+    <!-- صالح -->
 
-      <div class="story-icon">
-        🌙
-      </div>
+    <div class="story-card">
 
-      <h2>
-        يوسف عليه السلام
-      </h2>
+      <div class="story-icon">🐪</div>
+
+      <h2>صالح عليه السلام</h2>
 
       <p>
-        قصة يوسف من الرؤيا إلى التمكين
-        والعفو عن إخوته.
+        قوم ثمود والناقة،
+        والمعجزة والتكذيب والعذاب.
       </p>
+
+      <a
+        class="story-btn"
+        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
+        target="_blank">
+        اقرأ القصة كاملة
+      </a>
 
     </div>
 
 
 
-    <div class="story-card"
-         onclick="showStory('musa')">
+    <!-- إبراهيم -->
 
-      <div class="story-icon">
-        🌊
-      </div>
+    <div class="story-card">
 
-      <h2>
-        موسى عليه السلام
-      </h2>
+      <div class="story-icon">🕋</div>
+
+      <h2>إبراهيم عليه السلام</h2>
 
       <p>
-        قصة موسى وفرعون وخروج بني إسرائيل
-        وشق البحر.
+        التوحيد، الأصنام، النار،
+        الهجرة، والابتلاء وبناء الكعبة.
       </p>
+
+      <a
+        class="story-btn"
+        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
+        target="_blank">
+        اقرأ القصة كاملة
+      </a>
 
     </div>
 
 
 
-    <div class="story-card"
-         onclick="showStory('yunus')">
+    <!-- لوط -->
 
-      <div class="story-icon">
-        🐋
-      </div>
+    <div class="story-card">
 
-      <h2>
-        يونس عليه السلام
-      </h2>
+      <div class="story-icon">🏠</div>
+
+      <h2>لوط عليه السلام</h2>
 
       <p>
-        قصة يونس عليه السلام ودعاؤه
-        في الظلمات.
+        دعوة قوم لوط، وإنكار الفاحشة،
+        ونهاية القوم.
       </p>
+
+      <a
+        class="story-btn"
+        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
+        target="_blank">
+        اقرأ القصة كاملة
+      </a>
 
     </div>
 
 
 
-    <div class="story-card"
-         onclick="showStory('ayyub')">
+    <!-- إسماعيل -->
 
-      <div class="story-icon">
-        🤲
-      </div>
+    <div class="story-card">
 
-      <h2>
-        أيوب عليه السلام
-      </h2>
+      <div class="story-icon">🕋</div>
+
+      <h2>إسماعيل عليه السلام</h2>
 
       <p>
-        الصبر على البلاء واللجوء
-        إلى الله تعالى.
+        إسماعيل ابن إبراهيم،
+        والابتلاء وبناء البيت الحرام.
       </p>
+
+      <a
+        class="story-btn"
+        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
+        target="_blank">
+        اقرأ القصة كاملة
+      </a>
 
     </div>
 
 
 
-    <div class="story-card"
-         onclick="showStory('mariam')">
+    <!-- إسحاق -->
 
-      <div class="story-icon">
-        🌸
-      </div>
+    <div class="story-card">
 
-      <h2>
-        مريم عليها السلام
-      </h2>
+      <div class="story-icon">✨</div>
+
+      <h2>إسحاق عليه السلام</h2>
 
       <p>
-        قصة مريم عليها السلام
-        وميلاد عيسى عليه السلام.
+        بشارة إبراهيم وسارة بإسحاق
+        ورسالته وذريته.
       </p>
+
+      <a
+        class="story-btn"
+        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
+        target="_blank">
+        اقرأ القصة كاملة
+      </a>
 
     </div>
 
+
+
+    <!-- يعقوب -->
+
+    <div class="story-card">
+
+      <div class="story-icon">🤲</div>
+
+      <h2>يعقوب عليه السلام</h2>
+
+      <p>
+        يعقوب والد يوسف،
+        والصبر على فراق ابنه.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
+        target="_blank">
+        اقرأ القصة كاملة
+      </a>
+
+    </div>
+
+
+
+    <!-- يوسف -->
+
+    <div class="story-card">
+
+      <div class="story-icon">🌙</div>
+
+      <h2>يوسف عليه السلام</h2>
+
+      <p>
+        الرؤيا، وإخوته، والجب،
+        والسجن والتمكين والعفو.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
+        target="_blank">
+        اقرأ القصة كاملة
+      </a>
+
+    </div>
+
+
+
+    <!-- أيوب -->
+
+    <div class="story-card">
+
+      <div class="story-icon">🤲</div>
+
+      <h2>أيوب عليه السلام</h2>
+
+      <p>
+        البلاء والصبر والدعاء
+        وكشف الضر.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
+        target="_blank">
+        اقرأ القصة كاملة
+      </a>
+
+    </div>
+
+
+
+    <!-- شعيب -->
+
+    <div class="story-card">
+
+      <div class="story-icon">⚖️</div>
+
+      <h2>شعيب عليه السلام</h2>
+
+      <p>
+        دعوة مدين إلى التوحيد
+        والعدل في الكيل والميزان.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
+        target="_blank">
+        اقرأ القصة كاملة
+      </a>
+
+    </div>
+
+
+
+    <!-- موسى -->
+
+    <div class="story-card">
+
+      <div class="story-icon">🌊</div>
+
+      <h2>موسى عليه السلام</h2>
+
+      <p>
+        مولده، وفرعون، والرسالة،
+        والسحرة، وشق البحر.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الثاني"
+        target="_blank">
+        اقرأ القصة كاملة
+      </a>
+
+    </div>
+
+
+
+    <!-- داود -->
+
+    <div class="story-card">
+
+      <div class="story-icon">👑</div>
+
+      <h2>داود عليه السلام</h2>
+
+      <p>
+        الملك والنبوة،
+        وقتال جالوت والحكمة.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الثاني"
+        target="_blank">
+        اقرأ القصة كاملة
+      </a>
+
+    </div>
+
+
+
+    <!-- سليمان -->
+
+    <div class="story-card">
+
+      <div class="story-icon">👑</div>
+
+      <h2>سليمان عليه السلام</h2>
+
+      <p>
+        الملك، والجن، والريح،
+        وقصة الهدهد وملكة سبأ.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الثاني"
+        target="_blank">
+        اقرأ القصة كاملة
+      </a>
+
+    </div>
+
+
+
+    <!-- إلياس -->
+
+    <div class="story-card">
+
+      <div class="story-icon">🌿</div>
+
+      <h2>إلياس عليه السلام</h2>
+
+      <p>
+        دعوة قومه إلى عبادة الله
+        وترك عبادة بعل.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الثاني"
+        target="_blank">
+        اقرأ القصة كاملة
+      </a>
+
+    </div>
+
+
+
+    <!-- اليسع -->
+
+    <div class="story-card">
+
+      <div class="story-icon">🌿</div>
+
+      <h2>اليسع عليه السلام</h2>
+
+      <p>
+        نبي من أنبياء بني إسرائيل
+        ورد ذكره في القرآن.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الثاني"
+        target="_blank">
+        اقرأ القصة كاملة
+      </a>
+
+    </div>
+
+
+
+    <!-- يونس -->
+
+    <div class="story-card">
+
+      <div class="story-icon">🐋</div>
+
+      <h2>يونس عليه السلام</h2>
+
+      <p>
+        الحوت، والظلمات،
+        والدعاء والنجاة.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الثاني"
+        target="_blank">
+        اقرأ القصة كاملة
+      </a>
+
+    </div>
+
+
+
+    <!-- زكريا -->
+
+    <div class="story-card">
+
+      <div class="story-icon">🤲</div>
+
+      <h2>زكريا عليه السلام</h2>
+
+      <p>
+        الدعاء بالذرية،
+        والبشارة بيحيى عليه السلام.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الثاني"
+        target="_blank">
+        اقرأ القصة كاملة
+      </a>
+
+    </div>
+
+
+
+    <!-- يحيى -->
+
+    <div class="story-card">
+
+      <div class="story-icon">🌿</div>
+
+      <h2>يحيى عليه السلام</h2>
+
+      <p>
+        النبوة والحكمة والزهد
+        والبر والتقوى.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الثاني"
+        target="_blank">
+        اقرأ القصة كاملة
+      </a>
+
+    </div>
+
+
+
+    <!-- عيسى -->
+
+    <div class="story-card">
+
+      <div class="story-icon">🌸</div>
+
+      <h2>عيسى عليه السلام</h2>
+
+      <p>
+        مريم، والميلاد المعجز،
+        والرسالة والمعجزات.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الثاني"
+        target="_blank">
+        اقرأ القصة كاملة
+      </a>
+
+    </div>
+
+
+
+    <!-- محمد -->
+
+    <div class="story-card">
+
+      <div class="story-icon">🕌</div>
+
+      <h2>محمد ﷺ</h2>
+
+      <p>
+        السيرة النبوية، والوحي،
+        والدعوة والهجرة والغزوات.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://islamhouse.com/ar/books/2430"
+        target="_blank">
+        اقرأ المصدر
+      </a>
+
+    </div>
 
 
   </div>
 
 
 
-  <div id="storyBox"
-       class="story-box">
+  <h2 class="section-title">
+    📖 قصص أخرى وردت في القرآن
+  </h2>
+
+
+
+  <div class="stories-grid">
+
+
+    <div class="story-card">
+
+      <div class="story-icon">🕳️</div>
+
+      <h2>أصحاب الكهف</h2>
+
+      <p>
+        فتية آمنوا بربهم فحفظهم الله
+        وألقى عليهم النوم سنين طويلة.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://quran.com/18"
+        target="_blank">
+        اقرأ القصة في القرآن
+      </a>
+
+    </div>
+
+
+
+    <div class="story-card">
+
+      <div class="story-icon">🐘</div>
+
+      <h2>أصحاب الفيل</h2>
+
+      <p>
+        قصة أصحاب الفيل ومحاولتهم
+        الاعتداء على البيت الحرام.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://quran.com/105"
+        target="_blank">
+        اقرأ القصة في القرآن
+      </a>
+
+    </div>
+
+
+
+    <div class="story-card">
+
+      <div class="story-icon">💰</div>
+
+      <h2>قارون</h2>
+
+      <p>
+        قصة قارون وما آتاه الله
+        من الأموال ثم عاقبته.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://quran.com/28"
+        target="_blank">
+        اقرأ القصة في القرآن
+      </a>
+
+    </div>
+
+
+
+    <div class="story-card">
+
+      <div class="story-icon">⚔️</div>
+
+      <h2>طالوت وجالوت</h2>
+
+      <p>
+        قصة بني إسرائيل وطالوت
+        وجالوت وداود عليه السلام.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://quran.com/2/246-252"
+        target="_blank">
+        اقرأ القصة في القرآن
+      </a>
+
+    </div>
+
+
+  </div>
+
+
+
+  <div class="source-box">
+
+    <h2>
+      📚 المصدر الرئيسي لقصص الأنبياء
+    </h2>
+
+    <p>
+
+      يمكن قراءة كتاب
+      <strong>قصص الأنبياء للإمام ابن كثير</strong>
+      كاملًا من المصدر الخارجي.
+
+      الكتاب يجمع الآيات المتعلقة بقصص الأنبياء
+      ويربط بينها مع التفسير والأحاديث والآثار.
+
+    </p>
+
+    <a
+      class="source-btn"
+      href="https://islamhouse.com/ar/books/2430"
+      target="_blank">
+
+      📖 فتح كتاب قصص الأنبياء
+
+    </a>
 
   </div>
 
@@ -342,282 +846,6 @@
   المهندس عصام أحمد عبدالعزيز
 
 </footer>
-
-
-
-<script>
-
-
-const stories = {
-
-
-  adam: {
-
-    title: "آدم عليه السلام",
-
-    text: `
-      <h3>بداية الخلق</h3>
-
-      <p>
-        أخبرنا القرآن الكريم أن الله تعالى
-        خلق آدم عليه السلام، وأسجد له
-        الملائكة تكريمًا له، إلا إبليس
-        أبى واستكبر.
-      </p>
-
-      <p>
-        ثم أسكن الله آدم وزوجه الجنة،
-        ونهاهما عن الاقتراب من شجرة معينة،
-        فوسوس لهما الشيطان، ثم تابا إلى الله
-        فتاب عليهما.
-      </p>
-
-      <div class="quran-reference">
-        من المواضع التي تناولت القصة:
-        سورة البقرة، وسورة الأعراف،
-        وسورة طه، وسورة ص.
-      </div>
-    `
-
-  },
-
-
-  noah: {
-
-    title: "نوح عليه السلام",
-
-    text: `
-      <h3>دعوة نوح عليه السلام</h3>
-
-      <p>
-        أرسل الله نوحًا عليه السلام إلى قومه
-        ليدعوهم إلى عبادة الله وحده وترك
-        الشرك.
-      </p>
-
-      <p>
-        لبث نوح عليه السلام في قومه يدعوهم
-        إلى الله، ثم أمره الله بصنع السفينة.
-        وجاء الطوفان فنجّى الله نوحًا
-        ومن آمن معه.
-      </p>
-
-      <div class="quran-reference">
-        وردت تفاصيل القصة في سورة هود
-        وسورة المؤمنون وسورة القمر
-        وسورة نوح وغيرها.
-      </div>
-    `
-
-  },
-
-
-  ibrahim: {
-
-    title: "إبراهيم عليه السلام",
-
-    text: `
-      <h3>دعوة إبراهيم إلى التوحيد</h3>
-
-      <p>
-        كان إبراهيم عليه السلام يدعو قومه
-        إلى توحيد الله وترك عبادة الأصنام.
-      </p>
-
-      <p>
-        وأظهر بطلان عبادة ما لا ينفع ولا يضر،
-        وابتلاه الله بابتلاءات عظيمة فكان
-        من الصابرين.
-      </p>
-
-      <div class="quran-reference">
-        من السور التي وردت فيها قصته:
-        البقرة، والأنعام، وهود، وإبراهيم،
-        والحجر، والصافات.
-      </div>
-    `
-
-  },
-
-
-  yusuf: {
-
-    title: "يوسف عليه السلام",
-
-    text: `
-      <h3>قصة يوسف عليه السلام</h3>
-
-      <p>
-        رأى يوسف عليه السلام في صغره رؤيا،
-        ثم حسده إخوته وألقوه في الجب.
-      </p>
-
-      <p>
-        انتقل يوسف إلى مصر، ومر بابتلاءات
-        كثيرة، ثم مكّنه الله في الأرض.
-      </p>
-
-      <p>
-        وفي النهاية اجتمع يوسف بأبيه وإخوته،
-        وعفا عن إخوته.
-      </p>
-
-      <div class="quran-reference">
-        قصة يوسف وردت كاملة بصورة متتابعة
-        في سورة يوسف.
-      </div>
-    `
-
-  },
-
-
-  musa: {
-
-    title: "موسى عليه السلام",
-
-    text: `
-      <h3>موسى وفرعون</h3>
-
-      <p>
-        أرسل الله موسى عليه السلام إلى فرعون
-        وقومه، وأيده بالآيات.
-      </p>
-
-      <p>
-        ثم خرج موسى ببني إسرائيل، وأمره الله
-        أن يضرب البحر بعصاه، فانفلق البحر
-        ونجا موسى ومن معه.
-      </p>
-
-      <div class="quran-reference">
-        وردت قصة موسى عليه السلام في سور
-        كثيرة، منها القصص وطه والأعراف.
-      </div>
-    `
-
-  },
-
-
-  yunus: {
-
-    title: "يونس عليه السلام",
-
-    text: `
-      <h3>يونس عليه السلام</h3>
-
-      <p>
-        دعا يونس عليه السلام قومه، ثم ذهب
-        مغاضبًا، فكان من أمره ما قصه القرآن.
-      </p>
-
-      <p>
-        دعا ربه وهو في الظلمات:
-        لا إله إلا أنت سبحانك إني كنت من الظالمين.
-      </p>
-
-      <div class="quran-reference">
-        ورد ذكر قصة يونس عليه السلام في
-        سورة الأنبياء والصافات والقلم.
-      </div>
-    `
-
-  },
-
-
-  ayyub: {
-
-    title: "أيوب عليه السلام",
-
-    text: `
-      <h3>الصبر والابتلاء</h3>
-
-      <p>
-        ابتلى الله أيوب عليه السلام ابتلاءً
-        شديدًا، فصبر ولجأ إلى ربه.
-      </p>
-
-      <p>
-        فلما دعا ربه كشف الله عنه الضر
-        وآتاه أهله ومثلهم معهم رحمةً من عنده.
-      </p>
-
-      <div class="quran-reference">
-        وردت قصته في سورة الأنبياء
-        وسورة ص.
-      </div>
-    `
-
-  },
-
-
-  mariam: {
-
-    title: "مريم عليها السلام",
-
-    text: `
-      <h3>مريم عليها السلام</h3>
-
-      <p>
-        اصطفى الله مريم عليها السلام وطهرها،
-        وبشرها بعيسى عليه السلام.
-      </p>
-
-      <p>
-        وتناول القرآن الكريم قصة ولادة
-        عيسى عليه السلام وما جرى لمريم
-        عليها السلام.
-      </p>
-
-      <div class="quran-reference">
-        من أهم المواضع:
-        سورة آل عمران وسورة مريم.
-      </div>
-    `
-
-  }
-
-
-};
-
-
-
-function showStory(id) {
-
-  const story =
-    stories[id];
-
-  const box =
-    document.getElementById("storyBox");
-
-
-  box.innerHTML = `
-
-    <h2>
-      ${story.title}
-    </h2>
-
-    ${story.text}
-
-    <div class="warning">
-      ملاحظة: هذه الصفحة تعرض خلاصة مختصرة،
-      وسيتم لاحقًا إضافة الآيات المرتبطة
-      بكل قصة ومراجعها بالتفصيل.
-    </div>
-
-  `;
-
-
-  box.classList.add("active");
-
-
-  box.scrollIntoView({
-    behavior: "smooth"
-  });
-
-}
-
-
-</script>
 
 
 </body>
