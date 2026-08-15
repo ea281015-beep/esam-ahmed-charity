@@ -1,770 +1,1420 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
-<head>
+<!DOCTYPE html><html lang="ar" dir="rtl"><head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>قصص القرآن والأنبياء | صدقة جارية</title>
-
-  <link rel="stylesheet" href="style.css">
-
-  <style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>قصص القرآن | صدقة جارية</title>  <link rel="stylesheet" href="style.css">  <style>
     .stories-intro {
-      max-width: 900px;
-      margin: 0 auto 45px;
       text-align: center;
+      max-width: 900px;
+      margin: 0 auto 40px;
       color: #b9c5bd;
       line-height: 2.2;
-      font-size: 18px;
-    }
-
-    .stories-section-title {
-      text-align: center;
-      color: #d7b56d;
-      font-family: "Traditional Arabic", serif;
-      font-size: 36px;
-      margin: 55px 0 30px;
+      font-size: 17px;
     }
 
     .stories-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
     }
 
     .story-card {
       background: linear-gradient(145deg, #102d23, #081a13);
-      border: 1px solid #29483a;
-      border-radius: 25px;
-      padding: 26px 21px;
-      transition: .25s ease;
+      border: 1px solid #234235;
+      border-radius: 24px;
+      padding: 28px 22px;
+      transition: .25s;
+      cursor: pointer;
     }
 
     .story-card:hover {
       transform: translateY(-6px);
       border-color: #d7b56d;
-      box-shadow: 0 15px 35px rgba(0,0,0,.25);
     }
 
     .story-icon {
-      text-align: center;
-      font-size: 45px;
-      margin-bottom: 10px;
+      font-size: 42px;
+      margin-bottom: 15px;
     }
 
     .story-card h2 {
       color: #d7b56d;
       font-family: "Traditional Arabic", serif;
-      font-size: 28px;
-      text-align: center;
-      margin: 8px 0 14px;
+      font-size: 27px;
+      margin: 8px 0 15px;
     }
 
     .story-card p {
-      color: #c4cec8;
+      color: #b9c5bd;
       line-height: 2;
-      text-align: center;
-      min-height: 80px;
     }
 
-    .story-button {
+    .story-box {
+      display: none;
+      background: #0d241c;
+      border: 1px solid #d7b56d;
+      border-radius: 25px;
+      padding: 30px;
+      margin-top: 35px;
+      line-height: 2.4;
+      animation: fadeIn .3s ease;
+    }
+
+    .story-box.active {
       display: block;
-      margin-top: 20px;
-      padding: 14px 12px;
-      border-radius: 15px;
-      background: linear-gradient(135deg, #d7b56d, #b99750);
+    }
+
+    .story-box h2 {
+      color: #d7b56d;
+      font-family: "Traditional Arabic", serif;
+      font-size: 36px;
+      margin-top: 0;
+    }
+
+    .story-box h3 {
+      color: #d7b56d;
+      margin-top: 28px;
+    }
+
+    .story-box p {
+      color: #d8dfdb;
+      font-size: 18px;
+      line-height: 2.4;
+    }
+
+    .quran-reference {
+      margin-top: 25px;
+      padding: 18px;
+      border-right: 3px solid #d7b56d;
+      color: #b9c5bd;
+      background: rgba(255,255,255,.02);
+      border-radius: 10px;
+    }
+
+    .close-story {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 10px 22px;
+      border: 1px solid #d7b56d;
+      border-radius: 12px;
+      color: #d7b56d;
+      cursor: pointer;
+      background: transparent;
+      font-family: inherit;
+    }
+
+    .close-story:hover {
+      background: #d7b56d;
       color: #081a13;
-      text-align: center;
-      text-decoration: none;
-      font-weight: bold;
-      transition: .2s ease;
     }
 
-    .story-button:hover {
-      transform: scale(1.03);
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
-
-    .source-note {
-      text-align: center;
-      color: #8f9e96;
-      line-height: 2;
-      margin: 50px auto 20px;
-    }
-  </style>
-</head>
-
-<body>
-
-<header>
-
-  <div class="logo">
+  </style></head><body><header>  <div class="logo">
     صدقة جارية
-  </div>
-
-  <nav>
+  </div>  <nav>
     <a href="index.html">الرئيسية</a>
     <a href="quran.html">القرآن</a>
     <a href="hadith.html">الأحاديث</a>
     <a href="adhkar.html">الأذكار</a>
     <a href="quran-tafsir.html">التفسير</a>
     <a href="quran-stories.html">قصص القرآن</a>
-  </nav>
-
-</header>
-
-
-<main class="container">
-
-  <h1 class="page-title">
-    🕊️ قصص القرآن والأنبياء
-  </h1>
-
-  <p class="stories-intro">
-    مجموعة كبيرة من قصص الأنبياء والقصص القرآنية.
-    اضغط على أي قصة لفتح صفحة القصة كاملة من موقع الكلم الطيب.
-  </p>
-
-
-  <!-- ===================================== -->
-  <!-- قصص الأنبياء -->
-  <!-- ===================================== -->
-
-  <h2 class="stories-section-title">
-    🕊️ قصص الأنبياء عليهم السلام
-  </h2>
-
-  <div class="stories-grid">
-
-
-    <div class="story-card">
-      <div class="story-icon">🌿</div>
-      <h2>آدم عليه السلام</h2>
-      <p>قصة خلق آدم عليه السلام وإبليس والجنة والهبوط إلى الأرض.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10380"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">☁️</div>
-      <h2>إدريس عليه السلام</h2>
-      <p>قصة نبي الله إدريس عليه السلام وما ورد عنه في القرآن.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10379"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🚢</div>
-      <h2>نوح عليه السلام</h2>
-      <p>دعوة نوح لقومه والسفينة والطوفان وإنجاء المؤمنين.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10397"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🌪️</div>
-      <h2>هود عليه السلام</h2>
-      <p>قصة هود وقوم عاد ودعوته إلى عبادة الله وحده.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10398"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🐪</div>
-      <h2>صالح عليه السلام</h2>
-      <p>قصة صالح وثمود والناقة والعاقبة التي حلّت بالمكذبين.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10399"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🔥</div>
-      <h2>إبراهيم عليه السلام</h2>
-      <p>قصة إبراهيم ودعوته للتوحيد وابتلاءاته وهجرته.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10400"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🏘️</div>
-      <h2>لوط عليه السلام</h2>
-      <p>قصة لوط وقومه وإنجاء الله له وأهله.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10377"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🕋</div>
-      <h2>إسماعيل عليه السلام</h2>
-      <p>قصة إسماعيل وهاجر وبناء الكعبة والابتلاء بالذبح.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10381"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🌙</div>
-      <h2>إسحاق عليه السلام</h2>
-      <p>قصة إسحاق عليه السلام وبشارة الملائكة بمولده.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10382"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🤲</div>
-      <h2>يعقوب عليه السلام</h2>
-      <p>قصة يعقوب وصبره وبشارته وموقفه مع أبنائه.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10383"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🌙</div>
-      <h2>يوسف عليه السلام</h2>
-      <p>الرؤيا والجب ومصر والسجن والتمكين والعفو عن الإخوة.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10401"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🤲</div>
-      <h2>أيوب عليه السلام</h2>
-      <p>قصة الصبر على البلاء واللجوء إلى الله تعالى.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10402"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">⚖️</div>
-      <h2>ذو الكفل</h2>
-      <p>ما ورد عن ذو الكفل وقصة الصبر والعبادة.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10403"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">⚖️</div>
-      <h2>شعيب عليه السلام</h2>
-      <p>دعوة شعيب لأهل مدين والنهي عن الغش ونقص المكيال والميزان.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10387"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🌊</div>
-      <h2>موسى عليه السلام</h2>
-      <p>قصة موسى وفرعون وبني إسرائيل والخروج وشق البحر.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10389"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🕌</div>
-      <h2>هارون عليه السلام</h2>
-      <p>قصة هارون أخي موسى ودعوته مع أخيه.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10390"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">⚔️</div>
-      <h2>يوشع عليه السلام</h2>
-      <p>قصة يوشع بن نون وخروجه ببني إسرائيل إلى الأرض المقدسة.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10391"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">📜</div>
-      <h2>أنبياء أهل القرية</h2>
-      <p>قصة الرسل الثلاثة وأهل القرية كما وردت في سورة يس.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10388"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🎵</div>
-      <h2>داوود عليه السلام</h2>
-      <p>قصة داوود والملك والزبور والعبادة.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10392"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">👑</div>
-      <h2>سليمان عليه السلام</h2>
-      <p>قصة سليمان والملك والجن والطير والهدهد وملكة سبأ.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10384"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🔥</div>
-      <h2>إلياس عليه السلام</h2>
-      <p>قصة إلياس ودعوته بني إسرائيل إلى عبادة الله.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10385"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🌿</div>
-      <h2>اليسع عليه السلام</h2>
-      <p>قصة اليسع ودعوته في بني إسرائيل.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10404"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🐋</div>
-      <h2>يونس عليه السلام</h2>
-      <p>قصة يونس والحوت ودعاؤه في الظلمات.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10386"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">📖</div>
-      <h2>عزير عليه السلام</h2>
-      <p>قصة عزير والقرية وإحياء الله له بعد مائة عام.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10393"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🤲</div>
-      <h2>زكريا عليه السلام</h2>
-      <p>قصة زكريا ودعائه وبشارة يحيى عليه السلام.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10394"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🌿</div>
-      <h2>يحيى عليه السلام</h2>
-      <p>قصة يحيى عليه السلام وولادته وصفاته.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10395"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🕋</div>
-      <h2>محمد ﷺ</h2>
-      <p>سيرة خاتم الأنبياء والمرسلين محمد صلى الله عليه وسلم.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10396"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-  </div>
-
-
-  <!-- ===================================== -->
-  <!-- القصص القرآنية -->
-  <!-- ===================================== -->
-
-  <h2 class="stories-section-title">
-    📖 القصص الواردة في القرآن الكريم
-  </h2>
-
-
-  <div class="stories-grid">
-
-
-    <div class="story-card">
-      <div class="story-icon">🔥</div>
-      <h2>أصحاب الأخدود</h2>
-      <p>قصة أصحاب الأخدود وثبات المؤمنين على الإيمان.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10303"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🌴</div>
-      <h2>أصحاب الجنة</h2>
-      <p>قصة أصحاب البستان والعبرة من منع حق المساكين.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10304"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🌳</div>
-      <h2>أصحاب الرس</h2>
-      <p>قصة أصحاب الرس وما ورد عنهم في القرآن.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10305"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🐟</div>
-      <h2>أصحاب السبت</h2>
-      <p>قصة الابتلاء بأمر السبت ومخالفة أمر الله.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10306"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🐘</div>
-      <h2>أصحاب الفيل</h2>
-      <p>قصة أبرهة وجيش الفيل وحفظ الله لبيته الحرام.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10307"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🌊</div>
-      <h2>الخضر</h2>
-      <p>قصة موسى مع العبد الصالح في سورة الكهف.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10359"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🐄</div>
-      <h2>السامري والعجل</h2>
-      <p>قصة فتنة بني إسرائيل بالعجل أثناء غياب موسى.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10360"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🐄</div>
-      <h2>بقرة بني إسرائيل</h2>
-      <p>قصة البقرة والقتيل كما وردت في سورة البقرة.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/14223"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🦴</div>
-      <h2>حزقيل</h2>
-      <p>قصة القوم الذين خرجوا من ديارهم حذر الموت.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/14106"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🫏</div>
-      <h2>حمار العُزير</h2>
-      <p>قصة إحياء الحمار بعد موت صاحبه مائة عام.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/14101"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🌴</div>
-      <h2>سبأ</h2>
-      <p>قصة سبأ والنعم وسيل العرم وتبدل الحال.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10364"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🔥</div>
-      <h2>إبراهيم والنمرود</h2>
-      <p>مناظرة إبراهيم عليه السلام مع الملك الذي ادعى الربوبية.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10365"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">⚔️</div>
-      <h2>طالوت وجالوت</h2>
-      <p>قصة طالوت وجالوت وداود وانتصار المؤمنين.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10366"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🩸</div>
-      <h2>قابيل وهابيل</h2>
-      <p>قصة ابني آدم وأول جريمة قتل في الأرض.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10367"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">💰</div>
-      <h2>قارون</h2>
-      <p>قصة قارون وفتنة المال والكبر وعاقبة البغي.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10368"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🍞</div>
-      <h2>مائدة عيسى عليه السلام</h2>
-      <p>قصة المائدة التي طلبها الحواريون من عيسى عليه السلام.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10369"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">✨</div>
-      <h2>هاروت وماروت</h2>
-      <p>القصة الواردة في سورة البقرة عن الملكين والسحر.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10370"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">📖</div>
-      <h2>لقمان</h2>
-      <p>قصة لقمان وحكمته ووصاياه لابنه.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10371"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🛡️</div>
-      <h2>ذو القرنين</h2>
-      <p>رحلات ذو القرنين وبناء السد بين القوم ويأجوج ومأجوج.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10372"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🕳️</div>
-      <h2>أصحاب الكهف</h2>
-      <p>قصة الفتية المؤمنين الذين أووا إلى الكهف.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10373"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🔥</div>
-      <h2>إبليس</h2>
-      <p>قصة إبليس ورفضه السجود لآدم وعداوته للإنسان.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10374"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🌳</div>
-      <h2>المؤمن والكافر</h2>
-      <p>قصة صاحب الجنتين والغرور بالمال والجاه.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/10375"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-    <div class="story-card">
-      <div class="story-icon">🌙</div>
-      <h2>امرأة العزيز ويوسف</h2>
-      <p>قصة يوسف مع امرأة العزيز وما جرى من الابتلاء.</p>
-      <a class="story-button"
-         href="https://kalemtayeb.com/safahat/item/14098"
-         target="_blank" rel="noopener noreferrer">
-        📖 اقرأ القصة كاملة
-      </a>
-    </div>
-
-
-  </div>
-
-
-  <p class="source-note">
-    📚 جميع الروابط في هذا القسم توجه إلى صفحات القصص على موقع الكلم الطيب.
-  </p>
-
-</main>
-
-
-<footer>
+  </nav></header><main class="container">  <h1 class="page-title">
+    🕊️ قصص القرآن الكريم
+  </h1>  <p class="stories-intro">
+    قصص الأنبياء والقصص التي ورد ذكرها في القرآن الكريم،
+    للعبرة والتدبر والاستفادة، مع الاقتصار على المعاني
+    الثابتة وعدم إضافة روايات غير موثوقة.
+  </p>  <div class="stories-grid"><div class="story-card" onclick="showStory('adam')">
+  <div class="story-icon">🌿</div>
+  <h2>آدم عليه السلام</h2>
+  <p>بداية خلق الإنسان وقصة آدم وإبليس والتوبة.</p>
+</div>
+
+<div class="story-card" onclick="showStory('idris')">
+  <div class="story-icon">📖</div>
+  <h2>إدريس عليه السلام</h2>
+  <p>نبي الله إدريس الذي أثنى الله عليه بالصدق والصلاح.</p>
+</div>
+
+<div class="story-card" onclick="showStory('noah')">
+  <div class="story-icon">🚢</div>
+  <h2>نوح عليه السلام</h2>
+  <p>الدعوة والتكذيب والسفينة والطوفان.</p>
+</div>
+
+<div class="story-card" onclick="showStory('hud')">
+  <div class="story-icon">🏜️</div>
+  <h2>هود عليه السلام</h2>
+  <p>قصة هود مع قوم عاد وعاقبة الكبر.</p>
+</div>
+
+<div class="story-card" onclick="showStory('saleh')">
+  <div class="story-icon">🐪</div>
+  <h2>صالح عليه السلام</h2>
+  <p>قوم ثمود وناقة الله وآية العذاب.</p>
+</div>
+
+<div class="story-card" onclick="showStory('ibrahim')">
+  <div class="story-icon">🕋</div>
+  <h2>إبراهيم عليه السلام</h2>
+  <p>التوحيد والأصنام والنار والابتلاء وبناء الكعبة.</p>
+</div>
+
+<div class="story-card" onclick="showStory('lut')">
+  <div class="story-icon">🏘️</div>
+  <h2>لوط عليه السلام</h2>
+  <p>دعوة لوط لقومه وعاقبة الفساد.</p>
+</div>
+
+<div class="story-card" onclick="showStory('ismail')">
+  <div class="story-icon">💧</div>
+  <h2>إسماعيل عليه السلام</h2>
+  <p>الصبر والطاعة وزمزم وبناء الكعبة.</p>
+</div>
+
+<div class="story-card" onclick="showStory('ishaq')">
+  <div class="story-icon">🌙</div>
+  <h2>إسحاق عليه السلام</h2>
+  <p>بشارة إبراهيم بإسحاق ونسله المبارك.</p>
+</div>
+
+<div class="story-card" onclick="showStory('yaqub')">
+  <div class="story-icon">🤲</div>
+  <h2>يعقوب عليه السلام</h2>
+  <p>الصبر الجميل وقصة فقد يوسف ثم لقائه.</p>
+</div>
+
+<div class="story-card" onclick="showStory('yusuf')">
+  <div class="story-icon">🌙</div>
+  <h2>يوسف عليه السلام</h2>
+  <p>الرؤيا والجب والسجن والتمكين والعفو.</p>
+</div>
+
+<div class="story-card" onclick="showStory('shuaib')">
+  <div class="story-icon">⚖️</div>
+  <h2>شعيب عليه السلام</h2>
+  <p>التوحيد والأمانة في الكيل والميزان.</p>
+</div>
+
+<div class="story-card" onclick="showStory('ayyub')">
+  <div class="story-icon">🤲</div>
+  <h2>أيوب عليه السلام</h2>
+  <p>الصبر على البلاء والفرج بعد الشدة.</p>
+</div>
+
+<div class="story-card" onclick="showStory('musa')">
+  <div class="story-icon">🌊</div>
+  <h2>موسى عليه السلام</h2>
+  <p>موسى وفرعون والخروج وشق البحر.</p>
+</div>
+
+<div class="story-card" onclick="showStory('harun')">
+  <div class="story-icon">📜</div>
+  <h2>هارون عليه السلام</h2>
+  <p>أخو موسى وشريكه في الدعوة إلى الله.</p>
+</div>
+
+<div class="story-card" onclick="showStory('dawud')">
+  <div class="story-icon">⚔️</div>
+  <h2>داود عليه السلام</h2>
+  <p>طالوت وجالوت والملك والحكمة والزبور.</p>
+</div>
+
+<div class="story-card" onclick="showStory('sulaiman')">
+  <div class="story-icon">🕊️</div>
+  <h2>سليمان عليه السلام</h2>
+  <p>الملك العظيم وقصة الهدهد وملكة سبأ.</p>
+</div>
+
+<div class="story-card" onclick="showStory('ilyas')">
+  <div class="story-icon">☀️</div>
+  <h2>إلياس عليه السلام</h2>
+  <p>الدعوة إلى توحيد الله وترك عبادة بعل.</p>
+</div>
+
+<div class="story-card" onclick="showStory('alyasa')">
+  <div class="story-icon">📖</div>
+  <h2>اليسع عليه السلام</h2>
+  <p>نبي من أنبياء الله ومن الأخيار الصالحين.</p>
+</div>
+
+<div class="story-card" onclick="showStory('yunus')">
+  <div class="story-icon">🐋</div>
+  <h2>يونس عليه السلام</h2>
+  <p>الحوت والظلمات ودعاء لا إله إلا أنت سبحانك.</p>
+</div>
+
+<div class="story-card" onclick="showStory('dhulkifl')">
+  <div class="story-icon">📿</div>
+  <h2>ذو الكفل عليه السلام</h2>
+  <p>من عباد الله الصالحين الذين أثنى الله عليهم.</p>
+</div>
+
+<div class="story-card" onclick="showStory('zakariya')">
+  <div class="story-icon">🤲</div>
+  <h2>زكريا عليه السلام</h2>
+  <p>الدعاء بالذرية وبشارة يحيى.</p>
+</div>
+
+<div class="story-card" onclick="showStory('yahya')">
+  <div class="story-icon">🌿</div>
+  <h2>يحيى عليه السلام</h2>
+  <p>النبي الصالح الذي آتاه الله الحكم صغيرًا.</p>
+</div>
+
+<div class="story-card" onclick="showStory('mariam')">
+  <div class="story-icon">🌸</div>
+  <h2>مريم عليها السلام</h2>
+  <p>اصطفاء مريم وبشارة عيسى وميلاده.</p>
+</div>
+
+<div class="story-card" onclick="showStory('isa')">
+  <div class="story-icon">✨</div>
+  <h2>عيسى عليه السلام</h2>
+  <p>الميلاد والمعجزات والدعوة إلى الله.</p>
+</div>
+
+<div class="story-card" onclick="showStory('muhammad')">
+  <div class="story-icon">🕌</div>
+  <h2>محمد ﷺ</h2>
+  <p>خاتم الأنبياء ورسالته وهجرته ودعوته.</p>
+</div>
+
+<div class="story-card" onclick="showStory('cave')">
+  <div class="story-icon">🪨</div>
+  <h2>أصحاب الكهف</h2>
+  <p>فتية آمنوا بالله فحفظهم الله في الكهف.</p>
+</div>
+
+<div class="story-card" onclick="showStory('qarun')">
+  <div class="story-icon">💰</div>
+  <h2>قارون</h2>
+  <p>الغنى والغرور والخسف بالدور والمال.</p>
+</div>
+
+<div class="story-card" onclick="showStory('talut')">
+  <div class="story-icon">⚔️</div>
+  <h2>طالوت وجالوت</h2>
+  <p>الاختبار والنصر وقتل داود لجالوت.</p>
+</div>
+
+<div class="story-card" onclick="showStory('elephant')">
+  <div class="story-icon">🐘</div>
+  <h2>أصحاب الفيل</h2>
+  <p>جيش أبرهة ومحاولته هدم الكعبة.</p>
+</div>
+
+<div class="story-card" onclick="showStory('ukhdud')">
+  <div class="story-icon">🔥</div>
+  <h2>أصحاب الأخدود</h2>
+  <p>ثبات المؤمنين أمام التعذيب.</p>
+</div>
+
+<div class="story-card" onclick="showStory('two_sons')">
+  <div class="story-icon">⚠️</div>
+  <h2>ابنا آدم</h2>
+  <p>الحسد وأول جريمة قتل في الأرض.</p>
+</div>
+
+<div class="story-card" onclick="showStory('garden')">
+  <div class="story-icon">🌴</div>
+  <h2>أصحاب الجنة</h2>
+  <p>قصة أصحاب البستان وعاقبة منع حق الفقراء.</p>
+</div>
+
+<div class="story-card" onclick="showStory('dhu_al_qarnayn')">
+  <div class="story-icon">🛡️</div>
+  <h2>ذو القرنين</h2>
+  <p>التمكين والعدل وبناء السد.</p>
+</div>
+
+<div class="story-card" onclick="showStory('musa_khidr')">
+  <div class="story-icon">📚</div>
+  <h2>موسى والخضر</h2>
+  <p>رحلة طلب العلم والحكمة وراء الأحداث.</p>
+</div>
+
+  </div>  <div id="storyBox" class="story-box"></div></main><footer>
   صدقة جارية عن روح المرحوم
   المهندس عصام أحمد عبدالعزيز
-</footer>
+</footer><script>
 
-</body>
-</html>
+const stories = {
+
+  adam: {
+    title: "آدم عليه السلام",
+    text: `
+      <h3>بداية خلق آدم</h3>
+
+      <p>
+        خلق الله تعالى آدم عليه السلام، وهو أبو البشر، من طين،
+        ثم سوّاه ونفخ فيه من روحه، وعلّمه أسماء الأشياء.
+        وأخبر الله الملائكة أنه جاعل في الأرض خليفة.
+      </p>
+
+      <p>
+        وأمر الله الملائكة أن يسجدوا لآدم سجود تكريم،
+        فسجدوا جميعًا إلا إبليس، فقد أبى واستكبر،
+        وقال إنه خير من آدم لأنه خُلق من نار وآدم خُلق من طين.
+      </p>
+
+      <p>
+        ثم أسكن الله آدم وزوجه الجنة، وأباح لهما نعيمها،
+        ونهاهما عن الاقتراب من شجرة معينة.
+        فوسوس الشيطان لهما وزيّن لهما الأكل منها،
+        فأكلا منها وظهرت لهما سوءاتهما.
+      </p>
+
+      <p>
+        وعندما أدرك آدم وزوجه خطأهما تابا إلى الله وقالا:
+      </p>
+
+      <div class="quran-reference">
+        ﴿رَبَّنَا ظَلَمْنَا أَنْفُسَنَا وَإِنْ لَمْ تَغْفِرْ لَنَا
+        وَتَرْحَمْنَا لَنَكُونَنَّ مِنَ الْخَاسِرِينَ﴾
+      </div>
+
+      <p>
+        فتاب الله عليهما، ثم أهبطهما إلى الأرض،
+        وجعل الحياة فيها دار ابتلاء، ووعد من اتبع هداه بالنجاة.
+      </p>
+
+      <h3>الدروس المستفادة</h3>
+
+      <p>
+        نتعلم من قصة آدم أن الشيطان عدو للإنسان،
+        وأن الإنسان قد يخطئ لكنه يستطيع الرجوع إلى الله،
+        وأن باب التوبة مفتوح لمن صدق في توبته.
+      </p>
+
+      <div class="quran-reference">
+        مواضع القصة: البقرة، الأعراف، الحجر، طه، ص.
+      </div>
+    `
+  },
+
+  idris: {
+    title: "إدريس عليه السلام",
+    text: `
+      <p>
+        إدريس عليه السلام نبي من أنبياء الله، أثنى الله عليه
+        ووصفه بالصدق والصلاح.
+      </p>
+
+      <p>
+        قال تعالى:
+        ﴿وَاذْكُرْ فِي الْكِتَابِ إِدْرِيسَ إِنَّهُ كَانَ
+        صِدِّيقًا نَبِيًّا ۝ وَرَفَعْنَاهُ مَكَانًا عَلِيًّا﴾.
+      </p>
+
+      <p>
+        ولم يذكر القرآن تفاصيل كثيرة عن حياته، ولذلك لا يصح
+        أن ننسب إليه أحداثًا لم تثبت بدليل صحيح.
+      </p>
+
+      <p>
+        وتعلمنا قصته أن الصدق والصلاح من أعظم صفات عباد الله،
+        وأن الله يرفع أهل الإيمان والطاعة.
+      </p>
+
+      <div class="quran-reference">
+        موضع القصة: سورة مريم، وسورة الأنبياء.
+      </div>
+    `
+  },
+
+  noah: {
+    title: "نوح عليه السلام",
+    text: `
+      <h3>دعوة نوح عليه السلام</h3>
+
+      <p>
+        أرسل الله نوحًا عليه السلام إلى قومه عندما انتشر الشرك
+        بينهم، فدعاهم إلى عبادة الله وحده وترك عبادة الأصنام.
+      </p>
+
+      <p>
+        ظل نوح يدعو قومه ليلًا ونهارًا، سرًا وجهرًا،
+        لكن أكثرهم أصروا على الكفر والاستكبار.
+      </p>
+
+      <p>
+        ثم أوحى الله إلى نوح أن يصنع السفينة بأمره.
+        وكان قومه يسخرون منه كلما مروا عليه وهو يصنعها.
+      </p>
+
+      <p>
+        وعندما جاء أمر الله، نزل المطر وبدأ الماء يتدفق،
+        وأمر الله نوحًا أن يحمل في السفينة من آمن،
+        ومن كل زوجين اثنين.
+      </p>
+
+      <p>
+        وكان من بين أهل نوح ابنه الذي لم يؤمن، فناداه نوح
+        أن يركب معهم، لكنه رفض وقال إنه سيأوي إلى جبل يعصمه
+        من الماء، فجاء الموج وحال بينهما فغرق.
+      </p>
+
+      <p>
+        ثم جاء أمر الله فتوقف المطر، وابتلعت الأرض ماءها،
+        واستقرت السفينة على الجودي، ونجّى الله نوحًا ومن معه.
+      </p>
+
+      <h3>الدروس المستفادة</h3>
+
+      <p>
+        تعلمنا قصة نوح أن طول الطريق لا يعني الفشل،
+        وأن المؤمن عليه أن يقوم بالحق ويصبر،
+        أما الهداية فهي بيد الله.
+      </p>
+
+      <div class="quran-reference">
+        مواضع القصة: هود، المؤمنون، الشعراء، القمر، نوح، الأعراف.
+      </div>
+    `
+  },
+
+  hud: {
+    title: "هود عليه السلام",
+    text: `
+      <p>
+        أرسل الله هودًا عليه السلام إلى قوم عاد، وكانوا أصحاب قوة
+        وبناء، لكنهم اغتروا بقوتهم وعبدوا غير الله.
+      </p>
+
+      <p>
+        دعاهم هود إلى توحيد الله وترك الكبر والظلم،
+        وذكّرهم بنعم الله عليهم.
+      </p>
+
+      <p>
+        لكن قومه كذبوه وسخروا منه، وأصروا على عنادهم.
+        فلما استحقوا العذاب أرسل الله عليهم ريحًا شديدة،
+        فهلك القوم الظالمون ونجّى الله هودًا ومن آمن معه.
+      </p>
+
+      <div class="quran-reference">
+        مواضع القصة: الأعراف، هود، الشعراء، الأحقاف.
+      </div>
+    `
+  },
+
+  saleh: {
+    title: "صالح عليه السلام",
+    text: `
+      <p>
+        أرسل الله صالحًا عليه السلام إلى قوم ثمود،
+        وكانوا قومًا أقوياء ينحتون البيوت في الجبال.
+      </p>
+
+      <p>
+        دعاهم صالح إلى عبادة الله وحده وترك الشرك،
+        وطلبوا منه آية تدل على صدقه.
+      </p>
+
+      <p>
+        فجعل الله لهم الناقة آية، وأمرهم ألا يمسوها بسوء.
+        لكن بعضهم اعتدى عليها وعقرها، فتوعدهم الله بالعذاب.
+      </p>
+
+      <p>
+        ثم نزل العذاب بالقوم، ونجّى الله صالحًا والذين آمنوا معه.
+      </p>
+
+      <div class="quran-reference">
+        مواضع القصة: الأعراف، هود، الحجر، الشعراء، النمل، القمر، الشمس.
+      </div>
+    `
+  },
+
+  ibrahim: {
+    title: "إبراهيم عليه السلام",
+    text: `
+      <h3>إبراهيم والتوحيد</h3>
+
+      <p>
+        كان إبراهيم عليه السلام من أعظم أنبياء الله، وقد اصطفاه
+        الله واتخذه خليلًا.
+      </p>
+
+      <p>
+        عاش إبراهيم بين قوم يعبدون الأصنام، فأنكر عليهم عبادتها
+        وبيّن لهم أن ما يعبدونه لا يسمع ولا يبصر ولا يملك لهم ضرًا ولا نفعًا.
+      </p>
+
+      <p>
+        وحطم الأصنام ليقيم عليهم الحجة، فلما عرف قومه ما فعل،
+        أرادوا الانتقام منه وأوقدوا له نارًا عظيمة وألقوه فيها.
+      </p>
+
+      <p>
+        فجعل الله النار بردًا وسلامًا على إبراهيم، ونجاه منها.
+      </p>
+
+      <p>
+        ثم هاجر إبراهيم في سبيل الله، ورزقه الله إسماعيل وإسحاق،
+        وجعل من ذريته عددًا كبيرًا من الأنبياء.
+      </p>
+
+      <p>
+        وبنى إبراهيم وإسماعيل البيت الحرام، ورفعا قواعده،
+        ودعوا الله أن يتقبل منهما.
+      </p>
+
+      <div class="quran-reference">
+        مواضع القصة: البقرة، الأنعام، هود، إبراهيم، الحجر،
+        مريم، الأنبياء، الشعراء، الصافات وغيرها.
+      </div>
+    `
+  },
+
+  lut: {
+    title: "لوط عليه السلام",
+    text: `
+      <p>
+        أرسل الله لوطًا عليه السلام إلى قوم اشتهروا بارتكاب الفواحش،
+        فدعاهم إلى ترك المعصية والعودة إلى طاعة الله.
+      </p>
+
+      <p>
+        أصر قومه على فسادهم، وجاءت ملائكة الله إلى لوط في صورة بشر،
+        فأخبروه أنهم رسل الله وأن العذاب سيقع على قومه.
+      </p>
+
+      <p>
+        أمر الله لوطًا أن يخرج بأهله ليلًا وألا يلتفتوا،
+        ثم جاء أمر الله بالعذاب، فهلك القوم الظالمون.
+      </p>
+
+      <div class="quran-reference">
+        مواضع القصة: هود، الحجر، الأعراف، النمل، العنكبوت، القمر، التحريم.
+      </div>
+    `
+  },
+
+  ismail: {
+    title: "إسماعيل عليه السلام",
+    text: `
+      <p>
+        إسماعيل عليه السلام ابن إبراهيم، وكان صادق الوعد
+        صابرًا على طاعة الله.
+      </p>
+
+      <p>
+        أسكن إبراهيم زوجته هاجر وابنه إسماعيل في مكان لم يكن فيه
+        زرع ولا ماء عند البيت الحرام، بأمر الله.
+      </p>
+
+      <p>
+        نفد الماء من هاجر، فجعلت تبحث عنه بين الصفا والمروة،
+        فجاء فرج الله وفجّر لها ماء زمزم.
+      </p>
+
+      <p>
+        كبر إسماعيل وأصبح يعين أباه، ثم كان من أعظم ابتلاءاته
+        أن إبراهيم رأى في المنام أنه يذبحه، فعرض الأمر عليه،
+        فاستجاب إسماعيل لأمر الله.
+      </p>
+
+      <p>
+        فلما استسلما لأمر الله فداه الله بذبح عظيم،
+        ثم شارك إسماعيل أباه في رفع قواعد الكعبة.
+      </p>
+
+      <div class="quran-reference">
+        مواضع القصة: البقرة، إبراهيم، مريم، الصافات.
+      </div>
+    `
+  },
+
+  ishaq: {
+    title: "إسحاق عليه السلام",
+    text: `
+      <p>
+        إسحاق عليه السلام ابن إبراهيم، وبشر الله إبراهيم بمولده
+        وهو في سن كبيرة.
+      </p>
+
+      <p>
+        وكان إسحاق نبيًا صالحًا مباركًا، وجعل الله من ذريته
+        عددًا من الأنبياء.
+      </p>
+
+      <p>
+        وتعلمنا قصته أن قدرة الله لا يحدها سبب ولا عمر،
+        وأن الله قادر على تحقيق ما يشاء.
+      </p>
+
+      <div class="quran-reference">
+        مواضع القصة: هود، الحجر، الصافات، ص.
+      </div>
+    `
+  },
+
+  yaqub: {
+    title: "يعقوب عليه السلام",
+    text: `
+      <p>
+        يعقوب عليه السلام هو إسرائيل، وهو ابن إسحاق وحفيد إبراهيم.
+        وكان نبيًا صالحًا ورزقه الله أبناء كثيرين، ومنهم يوسف.
+      </p>
+
+      <p>
+        عندما فقد يوسف حزن عليه يعقوب حزنًا شديدًا،
+        لكنه لم ييأس من رحمة الله، وقال لأبنائه:
+        <strong>فصبر جميل</strong>.
+      </p>
+
+      <p>
+        وبعد سنوات طويلة عاد يوسف إلى أبيه، ورد الله عليه بصره،
+        واجتمعت الأسرة من جديد.
+      </p>
+
+      <div class="quran-reference">
+        مواضع القصة: سورة يوسف، وسورة البقرة.
+      </div>
+    `
+  },
+
+  yusuf: {
+    title: "يوسف عليه السلام",
+    text: `
+      <h3>الرؤيا</h3>
+
+      <p>
+        رأى يوسف عليه السلام في صغره رؤيا عظيمة،
+        فقال لأبيه يعقوب إنه رأى أحد عشر كوكبًا والشمس والقمر يسجدون له.
+      </p>
+
+      <p>
+        فهم يعقوب أن ليوسف شأنًا، ونصحه ألا يخبر إخوته بالرؤيا
+        حتى لا يحسدوه.
+      </p>
+
+      <h3>الجب</h3>
+
+      <p>
+        شعر إخوة يوسف بالغيرة منه، واتفقوا على التخلص منه،
+        فألقوه في بئر، ثم جاءت قافلة فأخرجته وباعته في مصر.
+      </p>
+
+      <h3>الابتلاء</h3>
+
+      <p>
+        نشأ يوسف في بيت العزيز، ثم تعرض لفتنة عظيمة فاختار العفة،
+        ودخل السجن ظلمًا.
+      </p>
+
+      <h3>التمكين</h3>
+
+      <p>
+        فسّر يوسف رؤيا ملك مصر المتعلقة بسنوات الرخاء والجفاف،
+        فخرج من السجن وتولى مسؤولية خزائن الأرض.
+      </p>
+
+      <h3>العفو</h3>
+
+      <p>
+        جاء إخوته إلى مصر، ثم عرفوه في النهاية، فكشف لهم عن نفسه
+        وعفا عنهم، واجتمع بأبيه وأسرته.
+      </p>
+
+      <p>
+        وتعلمنا قصة يوسف أن الابتلاء قد يكون طريقًا إلى التمكين،
+        وأن الصبر والعفة والعفو من أعظم الأخلاق.
+      </p>
+
+      <div class="quran-reference">
+        موضع القصة الأساسي: سورة يوسف كاملة.
+      </div>
+    `
+  },
+
+  shuaib: {
+    title: "شعيب عليه السلام",
+    text: `
+      <p>
+        أرسل الله شعيبًا إلى أهل مدين، وكانوا يعبدون غير الله
+        ويغشون في المكيال والميزان.
+      </p>
+
+      <p>
+        دعاهم إلى التوحيد والعدل والأمانة، ونهاهم عن الفساد.
+        لكنهم كذبوه وأعرضوا عنه.
+      </p>
+
+      <p>
+        فلما أصروا على الكفر والظلم جاءهم عذاب الله،
+        ونجّى الله شعيبًا ومن آمن معه.
+      </p>
+
+      <div class="quran-reference">
+        مواضع القصة: الأعراف، هود، الشعراء، العنكبوت.
+      </div>
+    `
+  },
+
+  ayyub: {
+    title: "أيوب عليه السلام",
+    text: `
+      <p>
+        كان أيوب عليه السلام عبدًا صالحًا، وابتلاه الله ابتلاءً شديدًا،
+        فصبر ولم يترك الإيمان.
+      </p>
+
+      <p>
+        اشتد عليه الضر، لكنه بقي متعلقًا بالله، ثم دعا ربه:
+      </p>
+
+      <div class="quran-reference">
+        ﴿أَنِّي مَسَّنِيَ الضُّرُّ وَأَنْتَ أَرْحَمُ الرَّاحِمِينَ﴾
+      </div>
+
+      <p>
+        فاستجاب الله له وكشف عنه الضر، ورد عليه أهله ومثلهم معهم،
+        وجعل قصته آية في الصبر.
+      </p>
+
+      <div class="quran-reference">
+        مواضع القصة: الأنبياء، ص.
+      </div>
+    `
+  },
+
+  musa: {
+    title: "موسى عليه السلام",
+    text: `
+      <h3>مولد موسى</h3>
+
+      <p>
+        ولد موسى في زمن كان فرعون يقتل أبناء بني إسرائيل.
+        فأوحى الله إلى أمه أن تضعه في التابوت وتلقيه في اليم،
+        ووعدها أن يرده إليها ويجعله من المرسلين.
+      </p>
+
+      <p>
+        وصل موسى إلى بيت فرعون، وأراد الله أن ينشأ في بيت عدوه،
+        ثم عاد إلى أمه لترضعه فقرّت عينها.
+      </p>
+
+      <h3>الخروج من مصر</h3>
+
+      <p>
+        كبر موسى، ثم خرج من مصر بعد حادثة قتل فيها رجلًا خطأ،
+        واتجه إلى مدين، ثم عاد إلى مصر.
+      </p>
+
+      <h3>الرسالة</h3>
+
+      <p>
+        كلّم الله موسى عند الطور، وأرسله إلى فرعون،
+        وأيده بالآيات، وطلب موسى أن يكون أخوه هارون معه.
+      </p>
+
+      <h3>مواجهة فرعون</h3>
+
+      <p>
+        دعا موسى فرعون إلى عبادة الله، وواجه السحرة،
+        فلما رأوا آية الله آمنوا.
+      </p>
+
+      <h3>شق البحر</h3>
+
+      <p>
+        خرج موسى ببني إسرائيل، وتبعهم فرعون وجنوده.
+        فلما وصلوا إلى البحر ضرب موسى البحر بعصاه فانفلق،
+        ومر المؤمنون، ثم غرق فرعون وجنوده.
+      </p>
+
+      <div class="quran-reference">
+        مواضع القصة: القصص، طه، الأعراف، يونس، الشعراء وغيرها.
+      </div>
+    `
+  },
+
+  harun: {
+    title: "هارون عليه السلام",
+    text: `
+      <p>
+        هارون عليه السلام أخو موسى، وكان موسى قد طلب من الله
+        أن يجعله وزيرًا له يعينه في الدعوة.
+      </p>
+
+      <p>
+        أرسل الله موسى وهارون إلى فرعون، فدعواه إلى توحيد الله
+        وترك الظلم.
+      </p>
+
+      <p>
+        وعندما ذهب موسى لميقات ربه وعبد بعض بني إسرائيل العجل،
+        حاول هارون أن يمنعهم ويحذرهم من الضلال.
+      </p>
+
+      <div class="quran-reference">
+        مواضع القصة: طه، الأعراف وغيرها.
+      </div>
+    `
+  },
+
+  dawud: {
+    title: "داود عليه السلام",
+    text: `
+      <p>
+        كان داود عليه السلام نبيًا وملكًا، وآتاه الله الزبور والحكمة.
+      </p>
+
+      <p>
+        كان من جيش طالوت الذي واجه جالوت، وقتل داود جالوت بإذن الله.
+        ثم آتاه الله الملك والحكمة.
+      </p>
+
+      <p>
+        وكانت الجبال والطير تسبح مع داود، وسخر الله له الحديد
+        فكان يصنع منه الدروع.
+      </p>
+
+      <p>
+        وكان يحكم بين الناس بالعدل، وأمره الله ألا يتبع الهوى.
+      </p>
+
+      <div class="quran-reference">
+        مواضع القصة: البقرة، ص، سبأ، الأنبياء.
+      </div>
+    `
+  },
+
+  sulaiman: {
+    title: "سليمان عليه السلام",
+    text: `
+      <p>
+        سليمان عليه السلام ابن داود، وكان نبيًا وملكًا عظيمًا.
+        آتاه الله ملكًا واسعًا وسخر له الجن والإنس والطير.
+      </p>
+
+      <p>
+        ومن قصته أنه سمع كلام النملة، فتبسم وحمد الله على نعمته.
+      </p>
+
+      <p>
+        ومن أشهر قصصه قصة الهدهد وملكة سبأ، حيث علم أن قومًا
+        يعبدون الشمس، فأرسل إليهم كتابًا يدعوهم إلى عبادة الله.
+      </p>
+
+      <p>
+        جاءت ملكة سبأ إلى سليمان، وعرفت عظمة ما جاء به،
+        وآمنت بالله.
+      </p>
+
+      <div class="quran-reference">
+        مواضع القصة: النمل، سبأ، ص، الأنبياء.
+      </div>
+    `
+  },
+
+  ilyas: {
+    title: "إلياس عليه السلام",
+    text: `
+      <p>
+        أرسل الله إلياس إلى قوم عبدوا صنمًا يسمى بعلًا،
+        فدعاهم إلى ترك عبادة الأصنام وعبادة الله وحده.
+      </p>
+
+      <p>
+        أثنى الله على إلياس وجعله من عباده المؤمنين الصالحين.
+      </p>
+
+      <div class="quran-reference">
+        مواضع القصة: الصافات، الأنعام.
+      </div>
+    `
+  },
+
+  alyasa: {
+    title: "اليسع عليه السلام",
+    text: `
+      <p>
+        اليسع عليه السلام نبي من أنبياء الله، ذكره القرآن
+        ضمن الأخيار والصالحين.
+      </p>
+
+      <p>
+        ولم يذكر القرآن تفاصيل كثيرة عن حياته،
+        ولذلك لا يصح أن ننسب إليه أحداثًا لم تثبت.
+      </p>
+
+      <div class="quran-reference">
+        مواضع الذكر: الأنعام، ص.
+      </div>
+    `
+  },
+
+  yunus: {
+    title: "يونس عليه السلام",
+    text: `
+      <p>
+        أرسل الله يونسًا عليه السلام إلى قومه، فدعاهم إلى الله.
+      </p>
+
+      <p>
+        ثم كان من أمره أنه ركب سفينة واضطرب البحر،
+        فألقي في البحر والتقمه الحوت.
+      </p>
+
+      <p>
+        دعا ربه في الظلمات وقال:
+      </p>
+
+      <div class="quran-reference">
+        ﴿لَا إِلَهَ إِلَّا أَنْتَ سُبْحَانَكَ
+        إِنِّي كُنْتُ مِنَ الظَّالِمِينَ﴾
+      </div>
+
+      <p>
+        فاستجاب الله له ونجاه من الغم، ثم عاد إلى قومه
+        فآمنوا ورفع الله عنهم العذاب.
+      </p>
+
+      <div class="quran-reference">
+        مواضع القصة: يونس، الأنبياء، الصافات، القلم.
+      </div>
+    `
+  },
+
+  dhulkifl: {
+    title: "ذو الكفل عليه السلام",
+    text: `
+      <p>
+        ذكر الله ذا الكفل ضمن عباده الصالحين ووصفه بالصبر والخير.
+      </p>
+
+      <p>
+        ولم يذكر القرآن تفاصيل كثيرة عن حياته، ولذلك نكتفي بما ثبت
+        ولا ننسب إليه روايات غير مؤكدة.
+      </p>
+
+      <div class="quran-reference">
+        مواضع الذكر: الأنبياء، ص.
+      </div>
+    `
+  },
+
+  zakariya: {
+    title: "زكريا عليه السلام",
+    text: `
+      <p>
+        كان زكريا عليه السلام نبيًا صالحًا، وكفل مريم عليها السلام.
+      </p>
+
+      <p>
+        كبر سنه ولم يكن له ولد، فدعا الله أن يرزقه ذرية طيبة.
+      </p>
+
+      <p>
+        فاستجاب الله له وبشره بيحيى، وكانت ولادته آية عظيمة
+        من آيات قدرة الله.
+      </p>
+
+      <div class="quran-reference">
+        مواضع القصة: آل عمران، مريم، الأنبياء.
+      </div>
+    `
+  },
+
+  yahya: {
+    title: "يحيى عليه السلام",
+    text: `
+      <p>
+        يحيى عليه السلام ابن زكريا، وبشر الله أباه به قبل مولده.
+      </p>
+
+      <p>
+        وصفه الله بأنه سيد وحصور ونبي من الصالحين،
+        وآتاه الحكم وهو صغير.
+      </p>
+
+      <p>
+        وكان بارًا بوالديه، ولم يكن جبارًا ولا عصيًا.
+      </p>
+
+      <div class="quran-reference">
+        مواضع القصة: آل عمران، مريم، الأنعام.
+      </div>
+    `
+  },
+
+  mariam: {
+    title: "مريم عليها السلام",
+    text: `
+      <p>
+        اصطفى الله مريم عليها السلام وطهرها، وكانت من النساء
+        الصالحات العابدات.
+      </p>
+
+      <p>
+        بشرتها الملائكة بعيسى عليه السلام، فكان حملها به
+        آية عظيمة من آيات الله، إذ ولدته من غير أب.
+      </p>
+
+      <p>
+        جاءت مريم بقومها وهي تحمل عيسى، فاتهموها،
+        فأظهر الله براءتها وجعل عيسى يتكلم في المهد بإذن الله.
+      </p>
+
+      <div class="quran-reference">
+        مواضع القصة: آل عمران، مريم، التحريم.
+      </div>
+    `
+  },
+
+  isa: {
+    title: "عيسى عليه السلام",
+    text: `
+      <p>
+        عيسى ابن مريم عليه السلام رسول من رسل الله،
+        أرسله إلى بني إسرائيل، وكانت ولادته من غير أب آية عظيمة.
+      </p>
+
+      <p>
+        أيده الله بمعجزات، منها إبراء الأكمه والأبرص وإحياء الموتى
+        بإذن الله، وصنع الطير من الطين بإذن الله.
+      </p>
+
+      <p>
+        دعا عيسى إلى عبادة الله وحده، وصدق التوراة،
+        وبشر برسول يأتي من بعده.
+      </p>
+
+      <p>
+        وتآمر بعض بني إسرائيل عليه، لكن الله نجاه ورفعه إليه.
+        ويؤمن المسلمون أن عيسى عبد الله ورسوله وليس إلهًا.
+      </p>
+
+      <div class="quran-reference">
+        مواضع القصة: آل عمران، النساء، مريم، المائدة، الصف.
+      </div>
+    `
+  },
+
+  muhammad: {
+    title: "محمد ﷺ",
+    text: `
+      <p>
+        محمد صلى الله عليه وسلم خاتم الأنبياء والمرسلين،
+        أرسله الله رحمة للعالمين.
+      </p>
+
+      <p>
+        ولد في مكة ونشأ يتيمًا، وعُرف بين قومه بالصدق والأمانة.
+        وعندما بلغ الأربعين نزل عليه الوحي في غار حراء.
+      </p>
+
+      <p>
+        بدأ يدعو الناس إلى توحيد الله وترك عبادة الأصنام،
+        وواجه هو وأصحابه أذى شديدًا من قريش.
+      </p>
+
+      <p>
+        ثم هاجر إلى المدينة، وأقام مجتمع المسلمين،
+        وانتشر الإسلام في الجزيرة العربية.
+      </p>
+
+      <p>
+        ثم عاد إلى مكة فاتحًا، فعفا عن كثير ممن آذوه،
+        وأكمل تبليغ الرسالة حتى توفي ﷺ بعد أن أدى الأمانة.
+      </p>
+
+      <div class="quran-reference">
+        خاتم الأنبياء والمرسلين، والقرآن الكريم مع السنة الصحيحة
+        هما الأساس في معرفة سيرته ورسالته.
+      </div>
+    `
+  },
+
+  cave: {
+    title: "أصحاب الكهف",
+    text: `
+      <p>
+        كان أصحاب الكهف فتية آمنوا بالله وثبتوا على التوحيد
+        في زمن كان الشرك منتشرًا بين قومهم.
+      </p>
+
+      <p>
+        خافوا على دينهم فلجؤوا إلى الكهف، ودعوا الله أن ينشر
+        عليهم رحمته ويهيئ لهم من أمرهم رشدًا.
+      </p>
+
+      <p>
+        فأنامهم الله في الكهف سنين طويلة، ثم بعثهم ليتساءلوا
+        كم لبثوا، وأرسلوا أحدهم إلى المدينة ليشتري الطعام.
+      </p>
+
+      <p>
+        ثم اكتشف الناس أمرهم، وجعل الله قصتهم آية للناس.
+      </p>
+
+      <div class="quran-reference">
+        موضع القصة: سورة الكهف.
+      </div>
+    `
+  },
+
+  qarun: {
+    title: "قارون",
+    text: `
+      <p>
+        كان قارون من قوم موسى، وآتاه الله من الأموال شيئًا عظيمًا،
+        حتى كانت مفاتيح خزائنه ثقيلة.
+      </p>
+
+      <p>
+        اغتر قارون بماله، ونسب ما عنده إلى علمه وقدرته،
+        ونصحه قومه ألا يفرح بالمال فرح بطر وأن يطلب الدار الآخرة.
+      </p>
+
+      <p>
+        لكنه استمر في الكبر والغرور، فخسف الله به وبداره الأرض،
+        ولم يجد من ينصره من دون الله.
+      </p>
+
+      <div class="quran-reference">
+        موضع القصة: سورة القصص.
+      </div>
+    `
+  },
+
+  talut: {
+    title: "طالوت وجالوت",
+    text: `
+      <p>
+        طلب بنو إسرائيل من نبيهم أن يختار لهم ملكًا يقودهم،
+        فاختار الله طالوت.
+      </p>
+
+      <p>
+        اعترض بعضهم لأنه لم يكن من أصحاب المال،
+        لكن الله اختاره لما آتاه من العلم والجسم.
+      </p>
+
+      <p>
+        خرج طالوت بجيشه وابتلاهم الله بنهر،
+        فثبت أهل الطاعة.
+      </p>
+
+      <p>
+        واجهوا جالوت وجيشه، وقتل داود جالوت بإذن الله،
+        ثم آتاه الله الملك والحكمة.
+      </p>
+
+      <div class="quran-reference">
+        موضع القصة: سورة البقرة.
+      </div>
+    `
+  },
+
+  elephant: {
+    title: "أصحاب الفيل",
+    text: `
+      <p>
+        جاء أبرهة بجيش عظيم ومعه الفيل يريد هدم الكعبة.
+      </p>
+
+      <p>
+        فلما اقترب الجيش من مكة منعهم الله من الوصول إلى البيت،
+        وأرسل عليهم طيرًا ترميهم بحجارة من سجيل.
+      </p>
+
+      <p>
+        فأهلك الله الجيش وأصبح ذلك الحدث آية على حفظ الله لبيته الحرام.
+      </p>
+
+      <div class="quran-reference">
+        موضع القصة: سورة الفيل.
+      </div>
+    `
+  },
+
+  ukhdud: {
+    title: "أصحاب الأخدود",
+    text: `
+      <p>
+        كان أصحاب الأخدود قومًا مؤمنين ثبتوا على الإيمان
+        رغم تعرضهم للعذاب.
+      </p>
+
+      <p>
+        حفر الظالمون أخاديد وأشعلوا فيها النار،
+        وخيروا المؤمنين بين ترك دينهم أو دخول النار.
+      </p>
+
+      <p>
+        فثبت المؤمنون ولم يبيعوا إيمانهم.
+        وذكر الله قصتهم ليبين عظمة الثبات على الحق.
+      </p>
+
+      <div class="quran-reference">
+        موضع القصة: سورة البروج.
+      </div>
+    `
+  },
+
+  two_sons: {
+    title: "ابنا آدم",
+    text: `
+      <p>
+        قدم ابنا آدم قربانًا، فتقبل الله من أحدهما ولم يتقبل من الآخر.
+      </p>
+
+      <p>
+        أدى الحسد إلى تهديد أحدهما لأخيه بالقتل،
+        لكن أخاه رفض أن يعتدي عليه خوفًا من الله.
+      </p>
+
+      <p>
+        ومع ذلك قتله أخوه، فكانت أول جريمة قتل في الأرض.
+      </p>
+
+      <p>
+        ثم بعث الله غرابًا يبحث في الأرض ليعلمه كيف يواري جثة أخيه،
+        فندم القاتل على فعلته.
+      </p>
+
+      <div class="quran-reference">
+        موضع القصة: سورة المائدة.
+      </div>
+    `
+  },
+
+  garden: {
+    title: "أصحاب الجنة",
+    text: `
+      <p>
+        كان أصحاب الجنة يملكون بستانًا كثير الخير،
+        وكان أبوهم ينفق منه على الفقراء.
+      </p>
+
+      <p>
+        بعد وفاته قرر أبناؤه أن يمنعوا المساكين من حقهم،
+        وأقسموا أن يذهبوا في الصباح ليجمعوا الثمار.
+      </p>
+
+      <p>
+        فأرسل الله على جنتهم عذابًا فأصبحت كالصريم،
+        فلما رأوا ما حدث عرفوا خطأهم وندموا.
+      </p>
+
+      <div class="quran-reference">
+        موضع القصة: سورة القلم.
+      </div>
+    `
+  },
+
+  dhu_al_qarnayn: {
+    title: "ذو القرنين",
+    text: `
+      <p>
+        كان ذو القرنين رجلًا مكن الله له في الأرض وآتاه من كل شيء سببًا.
+      </p>
+
+      <p>
+        سار في الأرض وتعامل مع الناس بالعدل،
+        ثم وصل إلى قوم طلبوا منه أن يحميهم من يأجوج ومأجوج.
+      </p>
+
+      <p>
+        فبنى بينهم وبينهم سدًا قويًا من الحديد والنحاس المذاب.
+      </p>
+
+      <p>
+        وأكد ذو القرنين أن ما فعله رحمة من الله،
+        وأن الفضل لله وليس لقوته وحدها.
+      </p>
+
+      <div class="quran-reference">
+        موضع القصة: سورة الكهف.
+      </div>
+    `
+  },
+
+  musa_khidr: {
+    title: "موسى والخضر",
+    text: `
+      <p>
+        خرج موسى عليه السلام في رحلة لطلب العلم،
+        والتقى عبدًا صالحًا آتاه الله علمًا.
+      </p>
+
+      <p>
+        طلب موسى أن يتعلم منه، فاشترط عليه ألا يسأله
+        حتى يشرح له سبب ما يفعل.
+      </p>
+
+      <p>
+        خرق الرجل السفينة، ثم قتل غلامًا، ثم أقام جدارًا
+        لقوم لم يضيفوه.
+      </p>
+
+      <p>
+        استغرب موسى هذه الأفعال، وفي النهاية شرح له الرجل حكمتها:
+        فالسفينة كانت لمساكين وكان وراءهم ملك يأخذ السفن السليمة،
+        والغلام كان سيؤذي والديه المؤمنين، والجدار كان لغلامين يتيمين
+        وتحته كنز لهما.
+      </p>
+
+      <p>
+        وتعلمنا القصة أن علم الإنسان محدود، وأن وراء بعض الأحداث
+        حكمًا قد لا ندركها في البداية.
+      </p>
+
+      <div class="quran-reference">
+        موضع القصة: سورة الكهف.
+      </div>
+    `
+  }
+
+};
+
+function showStory(id) {
+
+  const story = stories[id];
+  const box = document.getElementById("storyBox");
+
+  if (!story) return;
+
+  box.innerHTML = `
+    <h2>${story.title}</h2>
+    ${story.text}
+    <button class="close-story" onclick="closeStory()">
+      إغلاق القصة
+    </button>
+  `;
+
+  box.classList.add("active");
+
+  setTimeout(() => {
+    box.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }, 50);
+}
+
+function closeStory() {
+  const box = document.getElementById("storyBox");
+  box.classList.remove("active");
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+</script></body>
+           </html>
