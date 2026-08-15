@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>القبلة | صدقة جارية</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    .qibla-page {
+      max-width: 1050px;
+      margin: auto;
+      padding: 35px 20px 60px;
+    }
+
+    .qibla-hero {
+      text-align: center;
+      padding: 45px 25px;
+      margin-bottom: 25px;
+
+      background: linear-gradient(
+        145deg,
+        #102d23,
+        #081a13
+      );
+
+      border: 1px solid #234235;
+      border-radius: 28px;
+    }
+
+    .qibla-icon {
+      font-size: 55px;
+      margin-bottom: 10px;
+    }
+
+    .qibla-hero h1 {
+      color: #d7b56d;
+      font-family: "Traditional Arabic", serif;
+      font-size: 42px;
+      margin: 5px 0 15px;
+    }
+
+    .qibla-hero p {
+      color: #b9c5bd;
+      line-height: 2;
+      font-size: 17px;
+    }
+
+    .location-button {
+      margin-top: 20px;
+      padding: 12px 25px;
+
+      border: 1px solid #d7b56d;
+      border-radius: 25px;
+
+      background: transparent;
+      color: #d7b56d;
+
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .location-button:hover {
+      background: #d7b56d;
+      color: #081a13;
+    }
+
+    .status {
+      margin-top: 15px;
+      color: #8fa39a;
+      line-height: 2;
+    }
+
+    .qibla-content {
+      display: grid;
+      grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .qibla-card {
+      background: linear-gradient(
+        145deg,
+        #102d23,
+        #081a13
+      );
+
+      border: 1px solid #234235;
+      border-radius: 25px;
+      padding: 28px;
+
+      text-align: center;
+    }
+
+    .qibla-card h2 {
+      color: #d7b56d;
+      font-family: "Traditional Arabic", serif;
+      font-size: 30px;
+      margin-bottom: 15px;
+    }
+
+    .direction {
+      font-size: 70px;
+      margin: 15px 0;
+      transition: transform .5s ease;
+    }
+
+    .degree {
+      color: #f6f0df;
+      font-size: 30px;
+      font-weight: bold;
+      direction: ltr;
+    }
+
+    .small-info {
+      color: #8fa39a;
+      line-height: 2;
+      margin-top: 12px;
+    }
+
+    .compass {
+      width: 260px;
+      height: 260px;
+
+      border-radius: 50%;
+
+      margin: 20px auto;
+
+      position: relative;
+
+      background:
+        radial-gradient(
+          circle,
+          #102d23 0%,
+          #081a13 70%,
+          #071812 100%
+        );
+
+      border: 2px solid #d7b56d;
+
+      box-shadow:
+        0 0 0 8px rgba(215,181,109,.05),
+        0 15px 35px rgba(0,0,0,.25);
+    }
+
+    .compass::before {
+      content: "N";
+      position: absolute;
+
+      top: 12px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      color: #d7b56d;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .compass::after {
+      content: "S";
+      position: absolute;
+
+      bottom: 12px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      color: #8fa39a;
+      font-size: 18px;
+    }
+
+    .east {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      color: #8fa39a;
+      font-size: 18px;
+    }
+
+    .west {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      color: #8fa39a;
+      font-size: 18px;
+    }
+
+    .compass-arrow {
+      position: absolute;
+
+      width: 8px;
+      height: 105px;
+
+      left: 50%;
+      top: 50%;
+
+      transform-origin: bottom center;
+
+      transform:
+        translate(-50%, -100%)
+        rotate(0deg);
+
+      transition: transform .6s ease;
+    }
+
+    .compass-arrow::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: 50%;
+
+      transform:
+        translateX(-50%);
+
+      border-left:
+        13px solid transparent;
+
+      border-right:
+        13px solid transparent;
+
+      border-bottom:
+        35px solid #d7b56d;
+    }
+
+    .compass-arrow::after {
+      content: "";
+
+      position: absolute;
+
+      bottom: 0;
+      left: 50%;
+
+      transform:
+        translateX(-50%);
+
+      width: 8px;
+      height: 75px;
+
+      background: #d7b56d;
+
+      border-radius: 10px;
+    }
+
+    .kaaba {
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      transform:
+        translate(-50%, -50%);
+
+      width: 42px;
+      height: 42px;
+
+      background: #111;
+
+      border: 3px solid #d7b56d;
+
+      border-radius: 8px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 22px;
+
+      z-index: 5;
+    }
+
+    .tips {
+      margin-top: 25px;
+
+      padding: 25px;
+
+      background: #0d241c;
+
+      border: 1px solid #234235;
+
+      border-radius: 22px;
+
+      color: #b9c5bd;
+
+      line-height: 2.2;
+    }
+
+    .tips h2 {
+      color: #d7b56d;
+      font-family: "Traditional Arabic", serif;
+      margin-top: 0;
+    }
+
+    .back-button {
+      display: block;
+      width: fit-content;
+
+      margin: 30px auto 0;
+
+      padding: 11px 20px;
+
+      border: 1px solid #234235;
+      border-radius: 22px;
+
+      color: #d7b56d;
+      text-decoration: none;
+    }
+
+    .back-button:hover {
+      border-color: #d7b56d;
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+  <div class="logo">
+    صدقة جارية
+  </div>
+
+  <nav>
+
+    <a href="index.html">الرئيسية</a>
+    <a href="quran.html">القرآن</a>
+    <a href="hadith.html">الأحاديث</a>
+    <a href="adhkar.html">الأذكار</a>
+    <a href="quran-tafsir.html">التفسير</a>
+    <a href="quran-stories.html">قصص القرآن</a>
+    <a href="prayer.html">تعلم الصلاة</a>
+    <a href="duas.html">الأدعية</a>
+    <a href="tasbeeh.html">المسبحة</a>
+  </nav>
+
+</header>
+
+
+
+<main class="qibla-page">
+
+
+  <section class="qibla-hero">
+
+    <div class="qibla-icon">
+      🕋
+    </div>
+
+    <h1>
+      اتجاه القبلة
+    </h1>
+
+    <p>
+      حدد اتجاه القبلة من موقعك الحالي
+      لمعرفة الاتجاه الصحيح نحو الكعبة المشرفة.
+    </p>
+
+    <button
+      class="location-button"
+      onclick="findQibla()">
+
+      📍 تحديد موقعي
+
+    </button>
+
+    <div
+      id="status"
+      class="status">
+
+      اضغط على الزر للسماح بتحديد موقعك.
+
+    </div>
+
+  </section>
+
+
+
+  <section class="qibla-content">
+
+
+    <!-- الاتجاه -->
+
+    <article class="qibla-card">
+
+      <h2>
+        اتجاه القبلة
+      </h2>
+
+      <div
+        id="direction"
+        class="direction">
+
+        🧭
+
+      </div>
+
+      <div
+        id="degree"
+        class="degree">
+
+        --
+
+      </div>
+
+      <div class="small-info">
+        درجة الاتجاه من الشمال
+      </div>
+
+    </article>
+
+
+
+    <!-- البوصلة -->
+
+    <article class="qibla-card">
+
+      <h2>
+        البوصلة
+      </h2>
+
+      <div class="compass">
+
+        <div class="east">
+          E
+        </div>
+
+        <div class="west">
+          W
+        </div>
+
+        <div
+          id="compassArrow"
+          class="compass-arrow">
+        </div>
+
+        <div class="kaaba">
+          🕋
+        </div>
+
+      </div>
+
+      <div class="small-info">
+        السهم يوضح اتجاه القبلة من موقعك.
+      </div>
+
+    </article>
+
+
+  </section>
+
+
+
+  <section class="tips">
+
+    <h2>
+      🧭 طريقة استخدام القبلة
+    </h2>
+
+    <p>
+      1. اضغط على «تحديد موقعي».
+    </p>
+
+    <p>
+      2. اسمح للمتصفح بالوصول إلى موقعك.
+    </p>
+
+    <p>
+      3. سيحسب الموقع اتجاه القبلة بالنسبة لموقعك.
+    </p>
+
+    <p>
+      4. الدرجة المعروضة هي زاوية القبلة
+      محسوبة من اتجاه الشمال الجغرافي.
+    </p>
+
+    <p>
+      ⚠️ للحصول على أفضل نتيجة، استخدم الهاتف
+      في مكان مفتوح وابتعد عن مصادر التشويش
+      المغناطيسي قدر الإمكان.
+    </p>
+
+  </section>
+
+
+
+  <a
+    href="index.html"
+    class="back-button">
+
+    ← العودة إلى الرئيسية
+
+  </a>
+
+
+</main>
+
+
+
+<footer>
+
+  صدقة جارية عن روح المرحوم
+
+  <br>
+
+  المهندس عصام أحمد عبدالعزيز
+
+</footer>
+
+
+
+<script>
+
+
+/* =========================
+   إحداثيات الكعبة
+========================= */
+
+const KAABA_LAT =
+  21.422487;
+
+const KAABA_LON =
+  39.826206;
+
+
+
+/* =========================
+   حساب اتجاه القبلة
+========================= */
+
+function calculateQibla(
+  latitude,
+  longitude
+) {
+
+
+  const lat1 =
+    latitude *
+    Math.PI / 180;
+
+  const lat2 =
+    KAABA_LAT *
+    Math.PI / 180;
+
+  const deltaLon =
+    (
+      KAABA_LON -
+      longitude
+    ) *
+    Math.PI / 180;
+
+
+  const y =
+    Math.sin(deltaLon);
+
+
+  const x =
+    Math.cos(lat1) *
+    Math.tan(lat2)
+    -
+    Math.sin(lat1) *
+    Math.cos(deltaLon);
+
+
+  let bearing =
+    Math.atan2(
+      y,
+      x
+    )
+    *
+    180 /
+    Math.PI;
+
+
+  bearing =
+    (
+      bearing + 360
+    ) % 360;
+
+
+  return bearing;
+
+}
+
+
+
+/* =========================
+   تحديد الموقع
+========================= */
+
+function findQibla() {
+
+
+  const status =
+    document.getElementById(
+      "status"
+    );
+
+
+  if (!navigator.geolocation) {
+
+    status.textContent =
+      "❌ المتصفح لا يدعم تحديد الموقع.";
+
+    return;
+
+  }
+
+
+  status.textContent =
+    "⏳ جاري تحديد موقعك...";
+
+
+  navigator.geolocation.getCurrentPosition(
+
+    function(position) {
+
+
+      const latitude =
+        position.coords.latitude;
+
+
+      const longitude =
+        position.coords.longitude;
+
+
+      const bearing =
+        calculateQibla(
+          latitude,
+          longitude
+        );
+
+
+      showQibla(
+        bearing
+      );
+
+
+      status.textContent =
+        "✅ تم تحديد اتجاه القبلة بنجاح.";
+
+
+    },
+
+
+    function() {
+
+      status.textContent =
+        "❌ لم نتمكن من تحديد موقعك. اسمح باستخدام الموقع وحاول مرة أخرى.";
+
+    },
+
+
+    {
+
+      enableHighAccuracy: true,
+
+      timeout: 10000
+
+    }
+
+  );
+
+}
+
+
+
+/* =========================
+   عرض الاتجاه
+========================= */
+
+function showQibla(
+  bearing
+) {
+
+
+  document.getElementById(
+    "degree"
+  ).textContent =
+
+    bearing.toFixed(1)
+    + "°";
+
+
+  const arrow =
+    document.getElementById(
+      "compassArrow"
+    );
+
+
+  arrow.style.transform =
+
+    `translate(-50%, -100%) rotate(${bearing}deg)`;
+
+
+  const direction =
+    document.getElementById(
+      "direction"
+    );
+
+
+  direction.textContent =
+    getDirectionName(
+      bearing
+    );
+
+}
+
+
+
+/* =========================
+   اسم الاتجاه
+========================= */
+
+function getDirectionName(
+  degrees
+) {
+
+
+  const directions = [
+
+    "شمال",
+
+    "شمال شرقي",
+
+    "شرق",
+
+    "جنوب شرقي",
+
+    "جنوب",
+
+    "جنوب غربي",
+
+    "غرب",
+
+    "شمال غربي"
+
+  ];
+
+
+  const index =
+    Math.round(
+      degrees / 45
+    ) % 8;
+
+
+  return directions[index];
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
