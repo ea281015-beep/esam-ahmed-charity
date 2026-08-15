@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>الورد اليومي | صدقة جارية</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    .wird-page {
+      max-width: 1100px;
+      margin: auto;
+      padding: 35px 20px 60px;
+    }
+
+    .wird-hero {
+      text-align: center;
+      padding: 45px 25px;
+      margin-bottom: 25px;
+
+      background: linear-gradient(
+        145deg,
+        #102d23,
+        #081a13
+      );
+
+      border: 1px solid #234235;
+      border-radius: 28px;
+    }
+
+    .wird-icon {
+      font-size: 52px;
+      margin-bottom: 10px;
+    }
+
+    .wird-hero h1 {
+      color: #d7b56d;
+      font-family: "Traditional Arabic", serif;
+      font-size: 42px;
+      margin: 5px 0 15px;
+    }
+
+    .wird-hero p {
+      color: #b9c5bd;
+      line-height: 2.2;
+      font-size: 17px;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .progress-box {
+      margin-top: 30px;
+      padding: 25px;
+
+      background: #0d241c;
+
+      border: 1px solid #234235;
+      border-radius: 22px;
+    }
+
+    .progress-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+
+      color: #f6f0df;
+      margin-bottom: 12px;
+    }
+
+    .progress-percent {
+      color: #d7b56d;
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 13px;
+
+      background: #071812;
+
+      border-radius: 20px;
+      overflow: hidden;
+
+      border: 1px solid #234235;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+
+      background: #d7b56d;
+
+      border-radius: 20px;
+
+      transition: width .4s ease;
+    }
+
+    .progress-text {
+      margin-top: 12px;
+      color: #8fa39a;
+      text-align: center;
+    }
+
+    .categories {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(170px, 1fr));
+
+      gap: 14px;
+
+      margin: 25px 0;
+    }
+
+    .category-card {
+      background: linear-gradient(
+        145deg,
+        #102d23,
+        #081a13
+      );
+
+      border: 1px solid #234235;
+      border-radius: 20px;
+
+      padding: 20px;
+
+      text-align: center;
+
+      cursor: pointer;
+
+      transition: .25s;
+    }
+
+    .category-card:hover,
+    .category-card.active {
+      transform: translateY(-4px);
+      border-color: #d7b56d;
+    }
+
+    .category-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+    }
+
+    .category-card h2 {
+      color: #d7b56d;
+
+      font-family:
+        "Traditional Arabic",
+        serif;
+
+      font-size: 24px;
+
+      margin: 5px 0;
+    }
+
+    .category-card span {
+      color: #8fa39a;
+      font-size: 13px;
+    }
+
+    .wird-list {
+      display: grid;
+
+      grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+      gap: 18px;
+    }
+
+    .wird-card {
+      background: linear-gradient(
+        145deg,
+        #102d23,
+        #081a13
+      );
+
+      border: 1px solid #234235;
+      border-radius: 23px;
+
+      padding: 24px;
+
+      transition: .25s;
+    }
+
+    .wird-card.done {
+      border-color: #d7b56d;
+      background: linear-gradient(
+        145deg,
+        #15382b,
+        #081a13
+      );
+    }
+
+    .wird-card-top {
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      align-items: center;
+
+      gap: 12px;
+    }
+
+    .wird-number {
+      display: inline-flex;
+
+      width: 35px;
+      height: 35px;
+
+      align-items: center;
+      justify-content: center;
+
+      border:
+        1px solid #d7b56d;
+
+      border-radius: 50%;
+
+      color: #d7b56d;
+    }
+
+    .wird-card h3 {
+      color: #f6f0df;
+
+      font-family:
+        "Traditional Arabic",
+        serif;
+
+      font-size: 25px;
+
+      margin: 15px 0 10px;
+    }
+
+    .wird-card p {
+      color: #b9c5bd;
+
+      line-height: 2;
+
+      margin-bottom: 18px;
+    }
+
+    .done-button {
+      width: 100%;
+
+      padding: 11px;
+
+      border:
+        1px solid #d7b56d;
+
+      border-radius: 20px;
+
+      background: transparent;
+
+      color: #d7b56d;
+
+      cursor: pointer;
+
+      font-size: 15px;
+    }
+
+    .done-button:hover {
+      background: #d7b56d;
+      color: #081a13;
+    }
+
+    .wird-card.done
+    .done-button {
+
+      background: #d7b56d;
+
+      color: #081a13;
+
+    }
+
+    .reset-button {
+      display: block;
+
+      margin: 30px auto 0;
+
+      padding: 11px 22px;
+
+      border:
+        1px solid #8fa39a;
+
+      border-radius: 22px;
+
+      background: transparent;
+
+      color: #b9c5bd;
+
+      cursor: pointer;
+    }
+
+    .reset-button:hover {
+      border-color: #d7b56d;
+      color: #d7b56d;
+    }
+
+    .empty {
+      text-align: center;
+
+      color: #8fa39a;
+
+      padding: 40px;
+    }
+
+    .dua-box {
+      margin-top: 30px;
+
+      padding: 30px 22px;
+
+      text-align: center;
+
+      background: linear-gradient(
+        135deg,
+        #102d23,
+        #071812
+      );
+
+      border:
+        1px solid #d7b56d;
+
+      border-radius: 25px;
+    }
+
+    .dua-box h2 {
+      color: #d7b56d;
+
+      font-family:
+        "Traditional Arabic",
+        serif;
+
+      font-size: 30px;
+    }
+
+    .dua-box p {
+      color: #f6f0df;
+
+      font-family:
+        "Traditional Arabic",
+        serif;
+
+      font-size: 23px;
+
+      line-height: 2.3;
+    }
+
+    .back-button {
+      display: block;
+
+      width: fit-content;
+
+      margin: 30px auto 0;
+
+      padding: 11px 20px;
+
+      border:
+        1px solid #234235;
+
+      border-radius: 22px;
+
+      color: #d7b56d;
+
+      text-decoration: none;
+    }
+
+    .back-button:hover {
+      border-color: #d7b56d;
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+  <div class="logo">
+    صدقة جارية
+  </div>
+
+  <nav>
+
+    <a href="index.html">الرئيسية</a>
+    <a href="quran.html">القرآن</a>
+    <a href="hadith.html">الأحاديث</a>
+    <a href="adhkar.html">الأذكار</a>
+    <a href="quran-tafsir.html">التفسير</a>
+    <a href="quran-stories.html">قصص القرآن</a>
+    <a href="prayer.html">تعلم الصلاة</a>
+    <a href="duas.html">الأدعية</a>
+    <a href="tasbeeh.html">المسبحة</a>
+
+  </nav>
+
+</header>
+
+
+
+<main class="wird-page">
+
+
+  <section class="wird-hero">
+
+    <div class="wird-icon">
+      🌿
+    </div>
+
+    <h1>
+      الورد اليومي
+    </h1>
+
+    <p>
+      اجعل لك وردًا ثابتًا من القرآن والذكر
+      والصلاة والعلم النافع، وتابع إنجازك يومًا بعد يوم.
+    </p>
+
+
+    <div class="progress-box">
+
+      <div class="progress-top">
+
+        <span>
+          تقدم وردك اليوم
+        </span>
+
+        <span
+          id="progressPercent"
+          class="progress-percent">
+
+          0%
+
+        </span>
+
+      </div>
+
+
+      <div class="progress-bar">
+
+        <div
+          id="progressFill"
+          class="progress-fill">
+        </div>
+
+      </div>
+
+
+      <div
+        id="progressText"
+        class="progress-text">
+
+        0 من 20 مكتملة
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- الأقسام -->
+
+  <section class="categories">
+
+
+    <div
+      class="category-card active"
+      onclick="showCategory('all', this)">
+
+      <div class="category-icon">
+        🌿
+      </div>
+
+      <h2>
+        الورد كاملًا
+      </h2>
+
+      <span>
+        كل الأعمال
+      </span>
+
+    </div>
+
+
+
+    <div
+      class="category-card"
+      onclick="showCategory('quran', this)">
+
+      <div class="category-icon">
+        📖
+      </div>
+
+      <h2>
+        القرآن
+      </h2>
+
+      <span>
+        ورد قرآني
+      </span>
+
+    </div>
+
+
+
+    <div
+      class="category-card"
+      onclick="showCategory('adhkar', this)">
+
+      <div class="category-icon">
+        📿
+      </div>
+
+      <h2>
+        الأذكار
+      </h2>
+
+      <span>
+        ذكر الله
+      </span>
+
+    </div>
+
+
+
+    <div
+      class="category-card"
+      onclick="showCategory('hadith', this)">
+
+      <div class="category-icon">
+        📚
+      </div>
+
+      <h2>
+        الأحاديث
+      </h2>
+
+      <span>
+        حديث اليوم
+      </span>
+
+    </div>
+
+
+
+    <div
+      class="category-card"
+      onclick="showCategory('prayer', this)">
+
+      <div class="category-icon">
+        🕌
+      </div>
+
+      <h2>
+        الصلاة
+      </h2>
+
+      <span>
+        المحافظة على الصلاة
+      </span>
+
+    </div>
+
+
+
+    <div
+      class="category-card"
+      onclick="showCategory('nafl', this)">
+
+      <div class="category-icon">
+        🌙
+      </div>
+
+      <h2>
+        النوافل
+      </h2>
+
+      <span>
+        أعمال إضافية
+      </span>
+
+    </div>
+
+
+  </section>
+
+
+
+  <!-- قائمة الورد -->
+
+  <section
+    id="wirdList"
+    class="wird-list">
+  </section>
+
+
+
+  <!-- إعادة الورد -->
+
+  <button
+    class="reset-button"
+    onclick="resetWird()">
+
+    🔄 إعادة الورد لليوم
+
+  </button>
+
+
+
+  <!-- دعاء -->
+
+  <section class="dua-box">
+
+    <h2>
+      🤲 دعاء ختام الورد
+    </h2>
+
+    <p>
+      اللهم أعني على ذكرك وشكرك وحسن عبادتك،
+      واجعل القرآن ربيع قلبي ونور صدري،
+      وارزقني الثبات على طاعتك.
+    </p>
+
+  </section>
+
+
+
+  <a
+    href="index.html"
+    class="back-button">
+
+    ← العودة إلى الرئيسية
+
+  </a>
+
+
+</main>
+
+
+
+<footer>
+
+  صدقة جارية عن روح المرحوم
+
+  <br>
+
+  المهندس عصام أحمد عبدالعزيز
+
+</footer>
+
+
+
+<script>
+
+
+/* =========================
+   بيانات الورد
+========================= */
+
+const wirdItems = [
+
+  {
+    id: "quran1",
+    category: "quran",
+    title: "قراءة القرآن",
+    text: "اقرأ ما تيسر لك من القرآن الكريم، ولو صفحة واحدة، واجعل لك وردًا ثابتًا كل يوم."
+  },
+
+  {
+    id: "quran2",
+    category: "quran",
+    title: "تدبر آية",
+    text: "اختر آية من القرآن واقرأ معناها وتدبر ما فيها من هداية."
+  },
+
+  {
+    id: "quran3",
+    category: "quran",
+    title: "سورة قصيرة",
+    text: "اقرأ سورة قصيرة بتدبر وحضور قلب."
+  },
+
+
+  {
+    id: "adhkar1",
+    category: "adhkar",
+    title: "أذكار الصباح",
+    text: "حافظ على أذكار الصباح وما ورد فيها من القرآن والأذكار الصحيحة."
+  },
+
+  {
+    id: "adhkar2",
+    category: "adhkar",
+    title: "أذكار المساء",
+    text: "حافظ على أذكار المساء قبل الليل."
+  },
+
+  {
+    id: "adhkar3",
+    category: "adhkar",
+    title: "الاستغفار",
+    text: "أكثر من الاستغفار وقل: أستغفر الله وأتوب إليه."
+  },
+
+  {
+    id: "adhkar4",
+    category: "adhkar",
+    title: "الصلاة على النبي ﷺ",
+    text: "أكثر من الصلاة والسلام على النبي ﷺ."
+  },
+
+
+  {
+    id: "hadith1",
+    category: "hadith",
+    title: "حديث اليوم",
+    text: "اقرأ حديثًا صحيحًا من قسم الأحاديث في الموقع."
+  },
+
+  {
+    id: "hadith2",
+    category: "hadith",
+    title: "فهم الحديث",
+    text: "حاول فهم معنى الحديث والعمل بما فيه من الخير."
+  },
+
+  {
+    id: "hadith3",
+    category: "hadith",
+    title: "حفظ حديث",
+    text: "اختر حديثًا قصيرًا وحاول حفظه."
+  },
+
+
+  {
+    id: "prayer1",
+    category: "prayer",
+    title: "صلاة الفجر",
+    text: "حافظ على صلاة الفجر في وقتها."
+  },
+
+  {
+    id: "prayer2",
+    category: "prayer",
+    title: "صلاة الظهر",
+    text: "حافظ على صلاة الظهر في وقتها."
+  },
+
+  {
+    id: "prayer3",
+    category: "prayer",
+    title: "صلاة العصر",
+    text: "حافظ على صلاة العصر في وقتها."
+  },
+
+  {
+    id: "prayer4",
+    category: "prayer",
+    title: "صلاة المغرب",
+    text: "حافظ على صلاة المغرب في وقتها."
+  },
+
+  {
+    id: "prayer5",
+    category: "prayer",
+    title: "صلاة العشاء",
+    text: "حافظ على صلاة العشاء في وقتها."
+  },
+
+
+  {
+    id: "nafl1",
+    category: "nafl",
+    title: "صلاة الضحى",
+    text: "إن استطعت، صل ركعتي الضحى أو أكثر."
+  },
+
+  {
+    id: "nafl2",
+    category: "nafl",
+    title: "الوتر",
+    text: "حافظ على صلاة الوتر قبل النوم أو في آخر الليل."
+  },
+
+  {
+    id: "nafl3",
+    category: "nafl",
+    title: "قيام الليل",
+    text: "صل ما تيسر لك من قيام الليل ولو ركعتين."
+  },
+
+  {
+    id: "nafl4",
+    category: "nafl",
+    title: "الدعاء",
+    text: "خصص وقتًا للدعاء لنفسك ولوالديك وللمسلمين."
+  }
+
+];
+
+
+
+/* =========================
+   حالة الورد
+========================= */
+
+let completed =
+  JSON.parse(
+    localStorage.getItem(
+      "dailyWirdProgress"
+    )
+  ) || {};
+
+
+
+/* =========================
+   عرض الورد
+========================= */
+
+function showCategory(
+  category,
+  button
+) {
+
+
+  document
+    .querySelectorAll(
+      ".category-card"
+    )
+    .forEach(card => {
+
+      card.classList.remove(
+        "active"
+      );
+
+    });
+
+
+  if (button) {
+
+    button.classList.add(
+      "active"
+    );
+
+  }
+
+
+  const list =
+    document.getElementById(
+      "wirdList"
+    );
+
+
+  list.innerHTML = "";
+
+
+  let items;
+
+
+  if (category === "all") {
+
+    items = wirdItems;
+
+  } else {
+
+    items =
+      wirdItems.filter(
+        item =>
+          item.category ===
+          category
+      );
+
+  }
+
+
+  if (!items.length) {
+
+    list.innerHTML = `
+      <div class="empty">
+        لا توجد عناصر في هذا القسم.
+      </div>
+    `;
+
+    return;
+
+  }
+
+
+  items.forEach(
+    (item, index) => {
+
+
+      const isDone =
+        completed[item.id] === true;
+
+
+      const card =
+        document.createElement(
+          "article"
+        );
+
+
+      card.className =
+        "wird-card" +
+        (
+          isDone
+            ? " done"
+            : ""
+        );
+
+
+      card.innerHTML = `
+
+        <div class="wird-card-top">
+
+          <div class="wird-number">
+            ${index + 1}
+          </div>
+
+          <span>
+            ${
+              isDone
+                ? "✅ مكتمل"
+                : "🌿 ورد اليوم"
+            }
+          </span>
+
+        </div>
+
+
+        <h3>
+          ${item.title}
+        </h3>
+
+
+        <p>
+          ${item.text}
+        </p>
+
+
+        <button
+          class="done-button"
+          onclick="toggleDone('${item.id}')">
+
+          ${
+            isDone
+              ? "✓ تم الإنجاز — اضغط للإلغاء"
+              : "☑ تم الإنجاز"
+          }
+
+        </button>
+
+      `;
+
+
+      list.appendChild(card);
+
+    }
+
+  );
+
+}
+
+
+
+/* =========================
+   تسجيل الإنجاز
+========================= */
+
+function toggleDone(
+  id
+) {
+
+
+  completed[id] =
+    !completed[id];
+
+
+  localStorage.setItem(
+    "dailyWirdProgress",
+    JSON.stringify(
+      completed
+    )
+  );
+
+
+  const active =
+    document.querySelector(
+      ".category-card.active"
+    );
+
+
+  let category =
+    "all";
+
+
+  if (active) {
+
+    const title =
+      active
+        .querySelector("h2")
+        ?.textContent
+        .trim();
+
+
+    if (
+      title === "القرآن"
+    )
+      category = "quran";
+
+    else if (
+      title === "الأذكار"
+    )
+      category = "adhkar";
+
+    else if (
+      title === "الأحاديث"
+    )
+      category = "hadith";
+
+    else if (
+      title === "الصلاة"
+    )
+      category = "prayer";
+
+    else if (
+      title === "النوافل"
+    )
+      category = "nafl";
+
+  }
+
+
+  showCategory(
+    category,
+    active
+  );
+
+
+  updateProgress();
+
+}
+
+
+
+/* =========================
+   حساب التقدم
+========================= */
+
+function updateProgress() {
+
+
+  const total =
+    wirdItems.length;
+
+
+  let done = 0;
+
+
+  wirdItems.forEach(
+    item => {
+
+      if (
+        completed[item.id]
+      ) {
+
+        done++;
+
+      }
+
+    }
+  );
+
+
+  const percent =
+    total === 0
+      ? 0
+      : Math.round(
+          (
+            done /
+            total
+          ) * 100
+        );
+
+
+  document.getElementById(
+    "progressPercent"
+  ).textContent =
+    percent + "%";
+
+
+  document.getElementById(
+    "progressFill"
+  ).style.width =
+    percent + "%";
+
+
+  document.getElementById(
+    "progressText"
+  ).textContent =
+
+    `${done} من ${total} مكتملة`;
+
+}
+
+
+
+/* =========================
+   إعادة الورد
+========================= */
+
+function resetWird() {
+
+
+  const confirmReset =
+    confirm(
+      "هل تريد إعادة الورد اليومي من البداية؟"
+    );
+
+
+  if (!confirmReset)
+    return;
+
+
+  completed = {};
+
+
+  localStorage.removeItem(
+    "dailyWirdProgress"
+  );
+
+
+  showCategory(
+    "all",
+    document.querySelector(
+      ".category-card"
+    )
+  );
+
+
+  updateProgress();
+
+}
+
+
+
+/* =========================
+   التشغيل الأول
+========================= */
+
+showCategory(
+  "all",
+  document.querySelector(
+    ".category-card"
+  )
+);
+
+
+updateProgress();
+
+
+</script>
+
+
+</body>
+
+</html>
