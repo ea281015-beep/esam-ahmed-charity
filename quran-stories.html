@@ -2,91 +2,98 @@
 <html lang="ar" dir="rtl">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>قصص القرآن | صدقة جارية</title>
+  <title>قصص القرآن | صدقة جارية</title>
 
-<link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 
-<style>
+  <style>
 
-.stories-intro{
-text-align:center;
-max-width:900px;
-margin:0 auto 40px;
-color:#b9c5bd;
-line-height:2.2;
-font-size:18px;
-}
+    .stories-intro {
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 45px;
+      color: #b9c5bd;
+      line-height: 2.2;
+      font-size: 18px;
+    }
 
-.stories-section-title{
-text-align:center;
-color:#d7b56d;
-font-family:"Traditional Arabic",serif;
-font-size:36px;
-margin:50px 0 30px;
-}
+    .stories-section-title {
+      text-align: center;
+      color: #d7b56d;
+      font-family: "Traditional Arabic", serif;
+      font-size: 36px;
+      margin: 55px 0 30px;
+    }
 
-.stories-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:22px;
-}
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 22px;
+    }
 
-.story-card{
-background:linear-gradient(145deg,#102d23,#081a13);
-border:1px solid #234235;
-border-radius:25px;
-padding:28px 22px;
-transition:.25s;
-}
+    .story-card {
+      background: linear-gradient(145deg, #102d23, #081a13);
+      border: 1px solid #234235;
+      border-radius: 25px;
+      padding: 28px 22px;
+      transition: .25s ease;
+    }
 
-.story-card:hover{
-transform:translateY(-7px);
-border-color:#d7b56d;
-box-shadow:0 15px 35px rgba(0,0,0,.25);
-}
+    .story-card:hover {
+      transform: translateY(-7px);
+      border-color: #d7b56d;
+      box-shadow: 0 15px 35px rgba(0,0,0,.25);
+    }
 
-.story-icon{
-font-size:48px;
-text-align:center;
-margin-bottom:10px;
-}
+    .story-icon {
+      font-size: 48px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
 
-.story-card h2{
-color:#d7b56d;
-font-family:"Traditional Arabic",serif;
-font-size:29px;
-text-align:center;
-margin:10px 0 15px;
-}
+    .story-card h2 {
+      color: #d7b56d;
+      font-family: "Traditional Arabic", serif;
+      font-size: 29px;
+      text-align: center;
+      margin: 10px 0 15px;
+    }
 
-.story-card p{
-color:#b9c5bd;
-line-height:2;
-text-align:center;
-min-height:85px;
-}
+    .story-card p {
+      color: #b9c5bd;
+      line-height: 2;
+      text-align: center;
+      min-height: 85px;
+    }
 
-.story-button{
-display:block;
-text-align:center;
-text-decoration:none;
-background:linear-gradient(135deg,#d7b56d,#b9964d);
-color:#081a13;
-padding:14px;
-border-radius:14px;
-font-weight:bold;
-margin-top:20px;
-transition:.2s;
-}
+    .story-button {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      background: linear-gradient(135deg, #d7b56d, #b9964d);
+      color: #081a13;
+      padding: 14px;
+      border-radius: 15px;
+      font-weight: bold;
+      margin-top: 20px;
+      transition: .2s ease;
+    }
 
-.story-button:hover{
-transform:scale(1.03);
-}
+    .story-button:hover {
+      transform: scale(1.03);
+    }
 
-</style>
+    .source-note {
+      text-align: center;
+      color: #8f9e96;
+      margin: 50px auto 20px;
+      line-height: 2;
+    }
+
+  </style>
 
 </head>
 
@@ -96,696 +103,492 @@ transform:scale(1.03);
 
 <header>
 
-<div class="logo">
-صدقة جارية
-</div>
+  <div class="logo">
+    صدقة جارية
+  </div>
 
-<nav>
+  <nav>
 
-<a href="index.html">الرئيسية</a>
+    <a href="index.html">الرئيسية</a>
 
-<a href="quran.html">القرآن</a>
+    <a href="quran.html">القرآن</a>
 
-<a href="hadith.html">الأحاديث</a>
+    <a href="hadith.html">الأحاديث</a>
 
-<a href="adhkar.html">الأذكار</a>
+    <a href="adhkar.html">الأذكار</a>
 
-<a href="quran-tafsir.html">التفسير</a>
+    <a href="quran-tafsir.html">التفسير</a>
 
-<a href="quran-stories.html">قصص القرآن</a>
+    <a href="quran-stories.html">قصص القرآن</a>
 
-</nav>
+  </nav>
 
 </header>
-
 
 
 <main class="container">
 
 
-<h1 class="page-title">
-🕊️ قصص القرآن الكريم
-</h1>
+  <h1 class="page-title">
+    🕊️ قصص القرآن الكريم
+  </h1>
 
 
-<p class="stories-intro">
+  <p class="stories-intro">
 
-اقرأ قصص الأنبياء والقصص التي ورد ذكرها
-في القرآن الكريم. اضغط على القصة لفتح
-صفحة القصة كاملة.
+    قصص الأنبياء والقصص التي ورد ذكرها
+    في القرآن الكريم، اضغط على القصة
+    لقراءتها كاملة من المصدر.
 
-</p>
+  </p>
 
 
 
-<!-- ============================= -->
-<!-- قصص الأنبياء -->
-<!-- ============================= -->
+  <!-- ========================= -->
+  <!-- قصص الأنبياء -->
+  <!-- ========================= -->
 
-<h2 class="stories-section-title">
-🕊️ قصص الأنبياء عليهم السلام
-</h2>
+  <h2 class="stories-section-title">
+    🕊️ قصص الأنبياء عليهم السلام
+  </h2>
 
 
-<div class="stories-grid">
+  <div class="stories-grid">
 
 
 
-<!-- آدم -->
+    <!-- آدم -->
 
-<div class="story-card">
+    <div class="story-card">
 
-<div class="story-icon">🌿</div>
+      <div class="story-icon">🌿</div>
 
-<h2>
-آدم عليه السلام
-</h2>
+      <h2>آدم عليه السلام</h2>
 
-<p>
-قصة خلق آدم عليه السلام وبداية
-قصة الإنسان وإبليس.
-</p>
+      <p>
+        قصة خلق آدم عليه السلام،
+        وإبليس، والجنة، وبداية حياة الإنسان.
+      </p>
 
-<a
-class="story-button"
-href="https://arabic-stories.com/%D9%82%D8%B5%D8%A9-%D8%A2%D8%AF%D9%85-%D8%B9%D9%84%D9%8A%D9%87-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85/"
-target="_blank"
-rel="noopener noreferrer">
+      <a
+        class="story-button"
+        href="https://www.islamweb.net/ar/article/174315/%D9%82%D8%B5%D8%A9-%D8%A2%D8%AF%D9%85-%D8%B9%D9%84%D9%8A%D9%87-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85-%D9%81%D9%8A-%D8%A7%D9%84%D9%82%D8%B1%D8%A2%D9%86"
+        target="_blank"
+        rel="noopener noreferrer">
 
-📖 اقرأ قصة آدم كاملة
+        📖 اقرأ قصة آدم
 
-</a>
+      </a>
 
-</div>
+    </div>
 
 
 
-<!-- نوح -->
+    <!-- نوح -->
 
-<div class="story-card">
+    <div class="story-card">
 
-<div class="story-icon">🚢</div>
+      <div class="story-icon">🚢</div>
 
-<h2>
-نوح عليه السلام
-</h2>
+      <h2>نوح عليه السلام</h2>
 
-<p>
-قصة نوح عليه السلام مع قومه
-والسفينة والطوفان.
-</p>
+      <p>
+        دعوة نوح لقومه، وصبره عليهم،
+        والسفينة والطوفان.
+      </p>
 
-<a
-class="story-button"
-href="https://arabic-stories.com/the-story-of-prophet-nuh/"
-target="_blank"
-rel="noopener noreferrer">
+      <a
+        class="story-button"
+        href="https://islamweb.net/ar/article/174385/%D9%82%D8%B5%D8%A9-%D9%86%D9%88%D8%AD-%D8%B9%D9%84%D9%8A%D9%87-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85-%D9%81%D9%8A-%D8%A7%D9%84%D9%82%D8%B1%D8%A2%D9%86"
+        target="_blank"
+        rel="noopener noreferrer">
 
-📖 اقرأ قصة نوح كاملة
+        📖 اقرأ قصة نوح
 
-</a>
+      </a>
 
-</div>
+    </div>
 
 
 
-<!-- إبراهيم -->
+    <!-- إبراهيم -->
 
-<div class="story-card">
+    <div class="story-card">
 
-<div class="story-icon">🕋</div>
+      <div class="story-icon">🕋</div>
 
-<h2>
-إبراهيم عليه السلام
-</h2>
+      <h2>إبراهيم عليه السلام</h2>
 
-<p>
-قصة إبراهيم عليه السلام ودعوته
-إلى التوحيد والابتلاءات.
-</p>
+      <p>
+        قصة إبراهيم عليه السلام ودعوته
+        إلى التوحيد وابتلاءاته.
+      </p>
 
-<a
-class="story-button"
-href="https://arabic-stories.com/%D9%82%D8%B5%D8%A9-%D8%A7%D9%84%D9%86%D8%A8%D9%8A-%D8%A5%D8%A8%D8%B1%D8%A7%D9%87%D9%8A%D9%85-%D8%B9%D9%84%D9%8A%D9%87-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85/"
-target="_blank"
-rel="noopener noreferrer">
+      <a
+        class="story-button"
+        href="https://www.islamweb.net/ar/library/content/200/"
+        target="_blank"
+        rel="noopener noreferrer">
 
-📖 اقرأ قصة إبراهيم كاملة
+        📖 اقرأ قصة إبراهيم
 
-</a>
+      </a>
 
-</div>
+    </div>
 
 
 
-<!-- يوسف -->
+    <!-- يوسف -->
 
-<div class="story-card">
+    <div class="story-card">
 
-<div class="story-icon">🌙</div>
+      <div class="story-icon">🌙</div>
 
-<h2>
-يوسف عليه السلام
-</h2>
+      <h2>يوسف عليه السلام</h2>
 
-<p>
-الرؤيا والجب ومصر والسجن
-والتمكين والعفو عن الإخوة.
-</p>
+      <p>
+        الرؤيا والجب ومصر والسجن،
+        ثم التمكين والعفو عن الإخوة.
+      </p>
 
-<a
-class="story-button"
-href="https://arabic-stories.com/%D9%82%D8%B5%D8%A9-%D8%A7%D9%84%D9%86%D8%A8%D9%8A-%D9%8A%D9%88%D8%B3%D9%81-%D8%B9%D9%84%D9%8A%D9%87-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85/"
-target="_blank"
-rel="noopener noreferrer">
+      <a
+        class="story-button"
+        href="https://www.islamweb.net/ar/article/179335/%D9%82%D8%B5%D8%A9-%D9%8A%D9%88%D8%B3%D9%81-%D8%B9%D9%84%D9%8A%D9%87-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85-%D9%81%D9%8A-%D8%A7%D9%84%D9%82%D8%B1%D8%A2%D9%86"
+        target="_blank"
+        rel="noopener noreferrer">
 
-📖 اقرأ قصة يوسف كاملة
+        📖 اقرأ قصة يوسف
 
-</a>
+      </a>
 
-</div>
+    </div>
 
 
 
-<!-- موسى -->
+    <!-- موسى -->
 
-<div class="story-card">
+    <div class="story-card">
 
-<div class="story-icon">🌊</div>
+      <div class="story-icon">🌊</div>
 
-<h2>
-موسى عليه السلام
-</h2>
+      <h2>موسى عليه السلام</h2>
 
-<p>
-قصة موسى عليه السلام مع فرعون
-وبني إسرائيل.
-</p>
+      <p>
+        قصة موسى وفرعون، وبني إسرائيل،
+        والخروج من مصر.
+      </p>
 
-<a
-class="story-button"
-href="https://arabic-stories.com/%D9%82%D8%B5%D8%A9-%D8%A7%D9%84%D9%86%D8%A8%D9%8A-%D9%85%D9%88%D8%B3%D9%89-%D8%B9%D9%84%D9%8A%D9%87-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85/"
-target="_blank"
-rel="noopener noreferrer">
+      <a
+        class="story-button"
+        href="https://www.islamweb.net/ar/article/181553/%D9%82%D8%B5%D8%A9-%D9%85%D9%88%D8%B3%D9%89-%D8%B9%D9%84%D9%8A%D9%87-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85-%D9%81%D9%8A-%D8%A7%D9%84%D9%82%D8%B1%D8%A2%D9%86-1-4"
+        target="_blank"
+        rel="noopener noreferrer">
 
-📖 اقرأ قصة موسى كاملة
+        📖 اقرأ قصة موسى
 
-</a>
+      </a>
 
-</div>
+    </div>
 
 
 
-<!-- يونس -->
+    <!-- يونس -->
 
-<div class="story-card">
+    <div class="story-card">
 
-<div class="story-icon">🐋</div>
+      <div class="story-icon">🐋</div>
 
-<h2>
-يونس عليه السلام
-</h2>
+      <h2>يونس عليه السلام</h2>
 
-<p>
-قصة يونس عليه السلام والحوت
-ودعائه في الظلمات.
-</p>
+      <p>
+        قصة يونس عليه السلام والحوت،
+        ودعاؤه في الظلمات.
+      </p>
 
-<a
-class="story-button"
-href="https://arabic-stories.com/%D9%82%D8%B5%D8%A9-%D8%A7%D9%84%D9%86%D8%A8%D9%8A-%D9%8A%D9%88%D9%86%D8%B3-%D8%B9%D9%84%D9%8A%D9%87-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85/"
-target="_blank"
-rel="noopener noreferrer">
+      <a
+        class="story-button"
+        href="https://www.islamweb.net/ar/article/171273/%D9%82%D8%B5%D8%A9-%D9%8A%D9%88%D9%86%D8%B3-%D9%81%D9%8A-%D8%A7%D9%84%D9%82%D8%B1%D8%A2%D9%86-%D8%A7%D9%84%D9%83%D8%B1%D9%8A%D9%85"
+        target="_blank"
+        rel="noopener noreferrer">
 
-📖 اقرأ قصة يونس كاملة
+        📖 اقرأ قصة يونس
 
-</a>
+      </a>
 
-</div>
+    </div>
 
 
 
-<!-- أيوب -->
+    <!-- أيوب -->
 
-<div class="story-card">
+    <div class="story-card">
 
-<div class="story-icon">🤲</div>
+      <div class="story-icon">🤲</div>
 
-<h2>
-أيوب عليه السلام
-</h2>
+      <h2>أيوب عليه السلام</h2>
 
-<p>
-قصة أيوب عليه السلام والصبر
-على البلاء.
-</p>
+      <p>
+        قصة الصبر على البلاء،
+        واللجوء إلى الله تعالى.
+      </p>
 
-<a
-class="story-button"
-href="https://ar.islamway.net/article/84741/%D9%82%D8%B5%D8%A9-%D8%A3%D9%8A%D9%88%D8%A8-%D8%B9%D9%84%D9%8A%D9%87-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85"
-target="_blank"
-rel="noopener noreferrer">
+      <a
+        class="story-button"
+        href="https://www.islamweb.net/ar/article/170335/%D9%82%D8%B5%D8%A9-%D8%A3%D9%8A%D9%88%D8%A8-%D8%B9%D9%84%D9%8A%D9%87-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85"
+        target="_blank"
+        rel="noopener noreferrer">
 
-📖 اقرأ قصة أيوب كاملة
+        📖 اقرأ قصة أيوب
 
-</a>
+      </a>
 
-</div>
+    </div>
 
 
 
-<!-- عيسى -->
+  </div>
 
-<div class="story-card">
 
-<div class="story-icon">🌸</div>
 
-<h2>
-عيسى عليه السلام
-</h2>
+  <!-- ========================= -->
+  <!-- قصص القرآن -->
+  <!-- ========================= -->
 
-<p>
-قصة عيسى عليه السلام ومريم
-عليها السلام.
-</p>
+  <h2 class="stories-section-title">
+    📖 قصص وردت في القرآن الكريم
+  </h2>
 
-<a
-class="story-button"
-href="https://arabic-stories.com/%D9%82%D8%B5%D8%A9-%D8%A7%D9%84%D9%86%D8%A8%D9%8A-%D8%B9%D9%8A%D8%B3%D9%89-%D8%B9%D9%84%D9%8A%D9%87-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85/"
-target="_blank"
-rel="noopener noreferrer">
 
-📖 اقرأ قصة عيسى كاملة
+  <div class="stories-grid">
 
-</a>
 
-</div>
 
+    <!-- أصحاب الكهف -->
 
+    <div class="story-card">
 
-</div>
+      <div class="story-icon">🕳️</div>
 
+      <h2>أصحاب الكهف</h2>
 
+      <p>
+        قصة الفتية المؤمنين الذين
+        فروا بدينهم ولجؤوا إلى الكهف.
+      </p>
 
-<!-- ============================= -->
-<!-- قصص القرآن -->
-<!-- ============================= -->
+      <a
+        class="story-button"
+        href="https://www.islamweb.net/ar/fatwa/37624/%D9%82%D8%B5%D8%A9-%D8%A3%D8%B5%D8%AD%D8%A7%D8%A8-%D8%A7%D9%84%D9%83%D9%87%D9%81"
+        target="_blank"
+        rel="noopener noreferrer">
 
-<h2 class="stories-section-title">
-📖 قصص وردت في القرآن الكريم
-</h2>
+        📖 اقرأ قصة أصحاب الكهف
 
+      </a>
 
-<div class="stories-grid">
+    </div>
 
 
 
-<!-- أصحاب الكهف -->
+    <!-- قارون -->
 
-<div class="story-card">
+    <div class="story-card">
 
-<div class="story-icon">🕳️</div>
+      <div class="story-icon">💰</div>
 
-<h2>
-أصحاب الكهف
-</h2>
+      <h2>قارون</h2>
 
-<p>
-قصة الفتية المؤمنين الذين
-لجأوا إلى الكهف.
-</p>
+      <p>
+        قصة قارون وفتنة المال
+        وعاقبة الكبر والبطر.
+      </p>
 
-<a
-class="story-button"
-href="https://arabic-stories.com/%D9%82%D8%B5%D8%A9-%D8%A7%D8%B5%D8%AD%D8%A7%D8%A8-%D8%A7%D9%84%D9%83%D9%87%D9%81"
-target="_blank"
-rel="noopener noreferrer">
+      <a
+        class="story-button"
+        href="https://www.islamweb.net/ar/library/content/200/16299/%D9%82%D8%B5%D8%A9-%D9%82%D8%A7%D8%B1%D9%88%D9%86-%D9%85%D8%B9-%D9%85%D9%88%D8%B3%D9%89-%D8%B9%D9%84%D9%8A%D9%87-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85"
+        target="_blank"
+        rel="noopener noreferrer">
 
-📖 اقرأ القصة كاملة
+        📖 اقرأ قصة قارون
 
-</a>
+      </a>
 
-</div>
+    </div>
 
 
 
-<!-- قارون -->
+    <!-- أصحاب الفيل -->
 
-<div class="story-card">
+    <div class="story-card">
 
-<div class="story-icon">💰</div>
+      <div class="story-icon">🐘</div>
 
-<h2>
-قارون
-</h2>
+      <h2>أصحاب الفيل</h2>
 
-<p>
-قصة قارون وفتنة المال
-وعاقبة الكبر.
-</p>
+      <p>
+        قصة أبرهة وجيشه ومحاولة
+        هدم الكعبة وحفظ الله لبيته.
+      </p>
 
-<a
-class="story-button"
-href="https://arabic-stories.com/%D9%82%D8%B5%D8%A9-%D9%82%D8%A7%D8%B1%D9%88%D9%86/"
-target="_blank"
-rel="noopener noreferrer">
+      <a
+        class="story-button"
+        href="https://g1.islamweb.net/ar/article/184969/%D8%A3%D8%B5%D8%AD%D8%A7%D8%A8-%D8%A7%D9%84%D9%81%D9%8A%D9%84"
+        target="_blank"
+        rel="noopener noreferrer">
 
-📖 اقرأ القصة كاملة
+        📖 اقرأ قصة أصحاب الفيل
 
-</a>
+      </a>
 
-</div>
+    </div>
 
 
 
-<!-- أصحاب الفيل -->
+    <!-- طالوت وجالوت -->
 
-<div class="story-card">
+    <div class="story-card">
 
-<div class="story-icon">🐘</div>
+      <div class="story-icon">⚔️</div>
 
-<h2>
-أصحاب الفيل
-</h2>
+      <h2>طالوت وجالوت</h2>
 
-<p>
-قصة أصحاب الفيل ومحاولتهم
-هدم الكعبة.
-</p>
+      <p>
+        قصة طالوت وجالوت وداود
+        وانتصار المؤمنين.
+      </p>
 
-<a
-class="story-button"
-href="https://arabic-stories.com/%D9%82%D8%B5%D8%A9-%D8%A3%D8%B5%D8%AD%D8%A7%D8%A8-%D8%A7%D9%84%D9%81%D9%8A%D9%84/"
-target="_blank"
-rel="noopener noreferrer">
+      <a
+        class="story-button"
+        href="https://www.islamweb.net/ar/library/content/200/16330/%D9%82%D8%B5%D8%A9-%D8%B7%D8%A7%D9%84%D9%88%D8%AA-%D9%88%D8%AC%D8%A7%D9%84%D9%88%D8%AA"
+        target="_blank"
+        rel="noopener noreferrer">
 
-📖 اقرأ القصة كاملة
+        📖 اقرأ قصة طالوت وجالوت
 
-</a>
+      </a>
 
-</div>
+    </div>
 
 
 
-<!-- طالوت وجالوت -->
+    <!-- أصحاب الأخدود -->
 
-<div class="story-card">
+    <div class="story-card">
 
-<div class="story-icon">⚔️</div>
+      <div class="story-icon">🔥</div>
 
-<h2>
-طالوت وجالوت
-</h2>
+      <h2>أصحاب الأخدود</h2>
 
-<p>
-قصة طالوت وجالوت وداود
-وانتصار المؤمنين.
-</p>
+      <p>
+        قصة الغلام والملك وأصحاب
+        الأخدود والثبات على الإيمان.
+      </p>
 
-<a
-class="story-button"
-href="https://arabic-stories.com/%D9%82%D8%B5%D8%A9-%D8%B7%D8%A7%D9%84%D9%88%D8%AA-%D9%88%D8%AC%D8%A7%D9%84%D9%88%D8%AA/"
-target="_blank"
-rel="noopener noreferrer">
+      <a
+        class="story-button"
+        href="https://www.islamweb.net/ar/article/231055/%D8%A3%D8%B5%D8%AD%D8%A7%D8%A8-%D8%A7%D9%84%D8%A3%D8%AE%D8%AF%D9%88%D8%AF"
+        target="_blank"
+        rel="noopener noreferrer">
 
-📖 اقرأ القصة كاملة
+        📖 اقرأ قصة أصحاب الأخدود
 
-</a>
+      </a>
 
-</div>
+    </div>
 
 
 
-<!-- أصحاب الأخدود -->
+    <!-- أصحاب السبت -->
 
-<div class="story-card">
+    <div class="story-card">
 
-<div class="story-icon">🔥</div>
+      <div class="story-icon">🐟</div>
 
-<h2>
-أصحاب الأخدود
-</h2>
+      <h2>أصحاب السبت</h2>
 
-<p>
-قصة أصحاب الأخدود وثبات
-المؤمنين على الإيمان.
-</p>
+      <p>
+        قصة أصحاب السبت والعبرة
+        من مخالفة أمر الله.
+      </p>
 
-<a
-class="story-button"
-href="https://arabic-stories.com/%D9%82%D8%B5%D8%A9-%D8%A3%D8%B5%D8%AD%D8%A7%D8%A8-%D8%A7%D9%84%D8%A3%D8%AE%D8%AF%D9%88%D8%AF/"
-target="_blank"
-rel="noopener noreferrer">
+      <a
+        class="story-button"
+        href="https://www.islamweb.net/ar/article/232537/%D9%82%D8%B5%D8%A9-%D8%A3%D8%B5%D8%AD%D8%A7%D8%A8-%D8%A7%D9%84%D8%B3%D8%A8%D8%AA-%D8%B9%D8%A8%D8%B1-%D9%88%D8%AF%D8%B1%D9%88%D8%B3"
+        target="_blank"
+        rel="noopener noreferrer">
 
-📖 اقرأ القصة كاملة
+        📖 اقرأ قصة أصحاب السبت
 
-</a>
+      </a>
 
-</div>
+    </div>
 
 
 
-<!-- ذو القرنين -->
+    <!-- أصحاب الجنة -->
 
-<div class="story-card">
+    <div class="story-card">
 
-<div class="story-icon">🛡️</div>
+      <div class="story-icon">🌴</div>
 
-<h2>
-ذو القرنين
-</h2>
+      <h2>أصحاب الجنة</h2>
 
-<p>
-قصة ذي القرنين ورحلاته
-وبناء السد.
-</p>
+      <p>
+        قصة أصحاب البستان وعاقبة
+        منع المساكين من حقهم.
+      </p>
 
-<a
-class="story-button"
-href="https://arabic-stories.com/%D9%82%D8%B5%D8%A9-%D8%B0%D9%88-%D8%A7%D9%84%D9%82%D8%B1%D9%86%D9%8A%D9%86/"
-target="_blank"
-rel="noopener noreferrer">
+      <a
+        class="story-button"
+        href="https://islamweb.net/ar/library/content/200/16433/%D9%82%D8%B5%D8%A9-%D8%A3%D8%B5%D8%AD%D8%A7%D8%A8-%D8%A7%D9%84%D8%AC%D9%86%D8%A9"
+        target="_blank"
+        rel="noopener noreferrer">
 
-📖 اقرأ القصة كاملة
+        📖 اقرأ قصة أصحاب الجنة
 
-</a>
+      </a>
 
-</div>
+    </div>
 
 
 
-<!-- أصحاب السبت -->
+    <!-- ذو القرنين -->
 
-<div class="story-card">
+    <div class="story-card">
 
-<div class="story-icon">🐟</div>
+      <div class="story-icon">🛡️</div>
 
-<h2>
-أصحاب السبت
-</h2>
+      <h2>ذو القرنين</h2>
 
-<p>
-قصة أصحاب السبت وما حدث
-لهم بسبب مخالفة أمر الله.
-</p>
+      <p>
+        قصة ذي القرنين ورحلاته
+        وبناء السد.
+      </p>
 
-<a
-class="story-button"
-href="https://arabic-stories.com/%D9%82%D8%B5%D8%A9-%D8%A7%D8%B5%D8%AD%D8%A7%D8%A8-%D8%A7%D9%84%D8%B3%D8%A8%D8%AA/"
-target="_blank"
-rel="noopener noreferrer">
+      <a
+        class="story-button"
+        href="https://islamweb.net/ar/library/content/200/16418/%D9%85%D8%A7-%D8%AC%D8%A7%D8%A1-%D9%81%D9%8A-%D8%A7%D9%84%D9%82%D8%B1%D8%A2%D9%86-%D8%A7%D9%84%D9%83%D8%B1%D9%8A%D9%85-%D8%B9%D9%86-%D9%82%D8%B5%D8%A9-%D8%B0%D9%8A-%D8%A7%D9%84%D9%82%D8%B1%D9%86%D9%8A%D9%86-%D8%B9%D9%84%D9%8A%D9%87-%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85"
+        target="_blank"
+        rel="noopener noreferrer">
 
-📖 اقرأ القصة كاملة
+        📖 اقرأ قصة ذي القرنين
 
-</a>
+      </a>
 
-</div>
+    </div>
 
 
 
-<!-- أصحاب الجنة -->
+  </div>
 
-<div class="story-card">
 
-<div class="story-icon">🌴</div>
 
-<h2>
-أصحاب الجنة
-</h2>
+  <p class="source-note">
 
-<p>
-قصة أصحاب البستان
-وعاقبة منع المساكين.
-</p>
+    📚 يتم فتح كل قصة في صفحة مستقلة من المصدر
+    عند الضغط على زر القراءة.
 
-<a
-class="story-button"
-href="https://arabic-stories.com/%D9%82%D8%B5%D8%A9-%D8%A3%D8%B5%D8%AD%D8%A7%D8%A8-%D8%A7%D9%84%D8%AC%D9%86%D8%A9/"
-target="_blank"
-rel="noopener noreferrer">
-
-📖 اقرأ القصة كاملة
-
-</a>
-
-</div>
-
-
-
-<!-- سبأ -->
-
-<div class="story-card">
-
-<div class="story-icon">🏰</div>
-
-<h2>
-قوم سبأ
-</h2>
-
-<p>
-قصة سبأ والنعم التي أنعم
-الله بها عليهم.
-</p>
-
-<a
-class="story-button"
-href="https://arabic-stories.com/%D9%82%D8%B5%D8%A9-%D8%B3%D8%A8%D8%A3/"
-target="_blank"
-rel="noopener noreferrer">
-
-📖 اقرأ القصة كاملة
-
-</a>
-
-</div>
-
-
-
-<!-- هابيل وقابيل -->
-
-<div class="story-card">
-
-<div class="story-icon">👥</div>
-
-<h2>
-هابيل وقابيل
-</h2>
-
-<p>
-قصة ابني آدم وأول جريمة
-قتل بين بني آدم.
-</p>
-
-<a
-class="story-button"
-href="https://arabic-stories.com/%D9%82%D8%B5%D8%A9-%D9%87%D8%A7%D8%A8%D9%8A%D9%84-%D9%88%D9%82%D8%A7%D8%A8%D9%8A%D9%84/"
-target="_blank"
-rel="noopener noreferrer">
-
-📖 اقرأ القصة كاملة
-
-</a>
-
-</div>
-
-
-
-<!-- يأجوج ومأجوج -->
-
-<div class="story-card">
-
-<div class="story-icon">🧱</div>
-
-<h2>
-يأجوج ومأجوج
-</h2>
-
-<p>
-قصة يأجوج ومأجوج والسد
-الذي بناه ذو القرنين.
-</p>
-
-<a
-class="story-button"
-href="https://arabic-stories.com/%D9%82%D8%B5%D8%A9-%D9%8A%D8%A3%D8%AC%D9%88%D8%AC-%D9%88%D9%85%D8%A3%D8%AC%D9%88%D8%AC/"
-target="_blank"
-rel="noopener noreferrer">
-
-📖 اقرأ القصة كاملة
-
-</a>
-
-</div>
-
-
-
-<!-- هاروت وماروت -->
-
-<div class="story-card">
-
-<div class="story-icon">📜</div>
-
-<h2>
-هاروت وماروت
-</h2>
-
-<p>
-قصة هاروت وماروت كما ورد
-ذكرهما في القرآن.
-</p>
-
-<a
-class="story-button"
-href="https://arabic-stories.com/%D9%82%D8%B5%D8%A9-%D9%87%D8%A7%D8%B1%D9%88%D8%AA-%D9%88%D9%85%D8%A7%D8%B1%D9%88%D8%AA/"
-target="_blank"
-rel="noopener noreferrer">
-
-📖 اقرأ القصة كاملة
-
-</a>
-
-</div>
-
-
-
-<!-- أصحاب القرية -->
-
-<div class="story-card">
-
-<div class="story-icon">🏘️</div>
-
-<h2>
-أصحاب القرية
-</h2>
-
-<p>
-قصة أصحاب القرية والرسل
-والرجل المؤمن.
-</p>
-
-<a
-class="story-button"
-href="https://arabic-stories.com/%D9%82%D8%B5%D8%A9-%D8%A7%D8%B5%D8%AD%D8%A7%D8%A8-%D8%A7%D9%84%D9%82%D8%B1%D9%8A%D8%A9/"
-target="_blank"
-rel="noopener noreferrer">
-
-📖 اقرأ القصة كاملة
-
-</a>
-
-</div>
-
-
-
-</div>
-
-
-<p class="source-note">
-
-الموقع يفتح القصة في صفحة مستقلة على المصدر
-المخصص لها، وليس صفحة القرآن أو فهرس الأنبياء.
-
-</p>
+  </p>
 
 
 </main>
@@ -794,8 +597,8 @@ rel="noopener noreferrer">
 
 <footer>
 
-صدقة جارية عن روح المرحوم
-المهندس عصام أحمد عبدالعزيز
+  صدقة جارية عن روح المرحوم
+  المهندس عصام أحمد عبدالعزيز
 
 </footer>
 
