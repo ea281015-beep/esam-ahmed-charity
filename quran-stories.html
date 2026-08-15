@@ -13,16 +13,24 @@
 
     .stories-intro {
       text-align: center;
-      max-width: 850px;
+      max-width: 900px;
       margin: 0 auto 40px;
       color: #b9c5bd;
       line-height: 2.2;
-      font-size: 18px;
+      font-size: 17px;
+    }
+
+    .stories-section-title {
+      color: #d7b56d;
+      text-align: center;
+      font-family: "Traditional Arabic", serif;
+      font-size: 34px;
+      margin: 55px 0 25px;
     }
 
     .stories-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 22px;
     }
 
@@ -32,92 +40,65 @@
       border-radius: 24px;
       padding: 28px 22px;
       transition: .25s;
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      min-height: 290px;
     }
 
     .story-card:hover {
       transform: translateY(-6px);
       border-color: #d7b56d;
-      box-shadow: 0 15px 35px rgba(0,0,0,.25);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
     }
 
     .story-icon {
-      font-size: 45px;
+      font-size: 44px;
       margin-bottom: 12px;
+      text-align: center;
     }
 
     .story-card h2 {
       color: #d7b56d;
       font-family: "Traditional Arabic", serif;
       font-size: 29px;
-      margin: 8px 0 14px;
+      margin: 8px 0 15px;
+      text-align: center;
     }
 
     .story-card p {
       color: #b9c5bd;
       line-height: 2;
-      min-height: 65px;
+      text-align: center;
+      flex: 1;
+      font-size: 16px;
     }
 
     .story-btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 11px 22px;
-      border-radius: 13px;
-      background: #d7b56d;
-      color: #081a13;
+      display: block;
       text-decoration: none;
+      text-align: center;
+      background: linear-gradient(135deg, #d7b56d, #b9964d);
+      color: #081a13;
       font-weight: bold;
+      padding: 13px 15px;
+      border-radius: 14px;
+      margin-top: 20px;
       transition: .2s;
     }
 
     .story-btn:hover {
-      transform: scale(1.04);
-      opacity: .9;
+      transform: scale(1.03);
+      filter: brightness(1.08);
     }
 
-    .source-box {
-      margin-top: 40px;
-      padding: 25px;
-      border: 1px solid #234235;
-      border-radius: 22px;
-      background: rgba(16,45,35,.55);
-      text-align: center;
-    }
-
-    .source-box h2 {
-      color: #d7b56d;
-      font-family: "Traditional Arabic", serif;
-      font-size: 28px;
-    }
-
-    .source-box p {
-      color: #b9c5bd;
+    .story-note {
+      background: #0d241c;
+      border-right: 3px solid #d7b56d;
+      border-radius: 15px;
+      padding: 18px;
+      margin: 30px 0;
+      color: #c9d2cd;
       line-height: 2;
-    }
-
-    .source-btn {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 12px 25px;
-      border-radius: 14px;
-      border: 1px solid #d7b56d;
-      color: #d7b56d;
-      text-decoration: none;
-      transition: .2s;
-    }
-
-    .source-btn:hover {
-      background: #d7b56d;
-      color: #081a13;
-    }
-
-    .section-title {
-      text-align: center;
-      color: #d7b56d;
-      font-family: "Traditional Arabic", serif;
-      font-size: 34px;
-      margin: 50px 0 25px;
     }
 
   </style>
@@ -148,7 +129,6 @@
 </header>
 
 
-
 <main class="container">
 
 
@@ -159,18 +139,31 @@
 
   <p class="stories-intro">
 
-    اقرأ قصص الأنبياء والمرسلين كما وردت في القرآن الكريم
-    وما جاء في كتب التفسير والسيرة المعتبرة.
-    اضغط على «اقرأ القصة كاملة» للانتقال إلى المصدر.
+    مجموعة من قصص الأنبياء والقصص التي ورد ذكرها
+    في القرآن الكريم، مرتبة بحيث تكون كل قصة مستقلة.
+    اضغط على القصة التي تريد قراءتها.
 
   </p>
 
 
+  <div class="story-note">
 
-  <h2 class="section-title">
-    قصص الأنبياء
+    📖 <strong>تنبيه:</strong>
+    القصص القرآنية مرتبطة بمواضعها في القرآن الكريم،
+    وبعض القصص وردت في أكثر من سورة.
+
+  </div>
+
+
+
+  <!-- ================================= -->
+  <!-- قصص الأنبياء -->
+  <!-- ================================= -->
+
+
+  <h2 class="stories-section-title">
+    🕊️ قصص الأنبياء عليهم السلام
   </h2>
-
 
 
   <div class="stories-grid">
@@ -185,15 +178,45 @@
       <h2>آدم عليه السلام</h2>
 
       <p>
-        خلق آدم عليه السلام، وسجود الملائكة،
-        ووسوسة إبليس والتوبة.
+        خلق آدم عليه السلام، وإسكانه الجنة،
+        ووسوسة إبليس، والهبوط إلى الأرض.
       </p>
 
       <a
         class="story-btn"
-        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
-        target="_blank">
-        اقرأ القصة كاملة
+        href="https://quran.com/2/30-39"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة آدم
+
+      </a>
+
+    </div>
+
+
+
+    <!-- إدريس -->
+
+    <div class="story-card">
+
+      <div class="story-icon">📜</div>
+
+      <h2>إدريس عليه السلام</h2>
+
+      <p>
+        نبي الله إدريس عليه السلام،
+        وما ورد في القرآن عن مكانته ورفعه.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://quran.com/19/56-57"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة إدريس
+
       </a>
 
     </div>
@@ -209,15 +232,18 @@
       <h2>نوح عليه السلام</h2>
 
       <p>
-        دعوة نوح لقومه، والسفينة،
-        والطوفان ونجاة المؤمنين.
+        دعوة نوح عليه السلام لقومه،
+        والسفينة والطوفان ونجاة المؤمنين.
       </p>
 
       <a
         class="story-btn"
-        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
-        target="_blank">
-        اقرأ القصة كاملة
+        href="https://quran.com/11/25-49"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة نوح
+
       </a>
 
     </div>
@@ -233,15 +259,18 @@
       <h2>هود عليه السلام</h2>
 
       <p>
-        دعوة هود لقوم عاد،
-        وتكذيبهم له وهلاكهم بالريح.
+        دعوة هود عليه السلام لقوم عاد،
+        وتكذيبهم وما حل بهم.
       </p>
 
       <a
         class="story-btn"
-        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
-        target="_blank">
-        اقرأ القصة كاملة
+        href="https://quran.com/11/50-60"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة هود
+
       </a>
 
     </div>
@@ -257,15 +286,18 @@
       <h2>صالح عليه السلام</h2>
 
       <p>
-        قوم ثمود والناقة،
-        والمعجزة والتكذيب والعذاب.
+        قصة ثمود وناقة صالح عليه السلام
+        وعاقبة القوم المكذبين.
       </p>
 
       <a
         class="story-btn"
-        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
-        target="_blank">
-        اقرأ القصة كاملة
+        href="https://quran.com/11/61-68"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة صالح
+
       </a>
 
     </div>
@@ -281,15 +313,18 @@
       <h2>إبراهيم عليه السلام</h2>
 
       <p>
-        التوحيد، الأصنام، النار،
-        الهجرة، والابتلاء وبناء الكعبة.
+        التوحيد وتحطيم الأصنام،
+        والنار والهجرة وبناء الكعبة.
       </p>
 
       <a
         class="story-btn"
-        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
-        target="_blank">
-        اقرأ القصة كاملة
+        href="https://quran.com/21/51-73"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة إبراهيم
+
       </a>
 
     </div>
@@ -305,15 +340,18 @@
       <h2>لوط عليه السلام</h2>
 
       <p>
-        دعوة قوم لوط، وإنكار الفاحشة،
-        ونهاية القوم.
+        دعوة لوط عليه السلام لقومه،
+        وقصة الملائكة وهلاك القوم.
       </p>
 
       <a
         class="story-btn"
-        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
-        target="_blank">
-        اقرأ القصة كاملة
+        href="https://quran.com/11/77-83"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة لوط
+
       </a>
 
     </div>
@@ -329,15 +367,18 @@
       <h2>إسماعيل عليه السلام</h2>
 
       <p>
-        إسماعيل ابن إبراهيم،
-        والابتلاء وبناء البيت الحرام.
+        إسماعيل وهاجر ومكة وبناء البيت
+        وقصة الابتلاء والذبح.
       </p>
 
       <a
         class="story-btn"
-        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
-        target="_blank">
-        اقرأ القصة كاملة
+        href="https://quran.com/37/100-113"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة إسماعيل
+
       </a>
 
     </div>
@@ -353,15 +394,18 @@
       <h2>إسحاق عليه السلام</h2>
 
       <p>
-        بشارة إبراهيم وسارة بإسحاق
-        ورسالته وذريته.
+        بشارة إبراهيم وسارة بإسحاق،
+        ونبوته وذريته.
       </p>
 
       <a
         class="story-btn"
-        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
-        target="_blank">
-        اقرأ القصة كاملة
+        href="https://quran.com/11/69-73"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة إسحاق
+
       </a>
 
     </div>
@@ -377,15 +421,18 @@
       <h2>يعقوب عليه السلام</h2>
 
       <p>
-        يعقوب والد يوسف،
-        والصبر على فراق ابنه.
+        يعقوب عليه السلام وأبناؤه،
+        وصبره على فراق يوسف.
       </p>
 
       <a
         class="story-btn"
-        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
-        target="_blank">
-        اقرأ القصة كاملة
+        href="https://quran.com/12"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة يعقوب
+
       </a>
 
     </div>
@@ -401,39 +448,18 @@
       <h2>يوسف عليه السلام</h2>
 
       <p>
-        الرؤيا، وإخوته، والجب،
-        والسجن والتمكين والعفو.
+        الرؤيا والجب ومصر والسجن،
+        ثم التمكين والعفو عن الإخوة.
       </p>
 
       <a
         class="story-btn"
-        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
-        target="_blank">
-        اقرأ القصة كاملة
-      </a>
+        href="https://quran.com/12"
+        target="_blank"
+        rel="noopener">
 
-    </div>
+        📖 اقرأ قصة يوسف
 
-
-
-    <!-- أيوب -->
-
-    <div class="story-card">
-
-      <div class="story-icon">🤲</div>
-
-      <h2>أيوب عليه السلام</h2>
-
-      <p>
-        البلاء والصبر والدعاء
-        وكشف الضر.
-      </p>
-
-      <a
-        class="story-btn"
-        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
-        target="_blank">
-        اقرأ القصة كاملة
       </a>
 
     </div>
@@ -449,15 +475,99 @@
       <h2>شعيب عليه السلام</h2>
 
       <p>
-        دعوة مدين إلى التوحيد
+        دعوة أهل مدين إلى عبادة الله،
         والعدل في الكيل والميزان.
       </p>
 
       <a
         class="story-btn"
-        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الأول"
-        target="_blank">
-        اقرأ القصة كاملة
+        href="https://quran.com/11/84-95"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة شعيب
+
+      </a>
+
+    </div>
+
+
+
+    <!-- أيوب -->
+
+    <div class="story-card">
+
+      <div class="story-icon">🤲</div>
+
+      <h2>أيوب عليه السلام</h2>
+
+      <p>
+        البلاء والصبر والدعاء،
+        ثم كشف الله عنه الضر.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://quran.com/21/83-84"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة أيوب
+
+      </a>
+
+    </div>
+
+
+
+    <!-- ذو الكفل -->
+
+    <div class="story-card">
+
+      <div class="story-icon">🌿</div>
+
+      <h2>ذو الكفل عليه السلام</h2>
+
+      <p>
+        ذكر ذي الكفل عليه السلام
+        ضمن عباد الله الصالحين.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://quran.com/21/85-86"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ عن ذي الكفل
+
+      </a>
+
+    </div>
+
+
+
+    <!-- يونس -->
+
+    <div class="story-card">
+
+      <div class="story-icon">🐋</div>
+
+      <h2>يونس عليه السلام</h2>
+
+      <p>
+        الحوت والظلمات ودعاء يونس
+        عليه السلام والنجاة.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://quran.com/21/87-88"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة يونس
+
       </a>
 
     </div>
@@ -473,15 +583,45 @@
       <h2>موسى عليه السلام</h2>
 
       <p>
-        مولده، وفرعون، والرسالة،
-        والسحرة، وشق البحر.
+        فرعون والرسالة والسحرة،
+        والخروج وشق البحر.
       </p>
 
       <a
         class="story-btn"
-        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الثاني"
-        target="_blank">
-        اقرأ القصة كاملة
+        href="https://quran.com/28"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة موسى
+
+      </a>
+
+    </div>
+
+
+
+    <!-- هارون -->
+
+    <div class="story-card">
+
+      <div class="story-icon">📜</div>
+
+      <h2>هارون عليه السلام</h2>
+
+      <p>
+        هارون عليه السلام ومشاركته
+        لموسى عليه السلام في الدعوة.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://quran.com/20/24-36"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة هارون
+
       </a>
 
     </div>
@@ -497,15 +637,18 @@
       <h2>داود عليه السلام</h2>
 
       <p>
-        الملك والنبوة،
-        وقتال جالوت والحكمة.
+        داود وجالوت والملك والزبور
+        والحكمة.
       </p>
 
       <a
         class="story-btn"
-        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الثاني"
-        target="_blank">
-        اقرأ القصة كاملة
+        href="https://quran.com/38/17-26"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة داود
+
       </a>
 
     </div>
@@ -521,15 +664,18 @@
       <h2>سليمان عليه السلام</h2>
 
       <p>
-        الملك، والجن، والريح،
-        وقصة الهدهد وملكة سبأ.
+        الملك والجن والريح والهدهد
+        وملكة سبأ.
       </p>
 
       <a
         class="story-btn"
-        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الثاني"
-        target="_blank">
-        اقرأ القصة كاملة
+        href="https://quran.com/27/15-44"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة سليمان
+
       </a>
 
     </div>
@@ -551,9 +697,12 @@
 
       <a
         class="story-btn"
-        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الثاني"
-        target="_blank">
-        اقرأ القصة كاملة
+        href="https://quran.com/37/123-132"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة إلياس
+
       </a>
 
     </div>
@@ -569,39 +718,18 @@
       <h2>اليسع عليه السلام</h2>
 
       <p>
-        نبي من أنبياء بني إسرائيل
-        ورد ذكره في القرآن.
+        اليسع عليه السلام،
+        وذكره ضمن الأنبياء الصالحين.
       </p>
 
       <a
         class="story-btn"
-        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الثاني"
-        target="_blank">
-        اقرأ القصة كاملة
-      </a>
+        href="https://quran.com/6/86"
+        target="_blank"
+        rel="noopener">
 
-    </div>
+        📖 اقرأ عن اليسع
 
-
-
-    <!-- يونس -->
-
-    <div class="story-card">
-
-      <div class="story-icon">🐋</div>
-
-      <h2>يونس عليه السلام</h2>
-
-      <p>
-        الحوت، والظلمات،
-        والدعاء والنجاة.
-      </p>
-
-      <a
-        class="story-btn"
-        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الثاني"
-        target="_blank">
-        اقرأ القصة كاملة
       </a>
 
     </div>
@@ -617,15 +745,18 @@
       <h2>زكريا عليه السلام</h2>
 
       <p>
-        الدعاء بالذرية،
-        والبشارة بيحيى عليه السلام.
+        دعاء زكريا عليه السلام
+        وبشارته بيحيى.
       </p>
 
       <a
         class="story-btn"
-        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الثاني"
-        target="_blank">
-        اقرأ القصة كاملة
+        href="https://quran.com/19/2-15"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة زكريا
+
       </a>
 
     </div>
@@ -641,15 +772,18 @@
       <h2>يحيى عليه السلام</h2>
 
       <p>
-        النبوة والحكمة والزهد
-        والبر والتقوى.
+        الحكمة والتقوى والبر والعفة
+        ليحيى عليه السلام.
       </p>
 
       <a
         class="story-btn"
-        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الثاني"
-        target="_blank">
-        اقرأ القصة كاملة
+        href="https://quran.com/19/7-15"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة يحيى
+
       </a>
 
     </div>
@@ -665,39 +799,18 @@
       <h2>عيسى عليه السلام</h2>
 
       <p>
-        مريم، والميلاد المعجز،
-        والرسالة والمعجزات.
+        مريم والميلاد والمعجزات
+        والرسالة ورفع عيسى.
       </p>
 
       <a
         class="story-btn"
-        href="https://ar.wikisource.org/wiki/قصص_الأنبياء_لابن_كثير/الجزء_الثاني"
-        target="_blank">
-        اقرأ القصة كاملة
-      </a>
+        href="https://quran.com/3/45-59"
+        target="_blank"
+        rel="noopener">
 
-    </div>
+        📖 اقرأ قصة عيسى
 
-
-
-    <!-- محمد -->
-
-    <div class="story-card">
-
-      <div class="story-icon">🕌</div>
-
-      <h2>محمد ﷺ</h2>
-
-      <p>
-        السيرة النبوية، والوحي،
-        والدعوة والهجرة والغزوات.
-      </p>
-
-      <a
-        class="story-btn"
-        href="https://islamhouse.com/ar/books/2430"
-        target="_blank">
-        اقرأ المصدر
       </a>
 
     </div>
@@ -707,14 +820,20 @@
 
 
 
-  <h2 class="section-title">
-    📖 قصص أخرى وردت في القرآن
-  </h2>
+  <!-- ================================= -->
+  <!-- القصص القرآنية الأخرى -->
+  <!-- ================================= -->
 
+
+  <h2 class="stories-section-title">
+    📖 قصص قرآنية أخرى
+  </h2>
 
 
   <div class="stories-grid">
 
+
+    <!-- أصحاب الكهف -->
 
     <div class="story-card">
 
@@ -723,42 +842,25 @@
       <h2>أصحاب الكهف</h2>
 
       <p>
-        فتية آمنوا بربهم فحفظهم الله
-        وألقى عليهم النوم سنين طويلة.
+        فتية آمنوا بربهم وفروا بدينهم،
+        فآواهم الله إلى الكهف وأنامهم سنين.
       </p>
 
       <a
         class="story-btn"
-        href="https://quran.com/18"
-        target="_blank">
-        اقرأ القصة في القرآن
+        href="https://quran.com/18/9-26"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة أصحاب الكهف
+
       </a>
 
     </div>
 
 
 
-    <div class="story-card">
-
-      <div class="story-icon">🐘</div>
-
-      <h2>أصحاب الفيل</h2>
-
-      <p>
-        قصة أصحاب الفيل ومحاولتهم
-        الاعتداء على البيت الحرام.
-      </p>
-
-      <a
-        class="story-btn"
-        href="https://quran.com/105"
-        target="_blank">
-        اقرأ القصة في القرآن
-      </a>
-
-    </div>
-
-
+    <!-- قارون -->
 
     <div class="story-card">
 
@@ -767,20 +869,52 @@
       <h2>قارون</h2>
 
       <p>
-        قصة قارون وما آتاه الله
-        من الأموال ثم عاقبته.
+        قصة قارون وكنوزه وتكبره،
+        وكيف خسف الله به وبداره.
       </p>
 
       <a
         class="story-btn"
-        href="https://quran.com/28"
-        target="_blank">
-        اقرأ القصة في القرآن
+        href="https://quran.com/28/76-82"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة قارون
+
       </a>
 
     </div>
 
 
+
+    <!-- أصحاب الفيل -->
+
+    <div class="story-card">
+
+      <div class="story-icon">🐘</div>
+
+      <h2>أصحاب الفيل</h2>
+
+      <p>
+        جيش الفيل ومحاولته هدم الكعبة،
+        وحماية الله لبيته الحرام.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://quran.com/105"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة أصحاب الفيل
+
+      </a>
+
+    </div>
+
+
+
+    <!-- طالوت وجالوت -->
 
     <div class="story-card">
 
@@ -789,49 +923,238 @@
       <h2>طالوت وجالوت</h2>
 
       <p>
-        قصة بني إسرائيل وطالوت
-        وجالوت وداود عليه السلام.
+        قصة بني إسرائيل وطالوت وجالوت،
+        وانتصار داود على جالوت.
       </p>
 
       <a
         class="story-btn"
         href="https://quran.com/2/246-252"
-        target="_blank">
-        اقرأ القصة في القرآن
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة طالوت وجالوت
+
       </a>
 
     </div>
 
 
-  </div>
+
+    <!-- موسى والخضر -->
+
+    <div class="story-card">
+
+      <div class="story-icon">🌊</div>
+
+      <h2>موسى والخضر</h2>
+
+      <p>
+        رحلة موسى مع العبد الصالح،
+        وما فيها من دروس في العلم والصبر.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://quran.com/18/60-82"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة موسى والخضر
+
+      </a>
+
+    </div>
 
 
 
-  <div class="source-box">
+    <!-- ذو القرنين -->
 
-    <h2>
-      📚 المصدر الرئيسي لقصص الأنبياء
-    </h2>
+    <div class="story-card">
 
-    <p>
+      <div class="story-icon">🛡️</div>
 
-      يمكن قراءة كتاب
-      <strong>قصص الأنبياء للإمام ابن كثير</strong>
-      كاملًا من المصدر الخارجي.
+      <h2>ذو القرنين</h2>
 
-      الكتاب يجمع الآيات المتعلقة بقصص الأنبياء
-      ويربط بينها مع التفسير والأحاديث والآثار.
+      <p>
+        رحلة ذي القرنين وبناء السد
+        في مواجهة يأجوج ومأجوج.
+      </p>
 
-    </p>
+      <a
+        class="story-btn"
+        href="https://quran.com/18/83-98"
+        target="_blank"
+        rel="noopener">
 
-    <a
-      class="source-btn"
-      href="https://islamhouse.com/ar/books/2430"
-      target="_blank">
+        📖 اقرأ قصة ذي القرنين
 
-      📖 فتح كتاب قصص الأنبياء
+      </a>
 
-    </a>
+    </div>
+
+
+
+    <!-- أصحاب الأخدود -->
+
+    <div class="story-card">
+
+      <div class="story-icon">🔥</div>
+
+      <h2>أصحاب الأخدود</h2>
+
+      <p>
+        قصة المؤمنين الذين ثبتوا على
+        الإيمان رغم العذاب.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://quran.com/85/4-10"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة أصحاب الأخدود
+
+      </a>
+
+    </div>
+
+
+
+    <!-- أصحاب الجنة -->
+
+    <div class="story-card">
+
+      <div class="story-icon">🌴</div>
+
+      <h2>أصحاب الجنة</h2>
+
+      <p>
+        أصحاب البستان الذين أرادوا
+        منع المساكين من ثمره.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://quran.com/68/17-33"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة أصحاب الجنة
+
+      </a>
+
+    </div>
+
+
+
+    <!-- أصحاب السبت -->
+
+    <div class="story-card">
+
+      <div class="story-icon">🐟</div>
+
+      <h2>أصحاب السبت</h2>
+
+      <p>
+        قصة القوم الذين ابتلوا بالصيد
+        يوم السبت ومخالفتهم.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://quran.com/7/163-166"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة أصحاب السبت
+
+      </a>
+
+    </div>
+
+
+
+    <!-- أصحاب القرية -->
+
+    <div class="story-card">
+
+      <div class="story-icon">🏘️</div>
+
+      <h2>أصحاب القرية</h2>
+
+      <p>
+        الرسل الذين أرسلوا إلى القرية
+        والرجل المؤمن.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://quran.com/36/13-29"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة أصحاب القرية
+
+      </a>
+
+    </div>
+
+
+
+    <!-- ابنا آدم -->
+
+    <div class="story-card">
+
+      <div class="story-icon">👥</div>
+
+      <h2>ابنا آدم</h2>
+
+      <p>
+        قصة ابني آدم وقبول القربان
+        وأول جريمة قتل.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://quran.com/5/27-31"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة ابني آدم
+
+      </a>
+
+    </div>
+
+
+
+    <!-- قوم سبأ -->
+
+    <div class="story-card">
+
+      <div class="story-icon">🏰</div>
+
+      <h2>قوم سبأ</h2>
+
+      <p>
+        نعم الله على قوم سبأ،
+        ثم إعراضهم وما حل بهم.
+      </p>
+
+      <a
+        class="story-btn"
+        href="https://quran.com/34/15-19"
+        target="_blank"
+        rel="noopener">
+
+        📖 اقرأ قصة قوم سبأ
+
+      </a>
+
+    </div>
+
 
   </div>
 
